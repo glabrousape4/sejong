@@ -421,7 +421,7 @@
   }
   .tab-link.active .tab-link-tag { color: rgba(255, 255, 255, 0.7); }
   /* Add scroll margin so anchored sections don't hide behind sticky tabs */
-  h2 { scroll-margin-top: 70px; }
+  h2 { scroll-margin-top: 60px; }
   @media (max-width: 560px) {
     .tab-nav { margin: 0 -14px 32px; padding-left: 14px; padding-right: 14px; padding-top: 10px; padding-bottom: 10px; }
     .tab-link { padding: 7px 12px; font-size: 13px; }
@@ -738,13 +738,38 @@
     </tr>
     <tr>
       <td>사업 중 금융비 (이자 누계)</td>
-      <td class="bad">약 1,339억 (7년)</td>
-      <td class="good">약 2,520억 (4.5년, 전체 사업비 기준)</td>
+      <td class="bad">약 1,491억 (7년, 연 7%)</td>
+      <td class="good">약 3,057억 (4.5년, 연 7%, 대단지 절대액)</td>
     </tr>
     <tr>
-      <td><strong>1세대당 사업+금융 부담</strong></td>
-      <td class="bad"><strong>약 23.4억 (7년 금융부담 포함)</strong></td>
-      <td class="good"><strong>약 26.5억 (절대액), 단 1/2 기간 노출</strong></td>
+      <td>개발 순이익 (총수입−총지출−공공기여)</td>
+      <td class="bad">약 1,912억</td>
+      <td class="good">약 7,503억 (4배 차이)</td>
+    </tr>
+    <tr>
+      <td>비례율 (개발이익 ÷ 종전자산)</td>
+      <td class="bad"><strong>131%</strong> (단독, 1+2차 50% 구성 분산 기준)</td>
+      <td class="gold"><strong>197%</strong> (1+2차 50% 구성 분산 기준)</td>
+    </tr>
+    <tr>
+      <td>권리가액 (7.5억 × 비례율)</td>
+      <td class="bad">9.86억 (84㎡)</td>
+      <td class="gold">14.74억 (84㎡)</td>
+    </tr>
+    <tr>
+      <td><strong>84㎡ 분담금 / 환급금</strong></td>
+      <td class="bad"><strong>+1.98억 (분담금 발생)</strong><br><span style="font-size:12px;">11.84억 − 9.86억</span></td>
+      <td class="gold"><strong>−2.90억 (환급금 흑자)</strong><br><span style="font-size:12px;">11.84억 − 14.74억</span></td>
+    </tr>
+    <tr>
+      <td><strong>59㎡ 분담금 / 환급금</strong></td>
+      <td class="bad"><strong>+2.31억 (분담금 발생)</strong><br><span style="font-size:12px;">7.55억 − 권리가액 9.86억</span></td>
+      <td class="gold"><strong>−7.19억 (환급금 흑자)</strong><br><span style="font-size:12px;">7.55억 − 권리가액 14.74억</span></td>
+    </tr>
+    <tr>
+      <td><strong>1세대당 총 부담 (사업+금융+분담금)</strong></td>
+      <td class="bad"><strong>약 30.4억</strong><br><span style="font-size:12px;">사업+금융 28.1억 + 분담금 1.98~2.31억</span></td>
+      <td class="gold"><strong>약 23.6억</strong><br><span style="font-size:12px;">사업+금융 26.5억 − 환급금 2.90~7.19억</span></td>
     </tr>
   </table>
   <p class="src">출처: Gemini 통합재건축 사업성 분석(2026.08) + 사용자 가정 (권리가액 7.5억 동일, 역세권2 신축분양가 14억 / 조합원 분양가 11.84억) + 공공기여 구성 분산 (임대 50% + 현금 20% + 토지 20% + 기타 10%, 임대 가중치 1.0 / 현금·토지·기타 가중치 0.6). 정산 결과 환급금 약 +2.90억 (84㎡) / +7.19억 (59㎡)은 권리가액 7.5억 × 비례율 197% − 조합원 분양가에서 도출 (1+2차 50% 구성 분산 기준).</p>
@@ -1302,7 +1327,8 @@
         e.preventDefault();
         var target = sections[i].target;
         if (!target) return;
-        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        // Sticky TOC 높이(약 60px) 보정 + h2 상단 padding 흡수
+        var top = target.getBoundingClientRect().top + window.scrollY - 20;
         window.scrollTo({ top: top, behavior: 'smooth' });
         setActive(i);
         toc.classList.remove('open');
