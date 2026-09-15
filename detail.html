@@ -49,7 +49,7 @@
     width: 100%;
     max-width: min(820px, calc(100vw - 24px));
     margin: 0 auto;
-    padding: 48px 12px 80px;
+    padding: 24px 12px 64px;
     box-sizing: border-box;
   }
 
@@ -285,6 +285,62 @@
     th, td { padding: 5px 5px; font-size: 11px; }
     .wrap { padding: 28px 8px 48px; }
   }
+
+  /* Always-visible TOC (sticky at top) */
+  .toc-bar {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(251, 250, 246, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e6e1d3;
+    margin: 0 -12px 20px;
+    padding: 8px 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    font-size: 12.5px;
+  }
+  .toc-list {
+    display: flex;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+  }
+  .toc-list li { margin: 0; padding: 0; flex-shrink: 0; }
+  .toc-link {
+    display: inline-block;
+    padding: 6px 10px;
+    color: #6a6a6a;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .toc-link:hover { color: #8b4513; }
+  .toc-link.active { color: #fff; background: #8b4513; }
+  @media (max-width: 480px) {
+    .toc-bar { font-size: 11.5px; padding: 6px 10px; }
+    .toc-link { padding: 5px 8px; }
+  }
+
+  /* Smooth scroll offset for sticky */
+  h2[id], h3[id] {
+    scroll-margin-top: 60px;
+  }
+
+  /* Tables: better readability */
+  table { font-size: 13px; }
+  th { font-size: 12.5px; }
+  td { font-size: 13px; line-height: 1.5; }
+  @media (max-width: 480px) {
+    table { font-size: 11.5px; }
+    th { font-size: 11px; padding: 6px 6px; }
+    td { font-size: 11.5px; padding: 6px 5px; line-height: 1.4; }
+  }
+
 </style>
 
 </head>
@@ -307,6 +363,27 @@
     <div class="detail-nav-subtitle">PDF 공식 (성남시 분당 목련빌라 사례 2026.4.30 고시, 추정 비례율 127.5%, 권리자 분양가 84㎡ 11.926억) + 평당 1,000만원 보수적</div>
   </div>
 </nav>
+<nav class="toc-bar" aria-label="섹션 목록">
+  <ol class="toc-list" id="toc-list">
+    <li><a class="toc-link" href="#sec-bg" data-target="sec-bg">01 배경</a></li>
+    <li><a class="toc-link" href="#sec-key" data-target="sec-key">02 권리가액</a></li>
+    <li><a class="toc-link" href="#sec-explanation" data-target="sec-explanation">02.5 모형 일관성</a></li>
+    <li><a class="toc-link" href="#sec-cmp1" data-target="sec-cmp1">03 단독 vs 통합</a></li>
+    <li><a class="toc-link" href="#sec-sim" data-target="sec-sim">04 수지 시뮬</a></li>
+    <li><a class="toc-link" href="#sec-cmp2" data-target="sec-cmp2">05 세종2 유리</a></li>
+    <li><a class="toc-link" href="#sec-now" data-target="sec-now">06 단지 수치</a></li>
+    <li><a class="toc-link" href="#sec-type" data-target="sec-type">07 59 vs 84㎡</a></li>
+    <li><a class="toc-link" href="#sec-opt1" data-target="sec-opt1">08 연금</a></li>
+    <li><a class="toc-link" href="#sec-opt2" data-target="sec-opt2">09 월세</a></li>
+    <li><a class="toc-link" href="#sec-opt3" data-target="sec-opt3">10 갈아타기</a></li>
+    <li><a class="toc-link" href="#sec-risk" data-target="sec-risk">11 리스크</a></li>
+    <li><a class="toc-link" href="#sec-check" data-target="sec-check">12 체크리스트</a></li>
+    <li><a class="toc-link" href="#sec-speed" data-target="sec-speed">13 사업속도</a></li>
+    <li><a class="toc-link" href="#sec-qa" data-target="sec-qa">14 Q&A</a></li>
+    <li><a class="toc-link" href="#sec-dandok-biryul" data-target="sec-dandok-biryul">도정법 비례율</a></li>
+  </ol>
+</nav>
+
 
 
 <h2 id="sec-bg"><span class="section-tag">배경</span> 구갈동은 노후계획도시 특별법의 적용 대상이다</h2>
@@ -1111,5 +1188,67 @@
     }
   })();
 </script>
-</body>
+
+<script>
+(function() {
+  var tocLinks = document.querySelectorAll('.toc-link');
+  if (!tocLinks.length) return;
+  
+  // Smooth scroll
+  tocLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetId = link.getAttribute('data-target');
+      var target = document.getElementById(targetId);
+      if (target) {
+        // Scroll to target, offset for sticky TOC
+        var rect = target.getBoundingClientRect();
+        var offset = 50;
+        window.scrollTo({
+          top: window.pageYOffset + rect.top - offset,
+          behavior: 'smooth'
+        });
+        // Update URL hash
+        history.pushState(null, null, '#' + targetId);
+      }
+    });
+  });
+  
+  // Active state on scroll
+  function updateActive() {
+    var sections = [];
+    tocLinks.forEach(function(link) {
+      var id = link.getAttribute('data-target');
+      var section = document.getElementById(id);
+      if (section) sections.push({ id: id, el: section, link: link });
+    });
+    
+    var scrollPos = window.pageYOffset + 80;
+    var active = null;
+    for (var i = 0; i < sections.length; i++) {
+      var s = sections[i];
+      if (s.el.offsetTop <= scrollPos) {
+        active = s;
+      } else {
+        break;
+      }
+    }
+    tocLinks.forEach(function(link) { link.classList.remove('active'); });
+    if (active) active.link.classList.add('active');
+  }
+  
+  var ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateActive();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+  updateActive();
+})();
+</script>
+
 </html>
