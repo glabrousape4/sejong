@@ -47,9 +47,9 @@
   /* 핵심: fluid width — viewport 따라감 */
   .wrap {
     width: 100%;
-    max-width: min(820px, calc(100vw - 32px));
+    max-width: min(820px, calc(100vw - 24px));
     margin: 0 auto;
-    padding: 56px 16px 96px;
+    padding: 48px 12px 80px;
     box-sizing: border-box;
   }
 
@@ -278,12 +278,12 @@
   @media (max-width: 420px) {
     table { font-size: 11.5px; }
     th, td { padding: 5px 6px; font-size: 11.5px; }
-    .wrap { padding: 40px 12px 72px; }
+    .wrap { padding: 32px 10px 60px; }
   }
   @media (max-width: 360px) {
     table { font-size: 11px; }
     th, td { padding: 5px 5px; font-size: 11px; }
-    .wrap { padding: 32px 10px 60px; }
+    .wrap { padding: 28px 8px 48px; }
   }
 </style>
 
@@ -371,6 +371,30 @@
 <div class="callout gold">
   <span class="label">대지지분 비례 권리가액이 만드는 통합의 안전판</span>
   <p>4개 단지 권리가액을 <strong>대지지분에 비례해 차등 적용</strong>하면, 우성(82㎡) 소유주는 세종1·2(114㎡) 소유주의 72% 권리가액(5.38억 vs 7.5억)을 받고, 롯데캐슬(106㎡)은 93% 수준(6.97억)을 받습니다. <strong>같은 평당 단가로 대지지분 비례 → 어느 단지 소유주도 통합 시 정당한 권리가액을 받는 구조</strong>입니다. 자산 정산 분쟁을 완전히 해소하고, 통합 동의율 70%+가 구조적으로 가능한 환경이 만들어집니다.</p>
+</div>
+
+
+<h2 id="sec-explanation"><span class="section-tag gold">핵심 정리</span> 모형 일관성 + 최초 입주 시 부담금 정의</h2>
+
+<div class="callout info">
+  <span class="label">📋 용어 정의</span>
+  <p><strong>최초 입주 시 부담금</strong>(이른바 "분담금" 또는 "최초 입주금") = 신축 아파트 <strong>입주 시점에 사용자가 처음 내야 할 돈</strong>입니다.<br>
+  계산식: <strong>분담금 = 권리자 분양가 − 권리가액 − 재초환 (세후)</strong><br>
+  - <strong>양수(+)</strong>: 어르신이 처음 내야 할 돈 (분담금)<br>
+  - <strong>음수(−)</strong>: 어르신이 처음 돌려받는 돈 (환급 흑자)<br>
+  ※ <strong>양수 = 어르신이 냄</strong>, <strong>음수 = 어르신이 받음</strong> (한국어 일반 표기)</p>
+</div>
+
+<div class="callout warn">
+  <span class="label">⚠ 단독 vs 통합 비례율 비교 (사용자 가정 한정)</span>
+  <p><strong>사용자 가정 하 비례율 시나리오:</strong></p>
+  <table style="margin: 12px 0;">
+    <tr><th>시나리오</th><th>비례율</th><th>권리가액</th><th>분담금 (84㎡)</th><th>해석</th></tr>
+    <tr><td><strong>단독 (사용자 가정)</strong></td><td><strong>110%</strong></td><td>11.00억</td><td style="color:var(--good)"><strong>+0.91억 (받음, 흑자)</strong></td><td>도정법 1단계 10% 가용, 분담금 없음 (오히려 받음)</td></tr>
+    <tr><td>통합 (PDF 추정)</td><td>127.5%</td><td>12.75억</td><td style="color:var(--warn)"><strong>−1.39억 (냄)</strong></td><td>특별법 1차 15% + 2차 20%, 분담금 발생</td></tr>
+    <tr><td><strong>단독 (PDF 동일 적용)</strong></td><td><strong>127.5%</strong></td><td><strong>12.75억</strong></td><td style="color:var(--warn)"><strong>−1.39억 (냄, 동일)</strong></td><td>동일 비례율 가정 시 단독·통합 어르신 부담 동일</td></tr>
+  </table>
+  <p><strong>사용자 가정 (단독 비례율 110%)은 도정법 약한 공공기여 보수적 가정</strong>입니다. 실제 단독 재건축 사례는 105~125% 범위. <strong>동일 비례율 가정 시 어르신 부담이 단독과 통합 모두 동일 (−1.39억 둘 다)</strong>. 통합의 진짜 우위는 <strong>사업 안정성 가치</strong> (사업기간 7~10년 → 4~5년, 1군 외면 → 수주전).</p>
 </div>
 
 <h2 id="sec-cmp1"><span class="section-tag">비교</span> 단독 재건축 vs 통합 재건축</h2>
