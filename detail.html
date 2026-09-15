@@ -31,8 +31,15 @@
     padding: 0;
     background: var(--paper);
     color: var(--ink);
-    overflow-x: hidden;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     width: 100%;
+    line-height: 1.65;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', sans-serif;
+    overflow-x: hidden;
   }
   body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
