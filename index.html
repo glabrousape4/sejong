@@ -197,21 +197,143 @@
   .section-tag.gold { color: var(--gold); background: var(--gold-soft); }
 
   /* Section tab navigation */
-  .tab-nav {
+  /* TOC (목차) — sticky collapsible index */
+  .toc {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(251, 250, 246, 0.95);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: rgba(251, 250, 246, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--rule);
-    padding: 12px 0;
-    margin: 0 -28px 40px;
-    padding-left: 28px;
-    padding-right: 28px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
+    margin: 0 -28px 32px;
+    padding: 0;
+  }
+
+  .toc-toggle {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: transparent;
+    border: 0;
+    padding: 14px 28px;
+    font-family: inherit;
+    cursor: pointer;
+    color: var(--ink);
+    text-align: left;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .toc-toggle:active { background: rgba(140, 100, 60, 0.06); }
+
+  .toc-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1;
+    margin-right: 10px;
+    flex-shrink: 0;
+  }
+
+  .toc-label {
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--ink);
+    margin-right: 12px;
+  }
+
+  .toc-current {
+    flex: 1;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+
+  .toc-arrow {
+    margin-left: 8px;
+    font-size: 14px;
+    color: var(--ink-mute);
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+
+  .toc.open .toc-arrow { transform: rotate(180deg); }
+
+  .toc-list {
+    list-style: none;
+    margin: 0;
+    padding: 0 28px 14px 28px;
+    display: none;
+    max-height: 60vh;
+    overflow-y: auto;
+    border-top: 1px dashed var(--rule);
+    background: rgba(255, 255, 255, 0.6);
+  }
+
+  .toc.open .toc-list { display: block; }
+
+  .toc-list li {
+    margin: 0;
+    padding: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+  }
+
+  .toc-list li:last-child { border-bottom: 0; }
+
+  .toc-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 6px;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 13.5px;
+    line-height: 1.4;
+    border-radius: 4px;
+    transition: background 0.15s, color 0.15s;
+    -webkit-tap-highlight-color: rgba(140, 100, 60, 0.1);
+  }
+
+  .toc-link:active { background: var(--accent-soft); }
+
+  .toc-link:hover { color: var(--accent); }
+
+  .toc-link.active {
+    color: var(--accent);
+    font-weight: 700;
+    background: var(--accent-soft);
+  }
+
+  .toc-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 28px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 10px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .toc-link.active .toc-num {
+    background: var(--accent);
+    color: #fff;
   }
   .tab-nav::-webkit-scrollbar { display: none; }
   .tab-nav-inner {
@@ -281,6 +403,14 @@
     .sub { font-size: 14px; }
   }
   @media (max-width: 560px) {
+    .toc { margin: 0 -14px 28px; }
+    .toc-toggle { padding: 12px 16px; }
+    .toc-label { font-size: 14px; }
+    .toc-current { font-size: 12px; }
+    .toc-icon { width: 24px; height: 24px; font-size: 16px; margin-right: 8px; }
+    .toc-list { padding: 0 16px 12px 16px; max-height: 65vh; }
+    .toc-link { font-size: 13px; padding: 9px 4px; gap: 10px; }
+    .toc-num { min-width: 24px; font-size: 10px; height: 18px; }
     body { font-size: 16px; }
     .wrap { padding: 28px 14px 56px; }
     h1.title { font-size: 22px; line-height: 1.45; }
@@ -421,23 +551,29 @@
   <span class="tag warn">배포용 안내문</span>
 </header>
 
-<nav class="tab-nav" aria-label="섹션 내비게이션">
-  <div class="tab-nav-inner">
-    <a class="tab-link" href="#sec-bg"><span class="tab-link-tag">배경</span>구갈동 정비 흐름</a>
-    <a class="tab-link" href="#sec-key"><span class="tab-link-tag">핵심</span>권리가액 7.5억 동일</a>
-    <a class="tab-link" href="#sec-cmp1"><span class="tab-link-tag">비교</span>단독 vs 통합</a>
-    <a class="tab-link" href="#sec-sim"><span class="tab-link-tag">수지</span>4단지 350% 수지</a>
-    <a class="tab-link" href="#sec-cmp2"><span class="tab-link-tag">비교</span>세종2 유리한 점</a>
-    <a class="tab-link" href="#sec-now"><span class="tab-link-tag">현재</span>우리 단지 수치</a>
-    <a class="tab-link" href="#sec-type"><span class="tab-link-tag">PART 1</span>59 vs 84㎡ 환급금</a>
-    <a class="tab-link" href="#sec-opt1"><span class="tab-link-tag">선택1</span>주택연금</a>
-    <a class="tab-link" href="#sec-opt2"><span class="tab-link-tag">선택2</span>월세</a>
-    <a class="tab-link" href="#sec-opt3"><span class="tab-link-tag">선택3</span>갈아타기</a>
-    <a class="tab-link" href="#sec-risk"><span class="tab-link-tag">리스크</span>완공이 전제</a>
-    <a class="tab-link" href="#sec-check"><span class="tab-link-tag">체크</span>5가지 체크리스트</a>
-    <a class="tab-link" href="#sec-speed"><span class="tab-link-tag">속도</span>사업 속도 = 수익률</a>
-    <a class="tab-link" href="#sec-qa"><span class="tab-link-tag">Q&amp;A</span>도정법 vs 특별법</a>
-  </div>
+<nav class="toc" aria-label="목차">
+  <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
+    <span class="toc-icon">≡</span>
+    <span class="toc-label">목차</span>
+    <span class="toc-current">현재: —</span>
+    <span class="toc-arrow">▾</span>
+  </button>
+  <ol class="toc-list" id="toc-list">
+    <li><a class="toc-link" href="#sec-bg"><span class="toc-num">01</span>배경</a></li>
+    <li><a class="toc-link" href="#sec-key"><span class="toc-num">02</span>핵심 — 권리가액 7.5억 동일</a></li>
+    <li><a class="toc-link" href="#sec-cmp1"><span class="toc-num">03</span>비교 — 단독 vs 통합</a></li>
+    <li><a class="toc-link" href="#sec-sim"><span class="toc-num">04</span>수지 — 350% 종상향 + 구성 분산</a></li>
+    <li><a class="toc-link" href="#sec-cmp2"><span class="toc-num">05</span>세종2단지 유리한 점</a></li>
+    <li><a class="toc-link" href="#sec-now"><span class="toc-num">06</span>우리 단지 수치</a></li>
+    <li><a class="toc-link" href="#sec-type"><span class="toc-num">07</span>59 vs 84㎡ 환급금</a></li>
+    <li><a class="toc-link" href="#sec-opt1"><span class="toc-num">08</span>선택 1 — 주택연금</a></li>
+    <li><a class="toc-link" href="#sec-opt2"><span class="toc-num">09</span>선택 2 — 월세</a></li>
+    <li><a class="toc-link" href="#sec-opt3"><span class="toc-num">10</span>선택 3 — 갈아타기</a></li>
+    <li><a class="toc-link" href="#sec-risk"><span class="toc-num">11</span>리스크 — 완공이 전제</a></li>
+    <li><a class="toc-link" href="#sec-check"><span class="toc-num">12</span>체크리스트 5가지</a></li>
+    <li><a class="toc-link" href="#sec-speed"><span class="toc-num">13</span>사업 속도 = 수익률</a></li>
+    <li><a class="toc-link" href="#sec-qa"><span class="toc-num">14</span>Q&amp;A — 도정법 vs 특별법</a></li>
+  </ol>
 </nav>
 
 <h1 class="title">
@@ -539,8 +675,8 @@
     </tr>
     <tr>
       <td>평당 도급 공사비</td>
-      <td class="bad">약 850만원 (소규모 1군 외면)</td>
-      <td class="good">약 800만원 (대단지 통합 발주)</td>
+      <td class="bad">약 950만원 (소규모 1군 외면, 사용자 가정 보수적)</td>
+      <td class="good">약 900만원 (대단지 통합 발주, 350% 종상향 기준)</td>
     </tr>
     <tr>
       <td>시공사 수주 동력</td>
@@ -570,7 +706,7 @@
   <span class="label">환급금이 핵심 — 단독·통합 사업 효과의 차이</span>
   <p>비례율 197% × 권리가액 7.5억 = 14.74억 권리가액 − 조합원 분양가 11.84억 = <strong>환급금 약 +2.90억</strong> 구조는 단독·통합 모두 동일합니다. 차이는 <strong>사업의 무게</strong>에 있습니다:</p>
   <br><br>
-  <strong>① 평당 50~100만원 차이</strong> — 단독 950만원 vs 통합 900만원 (사용자 가정 보수적). 75,000평 기준 <strong>약 375억~750억 사업비 절감</strong> (총 사업비).
+  <strong>① 평당 50만원 차이</strong> — 단독 950만원 vs 통합 900만원 (사용자 가정 보수적). 87,500평 기준 <strong>약 437억 사업비 절감</strong> (총 사업비).
   <br><br>
   <strong>② 사업기간 1/2 단축</strong> — 단독 7~10년 vs 통합 4~5년. <strong>금융비 누계가 절반</strong>으로 줄어들고, 그 2~3년 동안의 시장 변화 리스크도 회피.
   <br><br>
@@ -730,19 +866,19 @@
     </tr>
     <tr>
       <td><strong>실질 차이</strong></td>
-      <td class="bad">평당 850만원 단가, 7년 금융부담</td>
-      <td class="gold">평당 800만원 단가 (절감), 4.5년 금융부담 (절반)</td>
+      <td class="bad">평당 950만원 단가 (소규모 1군 외면, 사용자 가정 보수적), 7년 금융부담</td>
+      <td class="gold">평당 900만원 단가 (대단지 통합 발주, 350% 종상향), 4.5년 금융부담 (절반)</td>
     </tr>
   </table>
 </div>
 
 <div class="callout good">
   <span class="label">정리 — 통합의 실질 이득 (환급금 시나리오)</span>
-  <p><strong>환급금 약 +1.02억</strong>(1차만 10% 적용 시 +8.54억)은 단독·통합 모두 동일합니다. 차이는 <strong>사업의 무게</strong>에 있습니다.
+  <p><strong>환급금 84㎡ +2.90억 / 59㎡ +7.19억</strong>(1차만 10% 적용 시 84㎡ +8.53억 / 59㎡ +12.82억)은 단독·통합 모두 동일합니다. 차이는 <strong>사업의 무게</strong>에 있습니다.
   <br><br>
-  <strong>단독:</strong> 평당 850만원 고단가 + 7년 금융부담 + 소규모 시공사 → 어르신 한 분이 더 긴 시간, 더 비싼 조건으로 사업 부담.
+  <strong>단독:</strong> 평당 950만원 고단가 (소규모 1군 외면) + 7년 금융부담 + 소규모 시공사 → 어르신 한 분이 더 긴 시간, 더 비싼 조건으로 사업 부담.
   <br><br>
-  <strong>통합:</strong> 평당 800만원 저단가 + 4.5년 금융부담 + 1군 시공사 + 일반분양 1,124세대의 잉여가 환급금 ↑ 가능성 → 사업이 더 짧고, 더 안정적으로, 환급금도 더 클 가능성.
+  <strong>통합:</strong> 평당 900만원 저단가 (대단지 1군 수주전) + 4.5년 금융부담 + 1군 시공사 + 일반분양 1,124세대의 잉여가 환급금 ↑ 가능성 → 사업이 더 짧고, 더 안정적으로, 환급금도 더 클 가능성.
   <br><br>
   <strong>결론:</strong> 통합은 환급금 자체가 아니라 <strong>'사업의 무게'</strong>를 줄이는 해법입니다.
   </p>
@@ -925,7 +1061,7 @@
 <ul class="choices">
   <li><b>① 4개 단지 통합 협의 진척도</b> — 롯데캐슬·세종1·세종2·우성하우스타운 통합추진위 구성 여부, 통합 구역 면적·세대수, 주민 동의율(목표 70%+).</li>
   <li><b>② 용적률 협의안</b> — 노후계획도시 특별법상 종상향(제3종·준주거) + 법정 상한의 150% 적용, <strong>목표 350%</strong>. 1·2단지 권리가액 동일성(7.5억) 활용한 독립정산제 정관 명시.</li>
-  <li><b>③ 사업비 절감 모형 (평당 950 → 900만원)</b> — 단독 시공사 협상 vs 통합 일괄 발주의 차이, 1군 대형 시공사 수주전 유도, 공동 시행사 활용.</li>
+  <li><b>③ 사업비 절감 모형 (단독 950만원 → 통합 900만원)</b> — 단독 시공사 협상 vs 통합 일괄 발주의 차이, 1군 대형 시공사 수주전 유도, 공동 시행사 활용.</li>
   <li><b>④ 통합심의 적용 여부 (용인시 2년→6개월)</b> — 정비계획 수립 단계에서부터 통합심의 신청, 건축·경관·교통·교육·도시 심의가 한 번에 진행되는지.</li>
   <li><b>⑤ 환급금 시나리오</b> — 권리가액 7.5억 × 비례율 − 조합원 분양가 = 환급금. <strong>1+2차 50% 공공기여 구성 분산</strong> (임대 25% + 현금 10% + 토지 10% + 기타 5%) 시 비례율 197% → 84㎡ 환급금 <strong>+2.90억</strong> / 59㎡ 환급금 <strong>+7.19억</strong>. 1차만 10% 적용 시 84㎡ +8.53억 / 59㎡ +12.82억. <strong>모든 시나리오에서 환급금 흑자</strong>이며, 차이는 사업의 무게(평당 단가·사업기간·금융비·시공사 안정성).</li>
 </ul>
@@ -1050,7 +1186,7 @@
     <p>현재 구갈동 단지들이 보유한 <strong>'넓은 대지지분'(세대당 82~114㎡)</strong>과 <strong>'초저밀도(용적률 89%)'</strong>라는 우수한 자산 가치를 온전히 살려내려면, <strong>수동적으로 30년을 기다려 용적률 제한(210%)에 묶이기보다 노후계획도시 특별법을 선제적으로 활용</strong>해 다음을 확보하는 것이 분담금을 최소화하고 자산 가치를 극대화하는 정석입니다.</p>
     <ul>
       <li><strong>용적률 350% 상향</strong> (현재 89% → 4배) — 일반분양 물량 1,124세대 확보</li>
-      <li><strong>1군 랜드마크 대단지 프리미엄</strong> (삼성물산·현대건설·GS 등 수주전) — 평당 800만원 단가</li>
+      <li><strong>1군 랜드마크 대단지 프리미엄</strong> (삼성물산·현대건설·GS 등 수주전) — 평당 900만원 단가</li>
       <li><strong>사업기간 1/2 단축</strong> (7년 → 4.5년) — 금융비 누계 절반</li>
       <li><strong>환급금 구조</strong> (비례율 197% × 7.5억 = 14.74억 권리가액, 조합원 분양가 11.84억, 1+2차 50% 구성 분산) → 84㎡ 환급금 <strong>+2.90억</strong> / 59㎡ 환급금 <strong>+7.19억</strong>, 1차만 10% 적용 시 +8.53억/+12.82억</li>
       <li><strong>안전진단 면제 + 통합심의 2년→6개월</strong> — 사업 좌초 위험 제거</li>
@@ -1064,7 +1200,7 @@
  <p><strong>데이터 출처</strong></p>
  <p>① 단지 정보 — 토지대장·건축물대장 공적 데이터(22,200.3㎡), 네이버·당근부동산·부트리·직방·호갱노노·kmswb.kr (2026.09 기준). 롯데캐슬 대지지분 106.37㎡, 세종그랑시아 1·2단지 114㎡, 우성하우스타운 82.136㎡. ② 매매·전세 시세 — 국토교통부 실거래가 공개시스템, KB부동산 시세. ③ 사업비·이주비 모형 — 한국부동산원 「도시정비사업 사업비 분석」 통계, 국토교통부 「재건축 연 수지」, KB·호갱 권리가액 데이터 기반 추정. ④ 주택연금 — 주택금융공사 HF 계산기(2026.09 버전), 「주택연금 운영규정」. ⑤ 용적률·사업기간·사업비·비례율 비교 — 중앙대 「주거정비사업의 경제효과 분석」, 국토교통부·서울시·용인시 정책 발표(신속통합기획·통합심의·노후계획도시 특별법), 부동산 리서치 종합. ⑥ 구갈동 광역 재건축 흐름 — 용인시 공고·YSB미디어·「구갈동 재건축」 블로그 종합. ⑦ 통합 수지 시뮬레이션 — Gemini 통합재건축 사업성 분석(2026.08), 보수적 모형 추정. ⑧ 신축 일반분양가 14억 — 기흥역세권 2지구 분양예정액 14억 소문 반영 가정치. ⑨ 조합원 분양가 11.84억 — 신축 일반분양가 14억의 보수적 할인 84.6% 가정. ⑩ 권리가액 7.5억 동일 — 사용자 가정치 (4개 단지 모두 동일 적용). ⑪ 공공기여율 — 인천시 도시·주거환경정비 조례 (1차 순부담률 10%, 2차 기부채납 40~50%), 가좌4동 재개발 사례 (고선희 의원, 2025), 정부 공공재개발 사업지침 (40~70%).</p>
  <p><strong>이 자료의 범위</strong></p>
- <p>본 자료의 사업비·이주비·금리·일정 숫자는 조합 약정서가 아닌 공개 통계 기반의 모형치입니다. 실제 금액은 조합 공지로 확인이 필요합니다. <strong>권리가액 7.5억 동일, 신축 일반분양가 14억, 조합원 분양가 11.84억</strong>은 사용자가 지정한 가정치이며, 실제 감정평가·분양가는 ±20% 이상 흔들릴 수 있습니다. <strong>공공기여율 50% 보수적 평균 기준 비례율 172% (환급금 약 +1.02억)</strong>이며, <strong>인천시 조례 1차 10% / 2차 40~50%</strong>가 실제 협의 기준이 됩니다. 공공기여율 30~70% 범위에서 환급금 +8.54억~환급금 −0.85억까지 변동 가능 (이론상 환급금 범위). 공공기여는 노후계획도시 특별법 + 용인시/인천시 조례 + 인허가 협의에 따라 결정됩니다.</p>
+ <p>본 자료의 사업비·이주비·금리·일정 숫자는 조합 약정서가 아닌 공개 통계 기반의 모형치입니다. 실제 금액은 조합 공지로 확인이 필요합니다. <strong>권리가액 7.5억 동일, 신축 일반분양가 14억, 조합원 분양가 11.84억</strong>은 사용자가 지정한 가정치이며, 실제 감정평가·분양가는 ±20% 이상 흔들릴 수 있습니다. <strong>공공기여 1+2차 50% 구성 분산 기준 비례율 197% (84㎡ 환급금 +2.90억, 59㎡ +7.19억)</strong>이며, <strong>인천시 조례 1차 10% / 2차 40~50%</strong>가 실제 협의 기준이 됩니다. 공공기여율 30~70% 범위에서 환급금 +12.82억~환급금 +1.40억까지 변동 가능 (이론상 환급금 범위). 공공기여는 노후계획도시 특별법 + 용인시/인천시 조례 + 인허가 협의에 따라 결정됩니다.</p>
  </footer>
 
  </article>
@@ -1085,70 +1221,72 @@
      });
    });
 
-   // Section tab navigation (sticky + smooth scroll + active state)
-   (function() {
-     var tabs = Array.from(document.querySelectorAll('.tab-link'));
-     if (!tabs.length) return;
-     var sections = tabs.map(function(t) {
-       var id = t.getAttribute('href').replace('#', '');
-       return { tab: t, target: document.getElementById(id) };
-     }).filter(function(x) { return x.target; });
+  // TOC toggle (목차 펼침/접힘) + smooth scroll + active highlight
+  (function() {
+    var toc = document.querySelector('.toc');
+    if (!toc) return;
+    var toggle = toc.querySelector('.toc-toggle');
+    var links = Array.from(toc.querySelectorAll('.toc-link'));
+    var currentEl = toc.querySelector('.toc-current');
+    var sections = links.map(function(a) {
+      var id = a.getAttribute('href').replace('#', '');
+      return { link: a, target: document.getElementById(id) };
+    }).filter(function(x) { return x.target; });
 
-     function setActive(idx) {
-       sections.forEach(function(s, i) {
-         s.tab.classList.toggle('active', i === idx);
-       });
-       // Scroll active tab into view in the tab nav
-       var activeTab = sections[idx] && sections[idx].tab;
-       if (activeTab) {
-         var nav = document.querySelector('.tab-nav');
-         if (nav && activeTab.scrollIntoView) {
-           try {
-             activeTab.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-           } catch (e) {
-             activeTab.scrollIntoView();
-           }
-         }
-       }
-     }
+    function setActive(idx) {
+      sections.forEach(function(s, i) {
+        s.link.classList.toggle('active', i === idx);
+      });
+      var label = sections[idx] && sections[idx].link.textContent.trim();
+      if (currentEl && label) currentEl.textContent = '현재: ' + label;
+    }
 
-     tabs.forEach(function(tab, i) {
-       tab.addEventListener('click', function(e) {
-         e.preventDefault();
-         var target = sections[i].target;
-         if (!target) return;
-         var top = target.getBoundingClientRect().top + window.scrollY - 60;
-         window.scrollTo({ top: top, behavior: 'smooth' });
-         setActive(i);
-         history.replaceState(null, '', '#' + target.id);
-       });
-     });
+    // Toggle open/close
+    toggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      var open = toc.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
 
-     // Scroll spy: highlight tab for the section currently in view
-     var ticking = false;
-     function onScroll() {
-       if (ticking) return;
-       ticking = true;
-       requestAnimationFrame(function() {
-         var scrollY = window.scrollY + 120; // offset for sticky tab bar
-         var current = 0;
-         for (var i = 0; i < sections.length; i++) {
-           if (sections[i].target.offsetTop <= scrollY) current = i;
-         }
-         setActive(current);
-         ticking = false;
-       });
-     }
-     window.addEventListener('scroll', onScroll, { passive: true });
-     onScroll();
+    // Click link → smooth scroll + close TOC
+    links.forEach(function(link, i) {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        var target = sections[i].target;
+        if (!target) return;
+        var top = target.getBoundingClientRect().top + window.scrollY - 70;
+        window.scrollTo({ top: top, behavior: 'smooth' });
+        setActive(i);
+        toc.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        history.replaceState(null, '', '#' + target.id);
+      });
+    });
 
-     // Set initial active from URL hash, if any
-     var hash = window.location.hash;
-     if (hash) {
-       var idx = sections.findIndex(function(s) { return s.target && ('#' + s.target.id) === hash; });
-       if (idx >= 0) setActive(idx);
-     }
-   })();
+    // Scroll spy
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function() {
+        var scrollY = window.scrollY + 140;
+        var current = 0;
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].target.offsetTop <= scrollY) current = i;
+        }
+        setActive(current);
+        ticking = false;
+      });
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    var hash = window.location.hash;
+    if (hash) {
+      var idx = sections.findIndex(function(s) { return s.target && ('#' + s.target.id) === hash; });
+      if (idx >= 0) setActive(idx);
+    }
+  })();
  </script>
  </body>
  </html>
