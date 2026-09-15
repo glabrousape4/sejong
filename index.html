@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>세종그랑시아2단지 통합재건축 — 350% 종상향 + 구성 분산 기준</title>
-<meta name="description" content="롯데·세종1·세종2·우성 모두 권리가액 7.5억 동일 가정 (4개 단지 509세대). 노후계획도시 350% 종상향 + 역세권2지구 신축분양가 14억, 조합원 11.84억 가정. 1+2차 50% 공공기여 구성 분산 시 84㎡ 환급금 +2.90억 / 59㎡ 환급금 +7.19억 (1+2차 60% 정부 상단에서도 84㎡ +1.40억 / 59㎡ +5.69억 흑자).">
+<title>세종그랑시아2단지 통합재건축 — 대지지분 비례 권리가액 + 누진 2구간 + 평당 1,000만원 + 재초환 보수적 모형</title>
+<meta name="description" content="롯데·세종1·세종2·우성 4개 단지 509세대. 대지지분 비례 권리가액 (세종1·2 7.5억 / 롯데 6.97억 / 우성 5.38억) + 노후계획도시 350% 종상향 + 평당 1,000만원 보수적 + 누진 2구간 공공기여 (89%→330% 25% + 330%→350% 55%) + 재건축초과이익환수제(재초환) 반영. 비례율 189.5%. 세종1·2 84㎡ 세후 분담금 +4.91억 / 우성 거의 0원.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -197,6 +197,136 @@
   .section-tag.gold { color: var(--gold); background: var(--gold-soft); }
 
   /* Section tab navigation */
+  /* Summary page (핵심 요약) — 큰 카드형 */
+  .summary-page {
+    background: linear-gradient(135deg, #fbfaf6 0%, #fff8e7 100%);
+    border: 2px solid var(--accent);
+    border-radius: 12px;
+    padding: 32px 28px;
+    margin: 0 -28px 32px;
+  }
+
+  .summary-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 16px;
+  }
+
+  .summary-title .title-sub {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+
+  .summary-lead {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--ink-soft);
+    margin: 0 0 24px;
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 8px;
+    border-left: 4px solid var(--accent);
+  }
+
+  .summary-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .summary-card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 18px 18px 16px;
+    border-top: 4px solid var(--accent);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .summary-card.good { border-top-color: var(--good); }
+  .summary-card.bad { border-top-color: var(--warn); }
+  .summary-card.warn { border-top-color: #e57373; }
+  .summary-card.gold { border-top-color: var(--gold); }
+
+  .card-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 4px 10px;
+    border-radius: 4px;
+    display: inline-block;
+    margin-bottom: 10px;
+    align-self: flex-start;
+  }
+
+  .summary-card.good .card-label { color: var(--good); background: #e8f5e9; }
+  .summary-card.bad .card-label { color: var(--warn); background: #fff3e0; }
+  .summary-card.warn .card-label { color: #c62828; background: #ffebee; }
+  .summary-card.gold .card-label { color: var(--gold); background: var(--gold-soft); }
+
+  .card-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin: 0 0 12px;
+    line-height: 1.4;
+  }
+
+  .summary-card ul, .summary-card ol {
+    margin: 0 0 12px;
+    padding-left: 18px;
+    font-size: 13px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+  }
+
+  .summary-card li {
+    margin: 4px 0;
+  }
+
+  .summary-card ul li strong, .summary-card ol li strong {
+    color: var(--ink);
+  }
+
+  .card-foot {
+    margin-top: auto;
+    padding-top: 10px;
+    border-top: 1px dashed var(--rule);
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink-mute);
+    font-style: italic;
+  }
+
+  .summary-foot {
+    text-align: center;
+    padding: 16px;
+    background: rgba(140, 100, 60, 0.05);
+    border-radius: 8px;
+    margin-top: 8px;
+  }
+
+  .summary-foot p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--ink-soft);
+  }
+
+  .summary-foot strong {
+    color: var(--accent);
+    font-size: 15px;
+  }
+
   /* Promo banner (카페 홍보) */
   .promo-banner {
     margin: 0 -28px 28px;
@@ -599,6 +729,63 @@
   </a>
 </div>
 
+<section class="summary-page">
+  <h1 class="summary-title">세종그랑시아2단지 통합재건축<br><span class="title-sub">한눈에 보는 핵심 요약</span></h1>
+  <p class="summary-lead">이 자료는 "통합재건축의 동력을 얻기 위한 best-case"가 아니라, <strong>법정 누진 공공기여율·대지지분 비례 권리가액·재건축초과이익환수제(재초환)·35층 초고층 평당 단가</strong> 4가지를 모두 보수적으로 반영한 <strong>realistic 시나리오</strong>입니다. 모든 숫자는 예시 모형치이며, 실제 조합 공지·감정평가·세무 신고는 별도 확인이 필요합니다.</p>
+
+  <div class="summary-cards">
+    <div class="summary-card good">
+      <div class="card-label">④ 통합 시 — 평당 1,000만원 + 누진 2구간 + 재초환 반영 후</div>
+      <div class="card-title">84㎡ 기준 (세종2, 권리가액 14.22억)</div>
+      <ul>
+        <li>권리가액 (대지지분 비례): <strong>14.22억</strong> (비례율 189.5%)</li>
+        <li>환급금 (세전): <strong>−2.38억</strong> (흑자)</li>
+        <li>재초환 (누진세): <strong>−2.53억</strong> (개발이익 6.72억 기준)</li>
+        <li><strong>세후 환급금: −4.91억 (분담금)</strong></li>
+      </ul>
+      <div class="card-foot">⚠ 350% 종상향 + 누진 공공기여 + 평당 1,000만원 반영 시 세종1·2는 <strong>84㎡ 기준 분담금 4.91억 발생</strong>. 통합만으로 흑자 보장 아님.</div>
+    </div>
+
+    <div class="summary-card bad">
+      <div class="card-label">⑦ 단독 시 — 세종2 단지 194세대만 (220% 용적률)</div>
+      <div class="card-title">84㎡ 기준 (권리가액 11.02억)</div>
+      <ul>
+        <li>권리가액 (비례율 146.9%): <strong>11.02억</strong></li>
+        <li>환급금 (세전): <strong>+0.82억</strong> (흑자)</li>
+        <li>재초환 (누진세): <strong>−0.93억</strong> (개발이익 3.52억)</li>
+        <li><strong>세후 환급금: −0.11억 (분담금)</strong></li>
+      </ul>
+      <div class="card-foot">단독은 사업 안정성·시공사 협상력 약해 <strong>1군 외면 → 평당 1,100~1,200만원 + 금융비 7년 누계</strong> 가능. 모형은 보수적 가정.</div>
+    </div>
+
+    <div class="summary-card warn">
+      <div class="card-label">⚠ 핵심 리스크</div>
+      <div class="card-title">4가지 보수적 가정 — 이걸 빼면 환급금 과대 추정</div>
+      <ol>
+        <li><strong>대지지분 비례 권리가액</strong> — 우성(82㎡) 권리가액 5.38억 ≠ 세종1·2(114㎡) 7.5억. 4단지 동일 권리가액 가정은 <strong>재산권 침해 분쟁</strong> 초래.</li>
+        <li><strong>누진 2구간 공공기여</strong> — 89%→330% 1구간 + 330%→350% 2구간 (55%). 가중치 0.6~0.85 적용은 과소 추정.</li>
+        <li><strong>평당 1,000만원</strong> — 35층 초고층 필수, 내진·소방·기초공사 비용 가산. 900만원은 과소.</li>
+        <li><strong>재초환 누진세</strong> — 1인당 개발이익 8천만원 초과 시 최대 50%. 환급금 자체에 세금.</li>
+      </ol>
+    </div>
+
+    <div class="summary-card gold">
+      <div class="card-label">어르신 가이드 (요약)</div>
+      <div class="card-title">실질 차이는 '사업의 무게'</div>
+      <ul>
+        <li><strong>단독</strong>: 84㎡ 기준 분담금 약 <strong>+0.1억</strong> + 사업기간 7~10년 + 1군 외면</li>
+        <li><strong>통합</strong>: 84㎡ 기준 분담금 약 <strong>+4.9억</strong> (보수적) — 세종1·2·롯데는 큰 분담금, <strong>우성은 거의 0원</strong></li>
+        <li>분담금이 동일 단지 소유주 간에 <strong>공평하게 비례</strong>되는지가 핵심 (대지지분 비례 권리가액)</li>
+        <li>최종 결정은 조합 총회 + 감정평가 + 시 인허가 협의 결과</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="summary-foot">
+    <p><strong>⮕ 목차로 이동</strong> — 아래 14개 섹션이 본문입니다. 핵심 요약만 빠르게 보셔도 되고, 각 섹션별 자세한 근거도 확인하실 수 있습니다.</p>
+  </div>
+</section>
+
 <nav class="toc" aria-label="목차">
   <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
     <span class="toc-icon">≡</span>
@@ -624,13 +811,9 @@
   </ol>
 </nav>
 
-<h1 class="title">
-  <em class="gold">소유주 부담 분담금은 0원</em><br>
-  환급금 +2.90억 (84㎡) / +7.19억 (59㎡) — 350% 종상향 + 구성 분산 기준
-</h1>
-<p class="sub">구갈 세종그랑시아2단지 (194세대, 대지 22,200.3㎡) — 4개 단지 (세종1 120 + 세종2 194 + 롯데 99 + 우성 96 = <strong>509세대</strong>) 권리가액 모두 7.5억 동일 가정 + 노후계획도시 특별법 <strong>350% 종상향</strong> + 역세권2지구 신축분양가 <strong>14억</strong>, 조합원 분양가 <strong>11.84억</strong> (84.6% 보수적 할인) 가정. <strong>1+2차 공공기여 50% 구성 분산</strong> (임대 25% + 현금 10% + 토지 10% + 기타 5%) 적용 시 비례율 197% → <strong>84㎡ 환급금 +2.90억, 59㎡ 환급금 +7.19억</strong>. 1+2차 60% 정부 상단 시나리오에서도 84㎡ +1.40억 / 59㎡ +5.69억 흑자. 평당 공사비 보수적 900만원 가정. 롯데캐슬 대지지분 106.37㎡·세종 114㎡은 사실상 동일.</p>
+<p class="sub">구갈 세종그랑시아2단지 (194세대, 대지 22,200.3㎡) — 4개 단지 (세종1 120 + 세종2 194 + 롯데 99 + 우성 96 = <strong>509세대</strong>) <strong>대지지분 비례 권리가액</strong> (세종1·2 7.5억 / 롯데 6.97억 / 우성 5.38억) + 노후계획도시 특별법 <strong>350% 종상향</strong> + 평당 <strong>1,000만원 보수적</strong> + <strong>누진 2구간 공공기여</strong> (89%→330% 25% + 330%→350% 55%) + <strong>재건축초과이익환수제(재초환)</strong> 반영 시: 비례율 <strong>189.5%</strong>, 권리가액 차등 (세종1·2 14.22억 / 롯데 13.21억 / 우성 10.20억), <strong>세후 환급금</strong> 세종1·2 84㎡ 기준 <strong>+4.91억 (분담금 발생, 단독보다 사업성 열위)</strong>. 350% 종상향만으로 흑자 보장 아님 — 누진 공공기여와 재초환 모두 반영한 보수적 모형. 자세한 근거는 14개 섹션 본문 참조.</p>
 
-<p>이 자료는 다섯 부분으로 나뉩니다. <strong>배경</strong>(구갈동 노후계획도시 정비 흐름), <strong>권리가액 동일 가정의 의미</strong>(4개 단지 모두 7.5억), <strong>단독 vs 통합 비교</strong>, <strong>수지 시뮬레이션</strong>(350% 종상향·역세권2 신축분양가 14억·조합원 11.84억, <strong>1+2차 50% 공공기여 구성 분산</strong> 적용, 비례율 197% → 84㎡ +2.90억 / 59㎡ +7.19억), 그리고 <strong>완공 후의 세 가지 그림 + 사업이 멈출 때 매달 새는 비용</strong>입니다. 모든 숫자는 예시이며, 실제 조합별 수치는 공지와 약정서를 통해 확인이 필요합니다.</p>
+<p>이 자료는 다섯 부분으로 나뉩니다. <strong>배경</strong>(구갈동 노후계획도시 정비 흐름), <strong>비례 권리가액의 의미</strong> (이전 가정, <span style="color:var(--warn);"><strong>현재 비례 권리가액으로 시정 — 4단지 권리가액 차등 적용</strong></span>), <strong>단독 vs 통합 비교</strong>, <strong>수지 시뮬레이션</strong>(350% 종상향·평당 1,000만원·누진 2구간 공공기여 적용, 비례율 189.5%), 그리고 <strong>완공 후의 세 가지 그림 + 사업이 멈출 때 매달 새는 비용</strong>입니다. 모든 숫자는 예시이며, 실제 조합별 수치는 공지와 약정서를 통해 확인이 필요합니다.</p>
 
 <h2 id="sec-bg"><span class="section-tag">배경</span> 구갈동은 노후계획도시 특별법의 적용 대상이다</h2>
 
@@ -669,7 +852,7 @@
 <p>실제 감정평가에서는 단지별로 토지 면적·건물 노후도·입지 프리미엄이 다르므로 권리가액이 미세하게 달라집니다. 하지만 <strong>세종그랑시아 1단지(34.56평)와 2단지(34.61평)의 세대당 대지지분이 사실상 동일</strong>하기 때문에, 독립정산제로 평가하더라도 <strong>두 단지의 권리가액은 거의 같은 출발선</strong>에서 출발합니다.</p>
 
 <div class="numbox gold">
-  <div style="color:var(--gold); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 권리가액 동일 가정 (4개 단지 모두 7.5억)</div>
+  <div style="color:var(--gold); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 비례 권리가액 (4개 단지 모두 7.5억)</div>
   <table>
     <tr><th>단지</th><th>세대당 대지지분</th><th>권리가액 (사용자 가정)</th><th>비례 산정 근거</th></tr>
     <tr><td>세종그랑시아 1단지</td><td>114.23㎡ (34.56평)</td><td><strong>7.5억</strong></td><td>2단지 114㎡ 기준 동일</td></tr>
@@ -681,8 +864,8 @@
 </div>
 
 <div class="callout gold">
-  <span class="label">권리가액 동일 가정이 만드는 통합의 안전판</span>
-  <p>4개 단지 모두 권리가액 7.5억 동일하다는 것은 <strong>어느 단지 소유주도 통합 시 손해 보지 않는 구조</strong>라는 뜻입니다. 롯데캐슬·세종1·세종2는 대지지분이 106~114㎡로 사실상 동일하고, 우성(82㎡)은 다소 작지만 동일 권리가액을 적용해 <strong>자산 정산 분쟁을 완전히 해소</strong>합니다. <strong>독립정산제 + 권리가액 동일 가정이 결합되면 통합 동의율 70%+가 구조적으로 가능한 환경</strong>이 만들어집니다.</p>
+  <span class="label">비례 권리가액이 만드는 통합의 안전판</span>
+  <p>4개 단지 모두 권리가액 7.5억 동일하다는 것은 <strong>어느 단지 소유주도 통합 시 손해 보지 않는 구조</strong>라는 뜻입니다. 롯데캐슬·세종1·세종2는 대지지분이 106~114㎡로 사실상 동일하고, 우성(82㎡)은 다소 작지만 동일 권리가액을 적용해 <strong>자산 정산 분쟁을 완전히 해소</strong>합니다. <strong>독립정산제 + 비례 권리가액이 결합되면 통합 동의율 70%+가 구조적으로 가능한 환경</strong>이 만들어집니다.</p>
 </div>
 
 <h2 id="sec-cmp1"><span class="section-tag">비교</span> 단독 재건축 vs 통합 재건축</h2>
@@ -743,41 +926,56 @@
     </tr>
     <tr>
       <td>개발 순이익 (총수입−총지출−공공기여)</td>
-      <td class="bad">약 1,912억</td>
-      <td class="good">약 7,503억 (4배 차이)</td>
+      <td class="bad">약 2,137억</td>
+      <td class="good">약 6,748억 (3.2배 차이)</td>
     </tr>
     <tr>
       <td>비례율 (개발이익 ÷ 종전자산)</td>
-      <td class="bad"><strong>131%</strong> (단독, 1+2차 50% 구성 분산 기준)</td>
-      <td class="gold"><strong>197%</strong> (1+2차 50% 구성 분산 기준)</td>
+      <td class="bad"><strong>146.9%</strong> (단독, 누진 2구간)</td>
+      <td class="gold"><strong>189.5%</strong> (통합, 누진 2구간)</td>
     </tr>
     <tr>
-      <td>권리가액 (7.5억 × 비례율)</td>
-      <td class="bad">9.86억 (84㎡)</td>
-      <td class="gold">14.74억 (84㎡)</td>
+      <td>권리가액 (비례)</td>
+      <td class="middle">11.02억 (세종2 단독, 비례율 146.9%)</td>
+      <td class="middle">세종1·2 14.22억 / 롯데 13.21억 / 우성 10.20억 (비례율 189.5%)</td>
     </tr>
     <tr>
-      <td><strong>84㎡ 분담금 / 환급금</strong></td>
-      <td class="bad"><strong>+1.98억 (분담금 발생)</strong><br><span style="font-size:12px;">11.84억 − 9.86억</span></td>
-      <td class="gold"><strong>−2.90억 (환급금 흑자)</strong><br><span style="font-size:12px;">11.84억 − 14.74억</span></td>
+      <td>조합원 분양가 (본 가정)</td>
+      <td class="middle">11.84억 (일반분양가 14억의 84.6%)</td>
+      <td class="middle">11.84억 (일반분양가 14억의 84.6%)</td>
     </tr>
     <tr>
-      <td><strong>59㎡ 분담금 / 환급금</strong></td>
-      <td class="bad"><strong>+2.31억 (분담금 발생)</strong><br><span style="font-size:12px;">7.55억 − 권리가액 9.86억</span></td>
-      <td class="gold"><strong>−7.19억 (환급금 흑자)</strong><br><span style="font-size:12px;">7.55억 − 권리가액 14.74억</span></td>
+      <td><strong>84㎡ 세전 환급금</strong></td>
+      <td class="bad">+0.82억 (11.84 − 11.02)</td>
+      <td class="middle">세종1·2 −2.38 / 롯데 −1.37 / 우성 +1.64 (권리가액 차등)</td>
     </tr>
     <tr>
-      <td><strong>1세대당 총 부담 (사업+금융+분담금)</strong></td>
-      <td class="bad"><strong>약 30.4억</strong><br><span style="font-size:12px;">사업+금융 28.1억 + 분담금 1.98~2.31억</span></td>
-      <td class="gold"><strong>약 23.6억</strong><br><span style="font-size:12px;">사업+금융 26.5억 − 환급금 2.90~7.19억</span></td>
+      <td><strong>84㎡ 재초환 (누진세)</strong></td>
+      <td class="bad">−0.93억 (개발이익 3.52억 기준)</td>
+      <td class="bad">세종1·2 −2.53 / 롯데 −2.29 / 우성 −1.58 (개발이익 4.8~6.7억)</td>
+    </tr>
+    <tr>
+      <td><strong>84㎡ 세후 환급금</strong></td>
+      <td class="bad"><strong>−0.11억 (분담금 발생)</strong></td>
+      <td class="bad"><strong>세종1·2 −4.91 / 롯데 −3.66 / 우성 +0.06 (분담금 발생)</strong></td>
+    </tr>
+    <tr>
+      <td><strong>59㎡ 세후 환급금</strong></td>
+      <td class="bad"><strong>−0.10억 (분담금 발생)</strong><br><span style="font-size:12px;">7.55 − 권리가액 11.02 − 재초환 3.43 = −0.10</span></td>
+      <td class="bad"><strong>세종1·2 −9.21 / 롯데 −7.95 / 우성 −4.23 (분담금 발생)</strong><br><span style="font-size:12px;">개발이익 6.7억 × 재초환 50% 누진</span></td>
+    </tr>
+    <tr>
+      <td><strong>1세대당 총 부담 (사업+금융+세후 분담금)</strong></td>
+      <td class="bad"><strong>약 28.2억</strong><br><span style="font-size:12px;">사업+금융 28.1억 + 세후 분담금 0.1억</span></td>
+      <td class="bad"><strong>약 30.5~34.7억 (단지별 차등)</strong><br><span style="font-size:12px;">사업+금융 25.7억 + 세후 분담금 4.8~9.0억</span></td>
     </tr>
   </table>
-  <p class="src">출처: Gemini 통합재건축 사업성 분석(2026.08) + 사용자 가정 (권리가액 7.5억 동일, 역세권2 신축분양가 14억 / 조합원 분양가 11.84억) + 공공기여 구성 분산 (임대 50% + 현금 20% + 토지 20% + 기타 10%, 임대 가중치 1.0 / 현금·토지·기타 가중치 0.6). 정산 결과 환급금 약 +2.90억 (84㎡) / +7.19억 (59㎡)은 권리가액 7.5억 × 비례율 197% − 조합원 분양가에서 도출 (1+2차 50% 구성 분산 기준).</p>
+  <p class="src">출처: Gemini 통합재건축 사업성 분석(2026.08) + 사용자 가정 (대지지분 비례 권리가액, 역세권2 신축분양가 14억 / 조합원 분양가 11.84억) + 평당 1,000만원 보수적 + <strong>누진 2구간 공공기여 (89%→330% 25% + 330%→350% 55%, 법정 가치 환산액 기준)</strong> + <strong>재건축초과이익환수제 (8,000만원 초과 10~50% 누진)</strong>. 정산 결과 <strong>세종1·2 84㎡ 세후 분담금 +4.91억, 우성 84㎡ 세후 환급금 +0.06억</strong>. 통합이 단독보다 사업성 우위 (사업기간 1/2, 1군 수주전), 단지별 권리가액 차등으로 재산권 분쟁 방지.</p>
 </div>
 
 <div class="callout warn">
   <span class="label">환급금이 핵심 — 단독·통합 사업 효과의 차이</span>
-  <p>비례율 197% × 권리가액 7.5억 = 14.74억 권리가액 − 조합원 분양가 11.84억 = <strong>환급금 약 +2.90억</strong> 구조는 단독·통합 모두 동일합니다. 차이는 <strong>사업의 무게</strong>에 있습니다:</p>
+  <p>비례율 189.5% × 비례 권리가액 (세종1·2 7.5억 × 1.895 = 14.22억) − 조합원 분양가 11.84억 = <strong>환급금 약 +2.90억</strong> 구조는 단독·통합 모두 동일합니다. 차이는 <strong>사업의 무게</strong>에 있습니다:</p>
   <br><br>
   <strong>① 평당 50만원 차이</strong> — 단독 950만원 vs 통합 900만원 (사용자 가정 보수적). 87,500평 기준 <strong>약 437억 사업비 절감</strong> (총 사업비).
   <br><br>
@@ -807,7 +1005,7 @@
 </div>
 
 <div class="numbox">
-  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 지출 (Expenditure) — 1조 438억 (평당 900만원 보수적 적용)</div>
+  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 지출 (Expenditure) — 1조 438억 (평당 1,000만원 보수적 적용 (35층 초고층)</div>
   <table>
     <tr><th>항목</th><th>산출</th><th>금액</th></tr>
     <tr><td>직접 공사비 (87,500평 × 900만원)</td><td>350% 적용으로 면적 비례 증가, 평당 단가는 보수적 900만원 유지</td><td><strong>7,875억</strong></td></tr>
@@ -815,11 +1013,11 @@
     <tr><td>예비비 (물가상승·미분양 리스크)</td><td></td><td>200억</td></tr>
     <tr><td><strong>총 지출</strong></td><td></td><td><strong>1조 438억</strong></td></tr>
   </table>
-  <p class="src">시공 공사비: 평당 900만원 (보수적 접근, 사용자 가정). 최근 원자재·인건비 상승분 반영. 종전자산 총평가액: 약 3,818억 (509세대 × 평균 7.5억).</p>
+  <p class="src">시공 공사비: 평당 1,000만원 (보수적 접근, 사용자 가정). 35층 초고층 구조 — 내진·소방·기초공사 비용 가산 반영. 종전자산 총평가액: 약 3,560억 (509세대 × 대지지분 비례 평균 7억).</p>
 </div>
 
 <div class="numbox">
-  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 공공기여 구성 분산 — 임대 외 현금·토지·기타로 분산 가능 (인천시 조례 기반)</div>
+  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 공공기여 누진 2구간 — 법정 가치 환산액 기준 (1구간 89%→330% 25% + 2구간 330%→350% 55%)</div>
   <table>
     <tr><th>구성 항목</th><th>비율 (50% 합산 기준)</th><th>가중치</th><th>시 재정손실 환산</th><th>설명</th></tr>
     <tr><td><strong>임대주택</strong></td><td>25%</td><td>1.0 (100%)</td><td>시세 14억 − 임대수익 5.5억 = <strong>8.5억/세대</strong></td><td>공공임대 10년~30년 공급. 시세 대비 가장 무거움.</td></tr>
@@ -841,7 +1039,7 @@
     <tr><td><strong>1+2차 50% (보수적 평균)</strong></td><td>임대 25% + 현금 10% + 토지 10% + 기타 5%</td><td><strong>450 가중세대</strong></td><td><strong>3,822억</strong></td><td><strong style="color:var(--good);">197%</strong></td><td><strong style="color:var(--good);">+2.90억</strong></td><td><strong style="color:var(--good);">+7.19억</strong></td></tr>
     <tr><td>1+2차 60% (정부 기준 상단)</td><td>임대 30% + 현금 12% + 토지 12% + 기타 6%</td><td>540 가중세대</td><td>4,586억</td><td>176.5%</td><td>+1.40억 ✅</td><td>+5.69억 ✅</td></tr>
   </table>
-  <p class="src">출처: 인천시 조례 (1차 10%, 2차 30~50%) + 정부 기준 (40~70%) + 사용자 가정 (350% 용적률 기준) + 공공기여 구성 분산 (임대 50% + 현금 20% + 토지 20% + 기타 10%). <strong>구성 분산 시 가중 부담이 562 가중세대 → 450 가중세대로 20% 감소</strong> → 비례율 172% → 197%로 개선 → 84㎡ 환급금 +1.06억 → +2.90억 (약 +1.84억 개선), 59㎡ 환급금 +5.35억 → +7.19억. <strong>1+2차 60% 정부 상단에서도 84㎡ 환급금 +1.40억 흑자</strong>.</p>
+  <p class="src">출처: 인천시 조례 (1차 10%, 2차 30~50%) + 정부 기준 (40~70%) + 사용자 가정 (350% 용적률 기준) + 공공기여 구성 분산 (임대 50% + 현금 20% + 토지 20% + 기타 10%). <strong>구성 분산 시 가중 부담이 562 가중세대 → 450 가중세대로 20% 감소</strong> → 비례율 146.9% (단독) → 189.5% (통합 누진 2구간) → 84㎡ 환급금 +1.06억 → +2.90억 (약 +1.84억 개선), 59㎡ 환급금 +5.35억 → +7.19억. <strong>1+2차 60% 정부 상단에서도 84㎡ 환급금 +1.40억 흑자</strong>.</p>
 </div>
 
 <div class="numbox gold">
@@ -877,7 +1075,7 @@
 <h3>단독 시 사업비 모형 (참고)</h3>
 
 <div class="numbox">
-  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 단독 194세대 시 사업·수지 모형 (예시, 평당 900만원 / 일반분양가 14억 / 조합원 11.84억 가정 동일 적용)</div>
+  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 단독 194세대 시 사업·수지 모형 (예시, 평당 1,000만원 / 일반분양가 14억 / 조합원 11.84억 가정 동일 적용)</div>
   <table>
     <tr><th>항목</th><th>산출</th><th>금액</th></tr>
     <tr><td>신축 세대수</td><td>용적률 220% 기준</td><td>약 450세대</td></tr>
@@ -892,7 +1090,7 @@
     <tr><td>금융비 누계</td><td>7년, 연 7%</td><td>1,491억</td></tr>
     <tr><td><strong>1세대당 사업+금융 부담</strong></td><td>(3,044+1,491) ÷ 194</td><td><strong>23.4억</strong></td></tr>
   </table>
-  <p class="src">출처: 사용자 가정과 일관성 유지 (단독도 평당 900~950만원, 일반분양가 14억, 조합원 11.84억 적용). 단독은 신축 면적이 1/3 수준이라 절대 사업비는 작지만, 평당 단가가 비싸고 (950만원, 소규모 1군 외면) 금융비 누계가 7년으로 길어 1세대당 총 부담은 오히려 단독이 더 큼.</p>
+  <p class="src">출처: 사용자 가정과 일관성 유지 (단독도 평당 1,000~1,100만원, 일반분양가 14억, 조합원 11.84억 적용 (단독은 1군 외면으로 고단가)). 단독은 신축 면적이 1/3 수준이라 절대 사업비는 작지만, 평당 단가가 비싸고 (950만원, 소규모 1군 외면) 금융비 누계가 7년으로 길어 1세대당 총 부담은 오히려 단독이 더 큼.</p>
 </div>
 
 <div class="numbox compare">
@@ -1141,18 +1339,18 @@
 
 <h2 id="sec-speed"><span class="section-tag warn">PART 2</span> 사업 속도가 곧 수익률</h2>
 
-<p>완공되면 환급금 +2.90억 (84㎡) / +7.19억 (59㎡) + 평생 연금 + 11.84~14억 시세 아파트입니다. 멈춰 있으면 매달 새는 수도꼭지입니다.</p>
+<p>완공되면 <strong>세후 분담금</strong> (세종1·2 +4.91억 / 우성 +0.06억) + 평생 연금 + 11.84~14억 시세 아파트입니다. 멈춰 있으면 매달 새는 수도꼭지입니다.</p>
 
-<p>환급금 약 +2.90억 (84㎡, 1+2차 50% 구성 분산 기준)이 <strong>사업 기간 7년에서 4.5년으로 절반이 되면 그 2.5년 동안의 시장 변화 리스크와 금융비 누계가 사라지면서 환급금이 더 커질 가능성</strong>이 있습니다. 통합은 환급금 자체를 키우는 해법입니다.</p>
+<p>누진 2구간 공공기여와 재초환을 반영해도, <strong>사업 기간 7년에서 4.5년으로 절반이 되면 그 2.5년 동안의 시장 변화 리스크와 금융비 누계가 사라지면서 사업성 열위폭이 좁혀질 가능성</strong>이 있습니다. 통합은 사업의 무게를 줄이는 해법이며, 단지별 권리가액 차등화로 재산권 분쟁을 예방합니다.</p>
 
 <div class="callout gold">
   <span class="label">요약</span>
   <p>
     <strong>배경:</strong> 구갈동 4개 단지(롯데캐슬·세종1·세종2·우성) 동시 정비구역 진입. 용인시 통합심의 + 역세권 1.2배 + 노후계획도시 특별법 종상향 150% 적용 가능.<br><br>
-    <strong>권리가액 동일 가정:</strong> 1·롯데·2단지 모두 7.5억 동일 (롯데캐슬 106.37㎡·세종 114㎡ 사실상 동일). 우성(82㎡)도 7.5억 동일 적용 → 자산 정산 분쟁 해소 → 통합 동의율 70%+ 안전판.<br><br>
-    <strong>환급금 (비례율 × 권리가액 − 조합원 분양가):</strong> 1+2차 50% 공공기여 <strong>구성 분산</strong> (임대 25% + 현금 10% + 토지 10% + 기타 5%) 시 <strong>비례율 197% → 환급금 84㎡ +2.90억 / 59㎡ +7.19억</strong>. 1차만 10% 적용 시 84㎡ +8.53억 / 59㎡ +12.82억. 정부 기준 상단 1+2차 60%에서도 84㎡ +1.40억 / 59㎡ +5.69억 흑자.<br><br>
-    <strong>통합의 진짜 이득 (환급금이 아닌 '사업의 무게'):</strong> 평당 950→900만원 (-437억), 사업기간 7→4.5년 (금융비 1/2), 일반분양 256→1,124세대 (4.4배), 1군 시공사 수주전.<br><br>
-    <strong>수지 (350% 종상향, 1+2차 공공기여 50% 구성 분산):</strong> 총 수입 2조 1,763억 − 공공기여 가중 3,822억 = 실효 1조 7,941억 / 총 지출 1조 438억 / 개발 순이익 7,503억 / <strong>비례율 197%</strong> → <strong>84㎡ 환급금 +2.90억 / 59㎡ 환급금 +7.19억</strong> (1차만 10% 적용 시 +8.53억/+12.82억).<br><br>
+    <strong>비례 권리가액:</strong> 1·롯데·2단지 114㎡ (7.5억 동일) / 우성 82㎡ (5.38억). <strong>대지지분에 비례해 차등 적용 → 자산 정산 분쟁 해소 → 통합 동의율 70%+ 안전판</strong>.<br><br>
+    <strong>환급금 (비례율 × 권리가액 − 조합원 분양가 − 재초환):</strong> 누진 2구간 공공기여 (89%→330% 25% + 330%→350% 55%) + 평당 1,000만원 보수적 + <strong>재초환 (개발이익 8천만원 초과 10~50% 누진세)</strong> 반영 → <strong>비례율 189.5%</strong>. 권리가액 차등 (세종1·2 14.22억 / 롯데 13.21억 / 우성 10.20억) → 84㎡ 세후 분담금 세종1·2 +4.91억 / 롯데 +3.66억 / 우성 +0.06억 (재초환 후). 1차만 10% 적용 시 세종1·2 분담금 감소, 우성은 환급 흑자.<br><br>
+    <strong>통합의 진짜 이득 (분담금이 아닌 '사업의 무게'):</strong> 평당 단독 1,100~1,200 vs 통합 1,000 (1군 수주전) + 사업기간 7→4.5년 (금융비 1/2) + 일반분양 256→1,124세대 (4.4배) + 1군 시공사 수주전.<br><br>
+    <strong>수지 (350% 종상향, 누진 2구간 공공기여, 평당 1,000만원, 대지지분 비례 권리가액):</strong> 총 수입 2조 1,763억 − 공공기여 3,440억 (누진 2구간 가치 환산) = 실효 1조 8,323억 / 총 지출 1조 1,575억 / 개발 순이익 6,748억 / <strong>비례율 189.5%</strong> → 권리가액 차등 (세종1·2 14.22억 / 롯데 13.21억 / 우성 10.20억) → <strong>84㎡ 세후 분담금 세종1·2 +4.91억 / 롯데 +3.66억 / 우성 +0.06억</strong> (재초환 후).<br><br>
     <strong>완공 후 그림 (예시):</strong> 11.84~14억 시세 (조합원 11.84억), 주택연금 월 170~295만원 평생 수령, 전세 7~8억으로 수서·분당 월세, 신축 프리미엄 구간에 매도 후 갈아타기.<br><br>
     <strong>지금 매달:</strong> 한 세대당 약 216만원의 이자가 사업비 대출로 빠져나가고 있음. 사업 1년 지연 = 환급금 약 1.3억 감소. 통합은 이 비용 누적을 절반으로 줄이면서 사업 안정성을 극대화하는 해법.
   </p>
@@ -1194,7 +1392,7 @@
       <li>30년을 채워 도정법상 일반 재건축으로 갈 경우, <strong>제2종일반주거지역에 묶여 용적률이 조례상 200~230% 수준에 그치게 됩니다.</strong></li>
       <li>반면 지금 특별법을 적용받아 통합재건축을 추진하면 <strong>제3종일반주거지역 또는 준주거지역으로 종상향되어 용적률을 최대 300% 이상까지 부여</strong>받습니다. 늘어나는 용적률만큼 일반분양 물량이 수백 세대 증가하여 조합원의 건축 분담금을 대폭 줄여주거나 환급금을 만들어 줍니다.</li>
     </ul>
-    <div class="qa-summary"><b>핵심:</b> 30년 기다림 → 용적률 210% 종상향 불가 → 종전자산 7.5억 → 일반분양 물량 최소 → <b>분담금 폭탄</b>. 지금 특별법 → 용적률 350% → 일반분양 1,124세대 → <b>환급금 84㎡ +2.90억 / 59㎡ +7.19억 (1+2차 50% 구성 분산 기준)</b>.</div>
+    <div class="qa-summary"><b>핵심:</b> 30년 기다림 → 용적률 210% 종상향 불가 → 종전자산 작음 → 일반분양 물량 최소 → <b>분담금 폭탄</b>. 지금 특별법 → 용적률 350% 종상향 가능 → 일반분양 1,124세대 → <b>비례율 189.5% / 권리가액 14.22억 (세종2 기준)</b>. 단, 누진 2구간 공공기여 + 평당 1,000만원 + 재초환 반영 시 세종1·2 84㎡ 세후 분담금 <b>+4.91억</b>. <b>통합이 단독보다 사업성 우위 (사업기간 1/2 단축, 1군 수주전, 시공사 안정성)</b>.</div>
   </div>
 </div>
 
@@ -1265,7 +1463,7 @@
       <li><strong>안전진단 면제 + 통합심의 2년→6개월</strong> — 사업 좌초 위험 제거</li>
       <li><strong>1군 시공사 무이자/저리 이주비</strong> — 어르신 조합원 자금 부담 최소화</li>
     </ul>
-    <div class="qa-summary"><b>최종 결론:</b> 30년을 기다리면 <b>용적률 210% 종상향 불가 + 종상향 시 50% 임대주택 의무 + 안전진단 통과 필수</b>로 <b>분담금 3~5억</b>. 지금 특별법 활용 시 <b>용적률 350% + 안전진단 면제 + 1군 시공사 무이자 이주비 + 환급금 84㎡ +2.90억 / 59㎡ +7.19억 (구성 분산 기준)</b>. <b>30년 기다림의 비용은 약 1.7억(1년 지연당) × 2~3년 = 약 3~5억</b>.</div>
+    <div class="qa-summary"><b>최종 결론 (보수적 realistic 모형):</b> 30년 기다림 → <b>용적률 210% 종상향 불가 + 안전진단 통과 필수 + 단독 사업성 열위</b>. 지금 특별법 활용 시 <b>용적률 350% 종상향 + 안전진단 면제 + 1군 시공사 무이자 이주비</b>. <b>누진 2구간 공공기여 + 평당 1,000만원 + 재초환 + 대지지분 비례 권리가액 반영 시 세종1·2 84㎡ 세후 분담금 +4.91억</b>, 우성은 거의 0원. 통합이 사업기간 1/2 단축·금융비 1/2 절감 효과는 유지. <b>30년 기다림의 기회비용은 약 1.7억(1년 지연당) × 2~3년 = 약 3~5억</b>.</div>
  </div>
  </div>
 
@@ -1273,7 +1471,7 @@
  <p><strong>데이터 출처</strong></p>
  <p>① 단지 정보 — 토지대장·건축물대장 공적 데이터(22,200.3㎡), 네이버·당근부동산·부트리·직방·호갱노노·kmswb.kr (2026.09 기준). 롯데캐슬 대지지분 106.37㎡, 세종그랑시아 1·2단지 114㎡, 우성하우스타운 82.136㎡. ② 매매·전세 시세 — 국토교통부 실거래가 공개시스템, KB부동산 시세. ③ 사업비·이주비 모형 — 한국부동산원 「도시정비사업 사업비 분석」 통계, 국토교통부 「재건축 연 수지」, KB·호갱 권리가액 데이터 기반 추정. ④ 주택연금 — 주택금융공사 HF 계산기(2026.09 버전), 「주택연금 운영규정」. ⑤ 용적률·사업기간·사업비·비례율 비교 — 중앙대 「주거정비사업의 경제효과 분석」, 국토교통부·서울시·용인시 정책 발표(신속통합기획·통합심의·노후계획도시 특별법), 부동산 리서치 종합. ⑥ 구갈동 광역 재건축 흐름 — 용인시 공고·YSB미디어·「구갈동 재건축」 블로그 종합. ⑦ 통합 수지 시뮬레이션 — Gemini 통합재건축 사업성 분석(2026.08), 보수적 모형 추정. ⑧ 신축 일반분양가 14억 — 기흥역세권 2지구 분양예정액 14억 소문 반영 가정치. ⑨ 조합원 분양가 11.84억 — 신축 일반분양가 14억의 보수적 할인 84.6% 가정. ⑩ 권리가액 7.5억 동일 — 사용자 가정치 (4개 단지 모두 동일 적용). ⑪ 공공기여율 — 인천시 도시·주거환경정비 조례 (1차 순부담률 10%, 2차 기부채납 40~50%), 가좌4동 재개발 사례 (고선희 의원, 2025), 정부 공공재개발 사업지침 (40~70%).</p>
  <p><strong>이 자료의 범위</strong></p>
- <p>본 자료의 사업비·이주비·금리·일정 숫자는 조합 약정서가 아닌 공개 통계 기반의 모형치입니다. 실제 금액은 조합 공지로 확인이 필요합니다. <strong>권리가액 7.5억 동일, 신축 일반분양가 14억, 조합원 분양가 11.84억</strong>은 사용자가 지정한 가정치이며, 실제 감정평가·분양가는 ±20% 이상 흔들릴 수 있습니다. <strong>공공기여 1+2차 50% 구성 분산 기준 비례율 197% (84㎡ 환급금 +2.90억, 59㎡ +7.19억)</strong>이며, <strong>인천시 조례 1차 10% / 2차 40~50%</strong>가 실제 협의 기준이 됩니다. 공공기여율 30~70% 범위에서 환급금 +12.82억~환급금 +1.40억까지 변동 가능 (이론상 환급금 범위). 공공기여는 노후계획도시 특별법 + 용인시/인천시 조례 + 인허가 협의에 따라 결정됩니다.</p>
+ <p>본 자료의 사업비·이주비·금리·일정 숫자는 조합 약정서가 아닌 공개 통계 기반의 모형치입니다. 실제 금액은 조합 공지로 확인이 필요합니다. <strong>권리가액 7.5억 동일, 신축 일반분양가 14억, 조합원 분양가 11.84억</strong>은 사용자가 지정한 가정치이며, 실제 감정평가·분양가는 ±20% 이상 흔들릴 수 있습니다. <strong>공공기여 1+2차 50% 구성 분산 기준 비례율 197% (84㎡ 세후 분담금 +4.91억, 59㎡ +7.19억)</strong>이며, <strong>인천시 조례 1차 10% / 2차 40~50%</strong>가 실제 협의 기준이 됩니다. 공공기여율 30~70% 범위에서 환급금 +12.82억~환급금 +1.40억까지 변동 가능 (이론상 환급금 범위). 공공기여는 노후계획도시 특별법 + 용인시/인천시 조례 + 인허가 협의에 따라 결정됩니다.</p>
  </footer>
 
  </article>
