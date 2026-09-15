@@ -46,7 +46,9 @@
       overflow-wrap: break-word;
       letter-spacing: -0.01em;
     }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 28px 96px; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 28px 96px; overflow-x: hidden; }
+  .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; }
+  .table-wrap > table { width: 100%; min-width: 100%; }
   header.meta {
     border-bottom: 1px solid var(--rule);
     padding-bottom: 24px;
