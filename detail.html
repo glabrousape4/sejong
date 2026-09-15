@@ -386,59 +386,62 @@
 </div>
 
 <div class="callout warn">
-  <span class="label">⚠ 시세 + 공공기여율 시나리오 (사용자 가정 2026.09 — 84㎡)</span>
-  <p><strong>계산식 일관:</strong> 분담금 = 권리자 분양가(11.93) − 권리가액(시가 × 비례율) − 재초환. <strong>양수(+) = 어르신이 냄 (분담금), 음수(−) = 어르신이 받음 (환급 흑자).</strong></p>
+  <span class="label">⚠ 시세 + 공공기여율 시나리오 (84㎡)</span>
+  <p><strong>계산식</strong> (84㎡ 1세대 기준): <strong>분담금 = 권리자 분양가(11.93) − 권리가액(시가 × 비례율) − 재초환</strong></p>
+  <p><strong>일관 라벨</strong>: <strong style="color:var(--warn)">+ (양수) = 1세대별 분담금 (어르신이 냄)</strong>, <strong style="color:var(--good)">− (음수) = 1세대별 환급 흑자 (어르신이 받음)</strong></p>
+
   <table style="margin: 12px 0;">
     <tr>
-      <th>시나리오 (시세 × 용적률/공공기여율)</th>
+      <th>시나리오 (시세 × 공공기여율)</th>
       <th>시가</th>
       <th>비례율</th>
       <th>권리가액</th>
-      <th>84㎡ 분담금</th>
-      <th>1세대당 결과</th>
+      <th>1세대별 분담금<br>(+ 냄 / − 받음)</th>
     </tr>
     <tr>
-      <td>현행 (PDF 127.5%, 280% 종상향)</td>
+      <td>① 비관 (현행, KB시세 7.5억, 280% 종상향 PDF)</td>
       <td>7.5억</td>
       <td>127.5%</td>
       <td>9.56억</td>
-      <td>+2.36 − 0.30 = +2.07</td>
-      <td><strong style="color:var(--warn)">+2.07억 (어르신이 냄)</strong></td>
+      <td><strong style="color:var(--warn)">+2.07</strong></td>
     </tr>
     <tr>
-      <td>시세 7.5억 + 350% 종상향 (33%)</td>
+      <td>② 시세 동일 + 용적률 350% (33%)</td>
       <td>7.5억</td>
       <td>133%</td>
       <td>9.98억</td>
-      <td>+1.95 − 0.46 = +1.49</td>
-      <td><strong style="color:var(--warn)">+1.49억 (어르신이 냄)</strong></td>
+      <td><strong style="color:var(--warn)">+1.49</strong></td>
     </tr>
     <tr>
-      <td><strong>시세 8.5억 + 350% 종상향 (35%, 사용자 가정)</strong></td>
+      <td><strong>③ 시세 8.5억 + 350% 종상향 (35%, 사용자 가정)</strong></td>
       <td><strong>8.5억</strong></td>
       <td><strong>135%</strong></td>
       <td><strong>11.48억</strong></td>
-      <td>+0.45 − 0.66 = −0.21</td>
-      <td><strong style="color:var(--good)">−0.21억 (어르신이 받음, 흑자)</strong></td>
+      <td><strong style="color:var(--good)">−0.21</strong></td>
     </tr>
     <tr>
-      <td>시세 10억 + 400% 종상향 (40%)</td>
+      <td>④ 시세 10억 + 400% 종상향 (40%, 낙관)</td>
       <td>10억</td>
       <td>140%</td>
       <td>14.00억</td>
-      <td>−2.07 − 1.17 = −3.24</td>
-      <td><strong style="color:var(--good)">−3.24억 (어르신이 받음)</strong></td>
+      <td><strong style="color:var(--good)">−3.24</strong></td>
     </tr>
     <tr>
-      <td>시세 10억 + 500% 종상향 (50%, 낙관)</td>
+      <td>⑤ 시세 10억 + 500% 종상향 (50%, 매우 낙관)</td>
       <td>10억</td>
       <td>150%</td>
       <td>15.00억</td>
-      <td>−3.07 − 1.67 = −4.74</td>
-      <td><strong style="color:var(--good)">−4.74억 (어르신이 받음)</strong></td>
+      <td><strong style="color:var(--good)">−4.74</strong></td>
     </tr>
   </table>
-  <p><strong>핵심 발견:</strong> 비례율 상승 시 어르신이 받는 돈 ↑ (음수 ↓). 사용자 가정 (시세 8.5억, 비례율 135%)은 어르신이 받음 (−0.21억, 거의 0). 시세 10억 + 500% 종상향 시 어르신이 −4.74억 받음 (큰 흑자). <strong>시세 + 가산 어느 쪽도 어르신 환급 ↑ 요인.</strong></p>
+
+  <p><strong>시나리오 ①~⑤ 순서:</strong> 비관 → 보수 → 사용자 가정 → 낙관 → 매우 낙관. <strong>비례율 ↑ 일수록 1세대별 분담금이 (−) 쪽으로 이동 (받음 ↑)</strong>:</p>
+  <ul style="margin: 8px 0;">
+    <li>① 비관 +2.07 (냄) → ② 보수 +1.49 (냄) → ③ 사용자 가정 −0.21 (받음, 거의 0) → ④ 낙관 −3.24 (받음) → ⑤ 매우 낙관 −4.74 (받음)</li>
+    <li><strong>시세 7.5억 (현재 KB)</strong>: 어르신이 냄. 분담금 1.5~2.1억 수준</li>
+    <li><strong>시세 8.5억 (재건축 기대감 반영, 사용자 가정)</strong>: 어르신이 받음. 분담금 거의 0 (−0.21억, 흑자 시작)</li>
+    <li><strong>시세 10억 (낙관)</strong>: 어르신이 받음. 분담금 −3.2~−4.7억 (큰 흑자)</li>
+  </ul>
 </div>
 
 <h2 id="sec-cmp1"><span class="section-tag">비교</span> 단독 재건축 vs 통합 재건축</h2>
