@@ -197,6 +197,52 @@
   .section-tag.gold { color: var(--gold); background: var(--gold-soft); }
 
   /* Section tab navigation */
+  /* Promo banner (카페 홍보) */
+  .promo-banner {
+    margin: 0 -28px 28px;
+    background: linear-gradient(180deg, #fff8e7 0%, #fbfaf6 100%);
+  }
+
+  .promo-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .promo-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .promo-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 20px;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+  }
+
+  .promo-cta-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.18);
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
   /* TOC (목차) — sticky collapsible index */
   .toc {
     position: sticky;
@@ -403,6 +449,8 @@
     .sub { font-size: 14px; }
   }
   @media (max-width: 560px) {
+    .promo-banner { margin: 0 -14px 24px; }
+    .promo-cta { padding: 12px 16px; font-size: 14px; }
     .toc { margin: 0 -14px 28px; }
     .toc-toggle { padding: 12px 16px; }
     .toc-label { font-size: 14px; }
@@ -541,15 +589,15 @@
 <body>
 <article class="wrap">
 
-<header class="meta">
-  <span class="tag">세종그랑시아2단지</span>
-  <span class="tag good">통합재건축</span>
-  <span class="tag gold">권리가액 7.5억 동일</span>
-  <span class="tag">신축 분양가 14억</span>
-  <span class="tag">509세대 (4개 단지)</span>
-  <span class="tag">구갈동 광역정비</span>
-  <span class="tag warn">배포용 안내문</span>
-</header>
+<div class="promo-banner">
+  <a href="https://cafe.naver.com/pink9mp4i" target="_blank" rel="noopener" class="promo-link">
+    <img src="promo.png" alt="세종그랑시아2차 재건축 준비모임 — 카카오톡 오픈채팅과 네이버 카페 참여 안내" class="promo-img" />
+    <div class="promo-cta">
+      <span class="promo-cta-arrow">→</span>
+      <span>세종그랑시아2차 재건축 모임 카페 바로 가기</span>
+    </div>
+  </a>
+</div>
 
 <nav class="toc" aria-label="목차">
   <button class="toc-toggle" type="button" aria-expanded="false" aria-controls="toc-list">
