@@ -45,8 +45,19 @@
       word-break: keep-all;
       overflow-wrap: break-word;
       letter-spacing: -0.01em;
+      overflow-x: hidden;
     }
-  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 28px 96px; overflow-x: hidden; }
+    /* html도 가로 스크롤 방지 */
+    html { overflow-x: hidden; }
+  .wrap {
+      max-width: min(720px, 100%);
+      width: 100%;
+      margin: 0 auto;
+      padding: 56px 28px 96px;
+      box-sizing: border-box;
+    }
+    /* 모바일에서 wrap은 viewport 안에 들어옴. 테이블이 더 넓으면 wrap 내부에서만 가로 스크롤 */
+    .wrap > * { max-width: 100%; box-sizing: border-box; }
   .table-wrap { width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 16px 0; }
   .table-wrap > table { width: 100%; min-width: 100%; }
   header.meta {
@@ -105,6 +116,9 @@
     border-radius: 4px;
     padding: 20px 24px;
     margin: 20px 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    max-width: 100%;
   }
   .numbox.gold { background: var(--gold-soft); border-color: #e5cf99; }
   .numbox.compare { background: #fff; padding: 0; overflow: hidden; }
@@ -449,7 +463,8 @@
   }
   footer.footnote p { margin: 6px 0; }
   @media (max-width: 720px) {
-    .wrap { padding: 40px 20px 72px; }
+    .wrap { padding: 40px 16px 72px; }
+    .wrap > * { max-width: 100%; }
     h1.title { font-size: 26px; line-height: 1.45; }
     h2 { font-size: 20px; }
     .numbox .big { font-size: 24px; }
@@ -498,6 +513,11 @@
     .section-tag { font-size: 11px; padding: 2px 8px; }
     ul.choices li { padding: 14px 16px; font-size: 14.5px; }
     footer.footnote { font-size: 12px; padding-top: 20px; }
+  }
+  @media (max-width: 480px) {
+    .wrap { padding: 28px 14px 56px; }
+    h1.title { font-size: 24px; }
+    h2 { font-size: 19px; margin: 40px 0 14px; }
   }
   @media (max-width: 380px) {
     .wrap { padding: 24px 10px 48px; }
