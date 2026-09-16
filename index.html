@@ -52,6 +52,63 @@
 
   /* Hero */
   .hero { text-align: center; margin: 32px 0 24px; }
+  .hero-hook {
+    margin: 20px auto 0;
+    max-width: 480px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .hero-hook-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, #fff8e7 0%, #fdecef 100%);
+    border: 2px solid #b8893a;
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(184, 137, 58, 0.08);
+  }
+  .hero-hook-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 50%;
+    font-weight: 700;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .hero-hook-text {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.55;
+    color: #1a1a1a;
+    font-weight: 500;
+    word-break: keep-all;
+  }
+  .hero-hook-text strong {
+    color: #b00020;
+    font-weight: 800;
+  }
+  .hero-hook-cta {
+    margin: 8px 0 0;
+    text-align: center;
+    font-size: 14px;
+    color: #8b4513;
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  @media (max-width: 480px) {
+    .hero-hook-text { font-size: 14px; }
+    .hero-hook-item { padding: 12px 14px; }
+    .hero-hook-cta { font-size: 13px; }
+  }
   .hero-title {
     font-family: 'Noto Serif KR', serif;
     font-size: 28px;
@@ -256,6 +313,17 @@
   <header class="hero" id="sec-hero">
     <h1 class="hero-title">세종그랑시아2단지 <em>통합재건축</em></h1>
     <p class="hero-sub">분담금 시나리오 · 2026.09 사용자 가정 기준</p>
+    <div class="hero-hook">
+      <div class="hero-hook-item">
+        <span class="hero-hook-num">01</span>
+        <p class="hero-hook-text"><strong>분담금 없이</strong> 오히려 환급되는 신축 15억 아파트가 생깁니다</p>
+      </div>
+      <div class="hero-hook-item">
+        <span class="hero-hook-num">02</span>
+        <p class="hero-hook-text"><strong>대단지 · 초역세권</strong> 아파트, 이것만은 꼭 들어야 합니다</p>
+      </div>
+      <p class="hero-hook-cta">이제 구갈동에서 이것이 실제로 일어납니다 →</p>
+    </div>
   </header>
 
   <div class="kpi-row" id="sec-kpi">
