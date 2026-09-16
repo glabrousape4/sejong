@@ -343,6 +343,85 @@
   .promo-cta.kakao { background: #fee500; color: #3c1e1e; }
   .promo-cta.kakao:active { background: #f5d800; }
 
+
+.compare-preview {
+  margin: 28px 0;
+  padding: 22px 18px;
+  background: linear-gradient(135deg, #fff8e7, #fffaef);
+  border: 2.5px solid #b8893a;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(184, 137, 58, 0.18);
+}
+.compare-preview-header { margin-bottom: 16px; }
+.compare-preview-title {
+  font-size: 18px;
+  font-weight: 800;
+  color: #1a1a1a;
+  margin: 0 0 6px;
+  line-height: 1.4;
+}
+.compare-preview-title .accent { color: #b00020; }
+.compare-preview-sub {
+  font-size: 13px;
+  color: #6a6a6a;
+  margin: 0;
+}
+.compare-image-wrap {
+  text-align: center;
+  margin: 14px 0;
+}
+.compare-image-wrap a { display: block; }
+.compare-image-wrap img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1.5px solid #e6e1d3;
+  display: block;
+}
+.compare-caption {
+  font-size: 11.5px;
+  color: #8a8a8a;
+  margin: 6px 0 0;
+  font-style: italic;
+}
+.compare-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+@media (min-width: 600px) {
+  .compare-stats { grid-template-columns: repeat(4, 1fr); }
+}
+.compare-stat {
+  background: #fff;
+  border: 1.5px solid #e6e1d3;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.compare-stat.stat-ours {
+  background: linear-gradient(135deg, #fff7c2, #ffeaa7);
+  border: 2.5px solid #8b4513;
+}
+.compare-stat-label {
+  font-size: 11px;
+  color: #6a6a6a;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.compare-stat-value {
+  font-size: 18px;
+  font-weight: 900;
+  color: #1a1a1a;
+  line-height: 1.2;
+}
+.compare-stat.stat-ours .compare-stat-value { color: #b00020; font-size: 20px; }
+.compare-stat-sub {
+  font-size: 10.5px;
+  color: #8a8a8a;
+  margin-top: 3px;
+}
 </style>
 </head>
 <body>
@@ -415,7 +494,45 @@
     </p>
   </div>
 
-  <div class="twocards">
+  
+<div class="compare-preview" id="sec-compare">
+  <div class="compare-preview-header">
+    <h2 class="compare-preview-title">🏆 통합재건축 경쟁 단지 대비 <span class="accent">압도적 수익성</span></h2>
+    <p class="compare-preview-sub">인근 선도지구 영통지구 5개 단지 vs 기흥역 4단지 — 추가 세대수·수익성 비교</p>
+  </div>
+  
+  <div class="compare-image-wrap">
+    <a href="https://glabrousape4.github.io/sejong/detail.html#sec-compare-table" target="_blank">
+      <img src="compare-output.png" alt="기흥역 통합재건축 vs 5개 단지 비교표 — 250~401% 증가율 1위" loading="lazy">
+    </a>
+    <p class="compare-caption">클릭하면 상세 페이지의 비교표 섹션으로 이동</p>
+  </div>
+  
+  <div class="compare-stats">
+    <div class="compare-stat stat-ours">
+      <div class="compare-stat-label">🏠 기흥역 통합재건축</div>
+      <div class="compare-stat-value">+250~401%</div>
+      <div class="compare-stat-sub">증가율 1위</div>
+    </div>
+    <div class="compare-stat">
+      <div class="compare-stat-label">기존 세대</div>
+      <div class="compare-stat-value">509</div>
+      <div class="compare-stat-sub">→ 1,782~2,550세대</div>
+    </div>
+    <div class="compare-stat">
+      <div class="compare-stat-label">세대당 대지</div>
+      <div class="compare-stat-value">33.3평</div>
+      <div class="compare-stat-sub">5단지 평균의 2배</div>
+    </div>
+    <div class="compare-stat">
+      <div class="compare-stat-label">현재 용적률</div>
+      <div class="compare-stat-value">91%</div>
+      <div class="compare-stat-sub">가장 낮음 (가장 큰 폭)</div>
+    </div>
+  </div>
+</div>
+
+<div class="twocards">
     <div class="card">
       <div class="card-title">✅ 통합시 (권장)</div>
       <div class="card-num minus">사업 안정성 극대화</div>
