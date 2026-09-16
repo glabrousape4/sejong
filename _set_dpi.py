@@ -2,6 +2,4 @@ from PIL import Image
 img = Image.open(r"C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png")
 img.save(r"C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png", dpi=(300, 300), optimize=True)
 print("Size:", img.size)
-print("DPI:", Image.open(r"C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png").info.get('dpi'))
-import os
-print("Bytes:", os.path.getsize(r"C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png"))
+print("Bytes:", __import__('os').path.getsize(r"C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png"))
