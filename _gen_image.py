@@ -5,7 +5,7 @@ async def main():
     async with async_playwright() as p:
         browser = await p.chromium.launch()
         page = await browser.new_page(
-            viewport={"width": 1800, "height": 200},
+            viewport={"width": 2000, "height": 200},
             device_scale_factor=3
         )
         url = "file://C:/Users/glabr/.cloudflared/sites/sejong/compare-image.html"

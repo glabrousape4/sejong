@@ -18,7 +18,7 @@
     border-radius: 12px;
     padding: 20px 14px;
     border: 1px solid #d4d4d4;
-    width: 1480px;
+    width: 1700px;
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   }
   /* === BIG TITLE === */
@@ -62,10 +62,10 @@
     border-right: 2px solid #b8893a;
   }
   .h-name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
-    margin-bottom: 6px;
-    line-height: 1.25;
+    margin-bottom: 5px;
+    line-height: 1.2;
   }
   .h-sub {
     font-size: 11.5px;
@@ -128,24 +128,28 @@
   .compare-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 14px;
+    font-size: 13px;
+    table-layout: auto;
     line-height: 1.5;
     margin-top: 0;
   }
   .compare-table th, .compare-table td {
-    padding: 12px 10px;
+    padding: 11px 8px;
     border: 1px solid #d4d4d4;
     vertical-align: middle;
     text-align: center;
+    word-break: keep-all;
+    overflow-wrap: break-word;
   }
   .compare-table thead th { font-weight: 800; font-size: 14px; }
   .compare-table .row-label {
     background: #fafafa;
     font-weight: 700;
     text-align: left;
-    width: 110px;
-    font-size: 13px;
-    padding: 12px 14px;
+    width: 140px;
+    font-size: 12.5px;
+    padding: 11px 12px;
+    word-break: keep-all;
     color: #4a4a4a;
   }
   /* Column data colors (matching header) */
@@ -155,7 +159,7 @@
     font-weight: 900;
     border-left: 3px solid #8b4513;
     border-right: 3px solid #8b4513;
-    font-size: 15px;
+    font-size: 13.5px;
   }
   .compare-table .col-data-ours.highlight {
     color: #b00020;
@@ -168,7 +172,7 @@
   .compare-table .col-data-84 { background: #f5edff; color: #5e2a8c; font-weight: 800; }
   .compare-table .col-data-59 { background: #edf8fb; color: #1a5e7a; font-weight: 800; }
   .compare-table .col-data-ours .num, .compare-table .col-data-ours .pct { color: #b00020; font-size: 17px; }
-  .compare-table .small { font-size: 11.5px; color: #4a4a4a; font-weight: 500; }
+  .compare-table .small { font-size: 10.5px; color: #4a4a4a; font-weight: 500; }
   .compare-footnote {
     font-size: 12px;
     color: #1a1a1a;
@@ -195,7 +199,7 @@
   <!-- Data table -->
   <table class="compare-table">
     <colgroup>
-      <col style="width: 110px;">
+      <col style="width: 140px;">
       <col>
       <col>
       <col>
