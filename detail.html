@@ -348,6 +348,94 @@
     td { font-size: 11.5px; padding: 6px 5px; line-height: 1.4; }
   }
 
+
+  /* Q&A accordion */
+  .qa-intro { font-size: 14px; color: #444; line-height: 1.65; margin: 0 0 16px; padding: 0 4px; }
+  .qa-item {
+    background: #fff;
+    border: 1px solid #e6e1d3;
+    border-radius: 8px;
+    margin: 0 0 10px;
+    overflow: hidden;
+  }
+  .qa-item.open { border-color: #8b4513; box-shadow: 0 2px 8px rgba(139, 69, 19, 0.08); }
+  .qa-q {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+  .qa-q:active { background: #f4ece0; }
+  .qa-q-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background: #8b4513;
+    color: #fff;
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .qa-q-text {
+    flex: 1;
+    font-size: 14.5px;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.5;
+  }
+  .qa-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    color: #8b4513;
+    font-size: 20px;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+  .qa-item.open .qa-toggle { transform: rotate(180deg); }
+  .qa-a {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  .qa-item.open .qa-a {
+    max-height: 2000px;
+    transition: max-height 0.5s ease-in;
+  }
+  .qa-a > div {
+    padding: 0 18px 18px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+  }
+  .qa-a p { margin: 8px 0 0; }
+  .qa-a ul { margin: 8px 0; padding-left: 22px; }
+  .qa-a ul li { margin: 4px 0; }
+  .qa-summary {
+    margin: 14px 0 0;
+    padding: 12px 14px;
+    background: #fff8e7;
+    border-left: 3px solid #b8893a;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+  .qa-summary b { color: #8b4513; }
+  @media (max-width: 480px) {
+    .qa-q { padding: 12px 14px; gap: 8px; }
+    .qa-q-text { font-size: 13.5px; }
+    .qa-q-num { width: 22px; height: 22px; font-size: 12px; }
+    .qa-a > div { padding: 0 14px 14px; font-size: 13px; }
+  }
+
 </style>
 
 </head>
@@ -981,7 +1069,7 @@
 
 <p class="qa-intro">네이버 카페 등에서 "재건축이 30년 되고 우리끼리 지으면 기부 없이 된다"는 오해가 돌아다닙니다. <strong>도시 및 주거환경정비법(도정법)</strong>과 <strong>노후계획도시 특별법</strong>의 정확한 차이, 그리고 왜 지금 통합재건축이 정석인지를 Q&A로 정리했습니다.</p>
 
-<div class="qa-item">
+<div class="qa-item open">
   <div class="qa-q">
     <span class="qa-q-num">1</span>
     <span class="qa-q-text">이번 사업이 일반 재개발이나 도시개발사업 아닌, 주민 조합 주체의 '정통 재건축'이라는 게 맞나요?</span>
