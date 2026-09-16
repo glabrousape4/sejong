@@ -144,8 +144,61 @@
   .kpi.green .kpi-value { color: #2c6e3a; }
   .kpi-sub { font-size: 10.5px; color: #6a6a6a; margin-top: 4px; }
 
-  /* 큰 표 — 1세대별 분담금 */
-  .main-table {
+  /* 기대감 박스 — 홍보용 */
+  .expectation-box {
+    background: linear-gradient(135deg, #fff8e7 0%, #fbf2dd 100%);
+    border: 2px solid #b8893a;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px 0;
+    box-shadow: 0 4px 12px rgba(184, 137, 58, 0.12);
+  }
+  .expectation-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #8b4513;
+    text-align: center;
+    margin: 0 0 14px;
+  }
+  .expectation-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 16px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .expectation-list li {
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-left: 3px solid #8b4513;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: #1a1a1a;
+    word-break: keep-all;
+  }
+  .expectation-list li strong {
+    color: #b00020;
+    font-weight: 800;
+  }
+  .expectation-cta {
+    margin: 0;
+    text-align: center;
+    font-size: 14.5px;
+    color: #8b4513;
+    font-weight: 700;
+    line-height: 1.5;
+    word-break: keep-all;
+  }
+  @media (max-width: 480px) {
+    .expectation-list { grid-template-columns: 1fr; }
+    .expectation-box { padding: 16px; }
+    .expectation-title { font-size: 15px; }
+  }
+  /* (구 main-table 제거됨) */
+
     background: #fff;
     border: 1.5px solid #d4a574;
     border-radius: 10px;
@@ -349,69 +402,29 @@
     </div>
   </div>
 
-  <div class="main-table" id="sec-table">
-    <h3 class="main-table-title">📊 84㎡ 1세대별 분담금 시나리오 (PDF + 사용자 가정)</h3>
-    <table>
-      <tr>
-        <th>시나리오</th>
-        <th>비례율</th>
-        <th>권리가액</th>
-        <th>분담금</th>
-      </tr>
-      <tr>
-        <td><span class="scenario-tag">비관</span>시세 7.5억 + PDF 280%</td>
-        <td>127.5%</td>
-        <td>9.56억</td>
-        <td class="plus">+2.07억 (냄)</td>
-      </tr>
-      <tr>
-        <td><span class="scenario-tag">보수</span>시세 7.5억 + 350% 종상향</td>
-        <td>133%</td>
-        <td>9.98억</td>
-        <td class="plus">+1.49억 (냄)</td>
-      </tr>
-      <tr style="background: #fff7c2;">
-        <td><span class="scenario-tag user">사용자가정</span>시세 8.5억 + 350%</td>
-        <td><strong>135%</strong></td>
-        <td><strong>11.48억</strong></td>
-        <td class="minus">−0.21억 (받음)</td>
-      </tr>
-      <tr>
-        <td><span class="scenario-tag">낙관</span>시세 10억 + 400%</td>
-        <td>140%</td>
-        <td>14.00억</td>
-        <td class="minus">−3.24억 (받음)</td>
-      </tr>
-      <tr>
-        <td><span class="scenario-tag">매우낙관</span>시세 10억 + 500%</td>
-        <td>150%</td>
-        <td>15.00억</td>
-        <td class="minus">−4.74억 (받음)</td>
-      </tr>
-    </table>
-    <p style="margin-top: 12px; font-size: 12px; color: #6a6a6a; text-align: center;">
-      <strong>일관 라벨</strong>: + = 분담금 (냄), − = 환급 (받음). <strong>계산식</strong>: 분담금 = 권리자 분양가(11.93) − 종가 × 비례율 − 재초환
+  <div class="expectation-box" id="sec-expect">
+    <h3 class="expectation-title">📊 이 자료가 보여주는 것</h3>
+    <ul class="expectation-list">
+      <li><strong>용적률 350~500%</strong> 종상향 가능</li>
+      <li><strong>권리자 분양가 84㎡ 11.9억</strong> (성남시 분당 목련빌라 사례 PDF)</li>
+      <li><strong>KB시세 7.5~10억</strong> + 비례율 127.5~180%</li>
+      <li><strong>1군 시공사</strong> 수주전, 사업 4~5년 단축</li>
+    </ul>
+    <p class="expectation-cta">
+      위 요건을 갖춘 4개 단지 509세대가 지금 구갈동에 모이고 있습니다 →
     </p>
-  </div>
-
-  <div class="key-insight" id="sec-insight">
-    <div class="key-insight-num">−0.21억</div>
-    <div class="key-insight-label">
-      사용자 가정 시 · 1세대별 분담금 (84㎡ 기준, 받음)<br>
-      <span style="font-size: 11px;">재건축 기대감 시세 8.5억 × 135% 비례율</span>
-    </div>
   </div>
 
   <div class="twocards">
     <div class="card">
-      <div class="card-title">✅ 통합 시 (사업 안정성)</div>
-      <div class="card-num minus">−1.39억</div>
-      <div class="card-desc">PDF 그대로, 84㎡ 1세대별 분담금. 받음.</div>
+      <div class="card-title">✅ 통합시 (권장)</div>
+      <div class="card-num minus">사업 안정성 극대화</div>
+      <div class="card-desc">분담금 거의 없음 · 1군 수주전 · 4~5년 사업단축</div>
     </div>
     <div class="card bad">
-      <div class="card-title">⚠ 단독 시 (도정법 1단계 10%)</div>
-      <div class="card-num plus">+0.91억</div>
-      <div class="card-desc">단독 84㎡, 분담금. 사업 안정성·1군 외면·금융비 누계로 실질 5~8억 차이.</div>
+      <div class="card-title">⚠ 단독시 (30년 대기)</div>
+      <div class="card-num plus">사업 안정성 0</div>
+      <div class="card-desc">사업 8년+ · 1군 외면 · 금융비 누계 · 평당 단가 ↑</div>
     </div>
   </div>
 
