@@ -221,13 +221,89 @@
     .hero-title { font-size: 20px; }
     .kpi-value { font-size: 18px; }
   }
+
+  /* Section navigation (sticky top, 6 sections) */
+  .main-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251, 250, 246, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e6e1d3;
+    margin: 0 -12px 16px;
+    padding: 8px 12px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .main-nav-inner {
+    display: flex;
+    gap: 6px;
+    white-space: nowrap;
+    justify-content: center;
+  }
+  .main-nav-link {
+    display: inline-block;
+    padding: 6px 12px;
+    background: #fff;
+    border: 1px solid #e6e1d3;
+    color: #8b4513;
+    text-decoration: none;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 13px;
+    -webkit-tap-highlight-color: transparent;
+    white-space: nowrap;
+  }
+  .main-nav-link:active { background: #8b4513; color: #fff; }
+  @media (max-width: 480px) {
+    .main-nav-link { padding: 5px 10px; font-size: 12px; }
+  }
+
+  /* Floating "↑ 상단으로" button */
+  .floating-top {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    color: #fff;
+    border: 0;
+    border-radius: 50%;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(139, 69, 19, 0.3);
+    z-index: 90;
+    -webkit-tap-highlight-color: transparent;
+    opacity: 0.85;
+    transition: opacity 0.2s, transform 0.15s;
+    display: none;
+  }
+  .floating-top:active { transform: scale(0.92); opacity: 1; }
+  .floating-top.visible { display: block; }
+
 </style>
 </head>
 <body>
 
 <article class="wrap">
+  <nav class="main-nav" aria-label="메인 내비게이션">
+    <div class="main-nav-inner">
+      <a href="#sec-promo" class="main-nav-link">☕ 카페</a>
+      <a href="#sec-hero" class="main-nav-link">🏠 핵심</a>
+      <a href="#sec-kpi" class="main-nav-link">📊 4단지</a>
+      <a href="#sec-table" class="main-nav-link">📈 시나리오</a>
+      <a href="#sec-insight" class="main-nav-link">💡 핵심</a>
+      <a href="#sec-cta" class="main-nav-link">📄 상세</a>
+    </div>
+  </nav>
 
-  <div class="promo-banner">
+  <button class="floating-top" type="button" aria-label="상단으로">↑</button>
+
+
+  <div class="promo-banner" id="sec-promo">
     <a href="https://cafe.naver.com/pink9mp4i" target="_blank" rel="noopener" class="promo-link">
       <img src="promo.png" alt="세종그랑시아2차 재건축 준비모임 카페" class="promo-img">
       <div class="promo-cta">
@@ -237,12 +313,12 @@
     </a>
   </div>
 
-  <header class="hero">
+  <header class="hero" id="sec-hero">
     <h1 class="hero-title">세종그랑시아2단지 <em>통합재건축</em></h1>
     <p class="hero-sub">분담금 시나리오 · 2026.09 사용자 가정 기준</p>
   </header>
 
-  <div class="kpi-row">
+  <div class="kpi-row" id="sec-kpi">
     <div class="kpi">
       <div class="kpi-label">4개 단지</div>
       <div class="kpi-value">509</div>
@@ -265,7 +341,7 @@
     </div>
   </div>
 
-  <div class="main-table">
+  <div class="main-table" id="sec-table">
     <h3 class="main-table-title">📊 84㎡ 1세대별 분담금 시나리오 (PDF + 사용자 가정)</h3>
     <table>
       <tr>
@@ -310,7 +386,7 @@
     </p>
   </div>
 
-  <div class="key-insight">
+  <div class="key-insight" id="sec-insight">
     <div class="key-insight-num">−0.21억</div>
     <div class="key-insight-label">
       사용자 가정 시 · 1세대별 분담금 (84㎡ 기준, 받음)<br>
@@ -331,7 +407,7 @@
     </div>
   </div>
 
-  <a href="detail.html" class="cta">
+  <a href="detail.html" class="cta" id="sec-cta">
     📄 상세분석 보기 (15개 섹션)
   </a>
 
@@ -342,6 +418,46 @@
   </p>
 
 </article>
+
+
+<script>
+(function() {
+  // Floating top button
+  var topBtn = document.querySelector('.floating-top');
+  if (topBtn) {
+    topBtn.addEventListener('click', function() {
+      window.scrollTo({top:0, behavior:'smooth'});
+    });
+    var visible = false;
+    window.addEventListener('scroll', function() {
+      var shouldShow = window.pageYOffset > 200;
+      if (shouldShow !== visible) {
+        if (shouldShow) topBtn.classList.add('visible');
+        else topBtn.classList.remove('visible');
+        visible = shouldShow;
+      }
+    });
+  }
+  
+  // Smooth scroll for nav links
+  document.querySelectorAll('.main-nav-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href');
+      if (href && href.startsWith('#')) {
+        var target = document.getElementById(href.substring(1));
+        if (target) {
+          e.preventDefault();
+          var rect = target.getBoundingClientRect();
+          window.scrollTo({
+            top: window.pageYOffset + rect.top - 50,
+            behavior: 'smooth'
+          });
+        }
+      }
+    });
+  });
+})();
+</script>
 
 </body>
 </html>
