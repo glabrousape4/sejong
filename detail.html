@@ -1260,52 +1260,56 @@
     });
   });
 
-  // TOC toggle (목차 펼침/접힘) + smooth scroll + active highlight
+    // Sticky TOC nav (active highlight + auto-scroll active link into view)
   (function() {
-    var toc = document.querySelector('.toc');
-    if (!toc) return;
-    var toggle = toc.querySelector('.toc-toggle');
-    var links = Array.from(toc.querySelectorAll('.toc-link'));
-    var currentEl = toc.querySelector('.toc-current');
+    var tocBar = document.querySelector('.toc-bar');
+    if (!tocBar) return;
+    var links = Array.from(tocBar.querySelectorAll('.toc-link'));
     var sections = links.map(function(a) {
-      var id = a.getAttribute('href').replace('#', '');
+      var id = a.getAttribute('data-target') || (a.getAttribute('href') || '').replace('#', '');
       return { link: a, target: document.getElementById(id) };
     }).filter(function(x) { return x.target; });
 
     function setActive(idx) {
       sections.forEach(function(s, i) {
-        s.link.classList.toggle('active', i === idx);
+        var on = i === idx;
+        s.link.classList.toggle('active', on);
+        if (on) {
+          // Auto-scroll horizontally so the active link stays visible
+          try {
+            s.link.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          } catch (e) {
+            // fallback for older browsers
+            var parent = s.link.parentElement;
+            if (parent && parent.scrollWidth > parent.clientWidth) {
+              parent.scrollLeft = s.link.offsetLeft - (parent.clientWidth / 2) + (s.link.clientWidth / 2);
+            }
+          }
+        }
       });
-      var label = sections[idx] && sections[idx].link.textContent.trim();
-      if (currentEl && label) currentEl.textContent = '현재: ' + label;
     }
 
-    toggle.addEventListener('click', function(e) {
-      e.preventDefault();
-      var open = toc.classList.toggle('open');
-      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-    });
-
+    // Click → smooth scroll + immediate highlight
     links.forEach(function(link, i) {
       link.addEventListener('click', function(e) {
         e.preventDefault();
-        var target = sections[i].target;
+        var target = sections[i] && sections[i].target;
         if (!target) return;
-        var top = target.getBoundingClientRect().top + window.scrollY - 20;
+        var rect = target.getBoundingClientRect();
+        var top = window.pageYOffset + rect.top - 60;
         window.scrollTo({ top: top, behavior: 'smooth' });
         setActive(i);
-        toc.classList.remove('open');
-        toggle.setAttribute('aria-expanded', 'false');
         history.replaceState(null, '', '#' + target.id);
       });
     });
 
+    // Scroll-spy
     var ticking = false;
     function onScroll() {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(function() {
-        var scrollY = window.scrollY + 140;
+        var scrollY = window.pageYOffset + 70;
         var current = 0;
         for (var i = 0; i < sections.length; i++) {
           if (sections[i].target.offsetTop <= scrollY) current = i;
@@ -1316,13 +1320,8 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-
-    var hash = window.location.hash;
-    if (hash) {
-      var idx = sections.findIndex(function(s) { return s.target && ('#' + s.target.id) === hash; });
-      if (idx >= 0) setActive(idx);
-    }
   })();
+
 </script>
 
 <script>
