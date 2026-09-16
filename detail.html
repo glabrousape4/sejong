@@ -357,6 +357,40 @@
     -webkit-tap-highlight-color: transparent;
   }
   .toc-link:hover { color: #8b4513; }
+  .toc-category {
+    list-style: none;
+    padding: 8px 0 4px;
+    margin-top: 6px;
+  }
+  .toc-category:first-child { padding-top: 0; margin-top: 0; }
+  .toc-cat-label {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    padding: 3px 10px;
+    border-radius: 999px;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+  }
+  .toc-cat-1 .toc-cat-label { background: linear-gradient(135deg, #8b4513, #a0522d); }
+  .toc-cat-2 .toc-cat-label { background: linear-gradient(135deg, #b00020, #d63333); }
+  .toc-cat-3 .toc-cat-label { background: linear-gradient(135deg, #2c6e3a, #4a8b5c); }
+  .toc-cat-4 .toc-cat-label { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+  .toc-cat-5 .toc-cat-label { background: linear-gradient(135deg, #b8893a, #d4a574); }
+  .toc-cat-6 .toc-cat-label { background: linear-gradient(135deg, #6b21a8, #9333ea); }
+  .toc-sub { padding-left: 14px !important; position: relative; font-size: 12.5px; }
+  .toc-sub::before {
+    content: '';
+    position: absolute;
+    left: 4px; top: 50%;
+    transform: translateY(-50%);
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.3;
+  }
   .toc-link.active { color: #fff; background: #8b4513; }
   @media (max-width: 480px) {
     .toc-bar { font-size: 11.5px; padding: 5px 6px; gap: 6px; }
@@ -568,23 +602,34 @@
       <a href="index.html" class="back-to-main" aria-label="메인으로">← 메인으로</a>
     </div>
     <ol class="toc-list" id="toc-list">
-    <li><a class="toc-link" href="#sec-bg" data-target="sec-bg">01 배경</a></li>
-    <li><a class="toc-link" href="#sec-key" data-target="sec-key">02 권리가액</a></li>
-    <li><a class="toc-link" href="#sec-explanation" data-target="sec-explanation">02.5 모형 일관성</a></li>
-    <li><a class="toc-link" href="#sec-cmp1" data-target="sec-cmp1">03 단독 vs 통합</a></li>
-    <li><a class="toc-link" href="#sec-sim" data-target="sec-sim">04 수지 시뮬</a></li>
-    <li><a class="toc-link" href="#sec-cmp2" data-target="sec-cmp2">05 세종2 유리</a></li>
-    <li><a class="toc-link" href="#sec-now" data-target="sec-now">06 단지 수치</a></li>
-    <li><a class="toc-link" href="#sec-type" data-target="sec-type">07 59 vs 84㎡</a></li>
-    <li><a class="toc-link" href="#sec-opt1" data-target="sec-opt1">08 연금</a></li>
-    <li><a class="toc-link" href="#sec-opt2" data-target="sec-opt2">09 월세</a></li>
-    <li><a class="toc-link" href="#sec-opt3" data-target="sec-opt3">10 갈아타기</a></li>
-    <li><a class="toc-link" href="#sec-risk" data-target="sec-risk">11 리스크</a></li>
-    <li><a class="toc-link" href="#sec-check" data-target="sec-check">12 체크리스트</a></li>
-    <li><a class="toc-link" href="#sec-speed" data-target="sec-speed">13 사업속도</a></li>
-    <li><a class="toc-link" href="#sec-qa" data-target="sec-qa">14 Q&A</a></li>
-    <li><a class="toc-link" href="#sec-dandok-biryul" data-target="sec-dandok-biryul">도정법 비례율</a></li>
-  </ol>
+      <li class="toc-category toc-cat-1"><span class="toc-cat-label">Ⅰ. 사업 개요</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-bg" data-target="sec-bg">01 배경</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-key" data-target="sec-key">02 권리가액</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-explanation" data-target="sec-explanation">02.5 모형 일관성</a></li>
+
+      <li class="toc-category toc-cat-2"><span class="toc-cat-label">Ⅱ. 단독 vs 통합 비교</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-cmp1" data-target="sec-cmp1">03 단독 vs 통합</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-sim" data-target="sec-sim">04 수지 시뮬</a></li>
+
+      <li class="toc-category toc-cat-3"><span class="toc-cat-label">Ⅲ. 단지 현재/미래</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-cmp2" data-target="sec-cmp2">05 세종2 유리</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-now" data-target="sec-now">06 단지 수치</a></li>
+
+      <li class="toc-category toc-cat-4"><span class="toc-cat-label">Ⅳ. 1세대별 옵션</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-type" data-target="sec-type">07 59 vs 84㎡</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-opt1" data-target="sec-opt1">08 연금</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-opt2" data-target="sec-opt2">09 월세</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-opt3" data-target="sec-opt3">10 갈아타기</a></li>
+
+      <li class="toc-category toc-cat-5"><span class="toc-cat-label">Ⅴ. 위험·법률·결정</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-risk" data-target="sec-risk">11 리스크</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-check" data-target="sec-check">12 체크리스트</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-speed" data-target="sec-speed">13 사업속도</a></li>
+      <li><a class="toc-link toc-sub" href="#sec-dandok-biryul" data-target="sec-dandok-biryul">13.5 도정법 비례율</a></li>
+
+      <li class="toc-category toc-cat-6"><span class="toc-cat-label">Ⅵ. 자주 묻는 질문</span></li>
+      <li><a class="toc-link toc-sub" href="#sec-qa" data-target="sec-qa">14 Q&amp;A</a></li>
+    </ol>
 </nav>
 <h2 id="sec-bg"><span class="section-tag">배경</span> 구갈동은 노후계획도시 특별법의 적용 대상이다</h2>
 
