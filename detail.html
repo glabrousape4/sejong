@@ -436,11 +436,40 @@
     .qa-a > div { padding: 0 14px 14px; font-size: 13px; }
   }
 
+
+  /* "← 메인으로" 버튼 (sticky top-left) */
+  .back-to-main {
+    position: fixed;
+    top: 70px;
+    left: 16px;
+    z-index: 90;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 14px;
+    background: #fff;
+    color: #8b4513;
+    border: 1.5px solid #8b4513;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.15s;
+  }
+  .back-to-main:active { background: #8b4513; color: #fff; transform: scale(0.96); }
+  @media (max-width: 480px) {
+    .back-to-main { top: 56px; left: 12px; padding: 7px 12px; font-size: 12px; }
+  }
+
 </style>
 
 </head>
 <body>
 <article class="wrap">
+  <a href="index.html" class="back-to-main" aria-label="메인으로">← 메인으로</a>
+
 
 
 <nav class="toc-bar" aria-label="섹션 목록">

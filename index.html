@@ -360,25 +360,7 @@
     });
   }
   
-  // Smooth scroll for nav links
-  document.querySelectorAll('.main-nav-link').forEach(function(link) {
-    link.addEventListener('click', function(e) {
-      var href = link.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        var target = document.getElementById(href.substring(1));
-        if (target) {
-          e.preventDefault();
-          var rect = target.getBoundingClientRect();
-          window.scrollTo({
-            top: window.pageYOffset + rect.top - 50,
-            behavior: 'smooth'
-          });
-        }
-      }
-    });
-  });
-})();
-</script>
+  </script>
 
 </body>
 </html>
