@@ -293,7 +293,7 @@
     .wrap { padding: 28px 8px 48px; }
   }
 
-  /* Always-visible TOC (sticky at top) */
+  /* Sticky top bar with [← 메인으로] + section nav */
   .toc-bar {
     position: sticky;
     top: 0;
@@ -303,11 +303,37 @@
     backdrop-filter: blur(10px);
     border-bottom: 1px solid #e6e1d3;
     margin: 0 -12px 20px;
-    padding: 8px 12px;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    padding: 6px 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    overflow: hidden;
     font-size: 12.5px;
   }
+  .toc-bar-left {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+  }
+  /* "← 메인으로" link inside TOC-bar */
+  .back-to-main {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 12px;
+    background: #fff;
+    color: #8b4513;
+    border: 1.5px solid #8b4513;
+    border-radius: 999px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    -webkit-tap-highlight-color: transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .back-to-main:active { background: #8b4513; color: #fff; transform: scale(0.96); }
   .toc-list {
     display: flex;
     gap: 6px;
@@ -315,6 +341,10 @@
     margin: 0;
     padding: 0;
     white-space: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    flex: 1;
+    min-width: 0;
   }
   .toc-list li { margin: 0; padding: 0; flex-shrink: 0; }
   .toc-link {
@@ -329,7 +359,8 @@
   .toc-link:hover { color: #8b4513; }
   .toc-link.active { color: #fff; background: #8b4513; }
   @media (max-width: 480px) {
-    .toc-bar { font-size: 11.5px; padding: 6px 10px; }
+    .toc-bar { font-size: 11.5px; padding: 5px 6px; gap: 6px; }
+    .back-to-main { padding: 5px 9px; font-size: 12px; }
     .toc-link { padding: 5px 8px; }
   }
 
@@ -468,12 +499,11 @@
 </head>
 <body>
 <article class="wrap">
-  <a href="index.html" class="back-to-main" aria-label="메인으로">← 메인으로</a>
-
-
-
 <nav class="toc-bar" aria-label="섹션 목록">
-  <ol class="toc-list" id="toc-list">
+  <div class="toc-bar-left">
+      <a href="index.html" class="back-to-main" aria-label="메인으로">← 메인으로</a>
+    </div>
+    <ol class="toc-list" id="toc-list">
     <li><a class="toc-link" href="#sec-bg" data-target="sec-bg">01 배경</a></li>
     <li><a class="toc-link" href="#sec-key" data-target="sec-key">02 권리가액</a></li>
     <li><a class="toc-link" href="#sec-explanation" data-target="sec-explanation">02.5 모형 일관성</a></li>
