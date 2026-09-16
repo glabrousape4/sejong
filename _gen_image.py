@@ -10,7 +10,7 @@ async def main():
         )
         url = "file://C:/Users/glabr/.cloudflared/sites/sejong/compare-image.html"
         await page.goto(url, wait_until="networkidle")
-        await page.wait_for_timeout(1000)
+        await page.wait_for_timeout(1500)
         wrap = page.locator('.compare-table-wrap')
         out = "C:/Users/glabr/.cloudflared/sites/sejong/compare-output.png"
         await wrap.screenshot(path=out)

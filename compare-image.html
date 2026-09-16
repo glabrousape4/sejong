@@ -94,6 +94,63 @@
     padding: 8px 10px !important;
     border-top: 0;
   }
+
+  .compare-table .col-data-hwangkol {
+    background: linear-gradient(135deg, #ede0ff, #d8c8f8);
+    color: #1a1a1a;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px 6px;
+  }
+  .hwangkol-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 6px;
+    padding-top: 6px;
+    border-top: 1px solid rgba(94, 42, 140, 0.3);
+  }
+  .hwangkol-84, .hwangkol-59 {
+    padding: 4px 6px;
+    border-radius: 4px;
+  }
+  .hwangkol-84 {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #d8c8f8;
+  }
+  .hwangkol-59 {
+    background: rgba(176, 216, 232, 0.3);
+    border: 1px solid #b0d8e8;
+  }
+  .hw-label {
+    font-size: 11.5px;
+    font-weight: 900;
+    color: #5e2a8c;
+    margin-bottom: 2px;
+  }
+  .hwangkol-59 .hw-label { color: #1a5e7a; }
+  .hw-detail {
+    font-size: 10px;
+    color: #4a4a4a;
+    margin-bottom: 3px;
+    line-height: 1.3;
+  }
+  .hw-meta {
+    font-size: 12px;
+    font-weight: 800;
+  }
+  .td-59-sep {
+    height: 4px;
+    margin: 2px 0;
+  }
+  .sub-84, .sub-59 {
+    font-size: 10.5px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+  .sub-84 { color: #5e2a8c; margin-bottom: 2px; }
+  .sub-59 { color: #1a5e7a; }
+
   /* === COMPLEX COLORS (matching attachment) === */
   .header-cell.col-ours {
     background: linear-gradient(135deg, #fff7c2, #ffe89c);
@@ -206,7 +263,6 @@
       <col>
       <col>
       <col>
-      <col>
     </colgroup>
     <thead>
       <tr>
@@ -241,17 +297,21 @@
           <div class="h-meta">기존 <strong>1,860세대</strong></div>
           <div class="h-meta-sub">→ 3,774세대</div>
         </th>
-        <th class="col-data-84">
+        <th class="col-data-hwangkol">
           <div class="h-name">황골주공 1단지</div>
-          <div class="h-sub">신축 전용 84㎡ 가정<br>(세대당 110㎡)</div>
-          <div class="h-meta">기존 <strong>3,129세대</strong></div>
-          <div class="h-meta-sub">평형 확대 시나리오</div>
-        </th>
-        <th class="col-data-59">
-          <div class="h-name">황골주공 1단지</div>
-          <div class="h-sub">신축 전용 59㎡ 옵션<br>(세대당 80㎡ 가정)</div>
-          <div class="h-meta">기존 <strong>3,129세대</strong></div>
-          <div class="h-meta-sub">소형 중심 시나리오</div>
+          <div class="h-sub">두 가지 평형 가정</div>
+          <div class="hwangkol-stack">
+            <div class="hwangkol-84">
+              <div class="hw-label">84㎡ 안</div>
+              <div class="hw-detail">신축 전용 84㎡ (세대당 110㎡)</div>
+              <div class="hw-meta">기존 <strong>3,129세대</strong></div>
+            </div>
+            <div class="hwangkol-59">
+              <div class="hw-label">59㎡ 안</div>
+              <div class="hw-detail">신축 전용 59㎡ (세대당 80㎡ 가정)</div>
+              <div class="hw-meta">기존 <strong>3,129세대</strong></div>
+            </div>
+          </div>
         </th>
       </tr>
       <tr>
@@ -260,24 +320,26 @@
         <th class="col-data-4 col-subheader">3,657세대</th>
         <th class="col-data-6 col-subheader">3,146세대</th>
         <th class="col-data-7 col-subheader">3,774세대</th>
-        <th class="col-data-84 col-subheader">3,402~3,487세대</th>
-        <th class="col-data-59 col-subheader">4,677~4,794세대</th>
+        <th class="col-data-hwangkol col-subheader">
+          <div class="sub-84">84㎡안: 3,402~3,487세대</div>
+          <div class="sub-59">59㎡안: 4,677~4,794세대</div>
+        </th>
       </tr>
     </thead>
     <tbody>
-      <tr><th class="row-label">기존 세대수</th><td class="col-data-ours"><span class="num">509</span></td><td class="col-data-3">2,226 세대</td><td class="col-data-4">2,162 세대</td><td class="col-data-6">1,820 세대</td><td class="col-data-7">1,860 세대</td><td class="col-data-84">3,129 세대</td><td class="col-data-59">3,129 세대</td></tr>
-      <tr><th class="row-label">대지면적</th><td class="col-data-ours">56,100㎡ <span class="small">(약 16,950평)</span></td><td class="col-data-3">119,934㎡ <span class="small">(약 36,281평)</span></td><td class="col-data-4">114,946㎡ <span class="small">(약 34,772평)</span></td><td class="col-data-6">98,871㎡ <span class="small">(약 29,919평)</span></td><td class="col-data-7">118,625㎡ <span class="small">(약 35,879평)</span></td><td class="col-data-84">106,906~109,588㎡ <span class="small">*</span></td><td class="col-data-59">106,906~109,588㎡ <span class="small">*</span></td></tr>
-      <tr><th class="row-label">세대당 평균 대지</th><td class="col-data-ours"><span class="num">~33.3평</span></td><td class="col-data-3">16.3평</td><td class="col-data-4">16.1평</td><td class="col-data-6">16.4평</td><td class="col-data-7">19.3평</td><td class="col-data-84">10.3~10.6평 <span class="small">*</span></td><td class="col-data-59">10.3~10.6평 <span class="small">*</span></td></tr>
-      <tr><th class="row-label">현재 용적률</th><td class="col-data-ours"><span class="num">~91%</span></td><td class="col-data-3">218.8%</td><td class="col-data-4">219.4%</td><td class="col-data-6">219.4%</td><td class="col-data-7">219.7%</td><td class="col-data-84">약 215~216%</td><td class="col-data-59">약 215~216%</td></tr>
-      <tr><th class="row-label">용적률 가정</th><td class="col-data-ours"><span class="num">350~500%</span></td><td class="col-data-3">350%</td><td class="col-data-4">350%</td><td class="col-data-6">350%</td><td class="col-data-7">350%</td><td class="col-data-84">350%</td><td class="col-data-59">350%</td></tr>
-      <tr><th class="row-label">단순 가용 연면적</th><td class="col-data-ours">196,000~280,500㎡</td><td class="col-data-3">419,768㎡</td><td class="col-data-4">402,311㎡</td><td class="col-data-6">346,049㎡</td><td class="col-data-7">415,188㎡</td><td class="col-data-84">374,171~383,558㎡</td><td class="col-data-59">374,171~383,558㎡</td></tr>
-      <tr><th class="row-label">세대당 면적 가정</th><td class="col-data-ours">110㎡ <span class="small">(전용 84㎡)</span></td><td class="col-data-3">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-4">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-6">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-7">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-84">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-59">80㎡ <span class="small">(전용 59㎡ 증식)</span></td></tr>
-      <tr><th class="row-label">예상 총 세대수</th><td class="col-data-ours"><span class="num">약 1,782~2,550세대</span></td><td class="col-data-3">약 3,816세대</td><td class="col-data-4">약 3,657세대</td><td class="col-data-6">약 3,146세대</td><td class="col-data-7">약 3,774세대</td><td class="col-data-84">약 3,402~3,487세대</td><td class="col-data-59">약 4,677~4,794세대</td></tr>
-      <tr><th class="row-label">추가 세대수<br>(기존 대비)</th><td class="col-data-ours"><span class="num">+1,273~2,041세대</span></td><td class="col-data-3">+1,590세대</td><td class="col-data-4">+1,495세대</td><td class="col-data-6">+1,326세대</td><td class="col-data-7">+1,914세대</td><td class="col-data-84">+273~358세대</td><td class="col-data-59">+1,548~1,665세대</td></tr>
-      <tr><th class="row-label">기존 대비 증가율</th><td class="col-data-ours highlight"><span class="pct">+250~401%</span></td><td class="col-data-3">+71.4%</td><td class="col-data-4">+69.1%</td><td class="col-data-6">+72.9%</td><td class="col-data-7">+102.9%</td><td class="col-data-84">+8.7~11.4%</td><td class="col-data-59">+49.5~53.2%</td></tr>
-      <tr><th class="row-label">핵심 강점</th><td class="col-data-ours"><span style="font-size:11.5px;line-height:1.5;display:block;">4단지 일체결합<br>단일 권리가액</span></td><td class="col-data-3"><span style="font-size:11.5px;">통합규모 큼<br>대단지 조성 여력</span></td><td class="col-data-4"><span style="font-size:11.5px;">역세권 · 학군<br>통합 개발 검토</span></td><td class="col-data-6"><span style="font-size:11.5px;">세대당 대지 양호<br>기존 세대수 적음</span></td><td class="col-data-7"><span style="font-size:11.5px;">세대당 대지 최대<br>추가 세대수 최대</span></td><td class="col-data-84"><span style="font-size:11.5px;">3천 세대 대단지<br>평형확대 접근성</span></td><td class="col-data-59"><span style="font-size:11.5px;">평형 확대 부담완화<br>84㎡ 대비 세대수 증가</span></td></tr>
-      <tr><th class="row-label">주요 변수</th><td class="col-data-ours"><span style="font-size:11.5px;line-height:1.5;display:block;">평형 구성<br>통합 주민동의</span></td><td class="col-data-3"><span style="font-size:11.5px;">평형 구성<br>통합 주민동의</span></td><td class="col-data-4"><span style="font-size:11.5px;">평형 구성<br>통합 주민동의</span></td><td class="col-data-6"><span style="font-size:11.5px;">동보·신명 제외 조건<br>통합 범위 확정</span></td><td class="col-data-7"><span style="font-size:11.5px;">통합 주민동의<br>공공기여 · 상가</span></td><td class="col-data-84"><span style="font-size:11.5px;">84㎡ 확대 시 여력 축소<br>부지 범위 · 공공기여</span></td><td class="col-data-59"><span style="font-size:11.5px;">소형 수요 · 분양가<br>부지 범위 · 공공기여</span></td></tr>
-      <tr><th class="row-label">추가 세대수 순위<br>(84㎡ 가정기준)</th><td class="col-data-ours highlight"><span style="font-size:22px;">🏆 1위</span></td><td class="col-data-3">2위</td><td class="col-data-4">3위</td><td class="col-data-6">4위</td><td class="col-data-7">1위</td><td class="col-data-84">5위</td><td class="col-data-59">평형 조정상이 순위 비교 제외</td></tr>
+      <tr><th class="row-label">기존 세대수</th><td class="col-data-ours"><span class="num">509</span></td><td class="col-data-3">2,226 세대</td><td class="col-data-4">2,162 세대</td><td class="col-data-6">1,820 세대</td><td class="col-data-7">1,860 세대</td><td class="col-data-hwangkol"><div class="td-84">3,129 세대</div><div class="td-59-sep"></div><div class="td-59">3,129 세대</div></td></tr>
+      <tr><th class="row-label">대지면적</th><td class="col-data-ours">56,100㎡ <span class="small">(약 16,950평)</span></td><td class="col-data-3">119,934㎡ <span class="small">(약 36,281평)</span></td><td class="col-data-4">114,946㎡ <span class="small">(약 34,772평)</span></td><td class="col-data-6">98,871㎡ <span class="small">(약 29,919평)</span></td><td class="col-data-7">118,625㎡ <span class="small">(약 35,879평)</span></td><td class="col-data-hwangkol"><div class="td-84">106,906~109,588㎡ <span class="small">*</span></div><div class="td-59-sep"></div><div class="td-59">106,906~109,588㎡ <span class="small">*</span></div></td></tr>
+      <tr><th class="row-label">세대당 평균 대지</th><td class="col-data-ours"><span class="num">~33.3평</span></td><td class="col-data-3">16.3평</td><td class="col-data-4">16.1평</td><td class="col-data-6">16.4평</td><td class="col-data-7">19.3평</td><td class="col-data-hwangkol"><div class="td-84">10.3~10.6평 <span class="small">*</span></div><div class="td-59-sep"></div><div class="td-59">10.3~10.6평 <span class="small">*</span></div></td></tr>
+      <tr><th class="row-label">현재 용적률</th><td class="col-data-ours"><span class="num">~91%</span></td><td class="col-data-3">218.8%</td><td class="col-data-4">219.4%</td><td class="col-data-6">219.4%</td><td class="col-data-7">219.7%</td><td class="col-data-hwangkol"><div class="td-84">약 215~216%</div><div class="td-59-sep"></div><div class="td-59">약 215~216%</div></td></tr>
+      <tr><th class="row-label">용적률 가정</th><td class="col-data-ours"><span class="num">350~500%</span></td><td class="col-data-3">350%</td><td class="col-data-4">350%</td><td class="col-data-6">350%</td><td class="col-data-7">350%</td><td class="col-data-hwangkol"><div class="td-84">350%</div><div class="td-59-sep"></div><div class="td-59">350%</div></td></tr>
+      <tr><th class="row-label">단순 가용 연면적</th><td class="col-data-ours">196,000~280,500㎡</td><td class="col-data-3">419,768㎡</td><td class="col-data-4">402,311㎡</td><td class="col-data-6">346,049㎡</td><td class="col-data-7">415,188㎡</td><td class="col-data-hwangkol"><div class="td-84">374,171~383,558㎡</div><div class="td-59-sep"></div><div class="td-59">374,171~383,558㎡</div></td></tr>
+      <tr><th class="row-label">세대당 면적 가정</th><td class="col-data-ours">110㎡ <span class="small">(전용 84㎡)</span></td><td class="col-data-3">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-4">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-6">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-7">110㎡ <span class="small">(전용 84㎡ 가정)</span></td><td class="col-data-hwangkol"><div class="td-84">110㎡ <span class="small">(전용 84㎡ 가정)</span></div><div class="td-59-sep"></div><div class="td-59">80㎡ <span class="small">(전용 59㎡ 증식)</span></div></td></tr>
+      <tr><th class="row-label">예상 총 세대수</th><td class="col-data-ours"><span class="num">약 1,782~2,550세대</span></td><td class="col-data-3">약 3,816세대</td><td class="col-data-4">약 3,657세대</td><td class="col-data-6">약 3,146세대</td><td class="col-data-7">약 3,774세대</td><td class="col-data-hwangkol"><div class="td-84">약 3,402~3,487세대</div><div class="td-59-sep"></div><div class="td-59">약 4,677~4,794세대</div></td></tr>
+      <tr><th class="row-label">추가 세대수<br>(기존 대비)</th><td class="col-data-ours"><span class="num">+1,273~2,041세대</span></td><td class="col-data-3">+1,590세대</td><td class="col-data-4">+1,495세대</td><td class="col-data-6">+1,326세대</td><td class="col-data-7">+1,914세대</td><td class="col-data-hwangkol"><div class="td-84">+273~358세대</div><div class="td-59-sep"></div><div class="td-59">+1,548~1,665세대</div></td></tr>
+      <tr><th class="row-label">기존 대비 증가율</th><td class="col-data-ours highlight"><span class="pct">+250~401%</span></td><td class="col-data-3">+71.4%</td><td class="col-data-4">+69.1%</td><td class="col-data-6">+72.9%</td><td class="col-data-7">+102.9%</td><td class="col-data-hwangkol"><div class="td-84">+8.7~11.4%</div><div class="td-59-sep"></div><div class="td-59">+49.5~53.2%</div></td></tr>
+      <tr><th class="row-label">핵심 강점</th><td class="col-data-ours"><span style="font-size:11.5px;line-height:1.5;display:block;">4단지 일체결합<br>단일 권리가액</span></td><td class="col-data-3"><span style="font-size:11.5px;">통합규모 큼<br>대단지 조성 여력</span></td><td class="col-data-4"><span style="font-size:11.5px;">역세권 · 학군<br>통합 개발 검토</span></td><td class="col-data-6"><span style="font-size:11.5px;">세대당 대지 양호<br>기존 세대수 적음</span></td><td class="col-data-7"><span style="font-size:11.5px;">세대당 대지 최대<br>추가 세대수 최대</span></td><td class="col-data-hwangkol"><div class="td-84"><span style="font-size:11.5px;">3천 세대 대단지<br>평형확대 접근성</span></div><div class="td-59-sep"></div><div class="td-59"><span style="font-size:11.5px;">평형 확대 부담완화<br>84㎡ 대비 세대수 증가</span></div></td></tr>
+      <tr><th class="row-label">주요 변수</th><td class="col-data-ours"><span style="font-size:11.5px;line-height:1.5;display:block;">평형 구성<br>통합 주민동의</span></td><td class="col-data-3"><span style="font-size:11.5px;">평형 구성<br>통합 주민동의</span></td><td class="col-data-4"><span style="font-size:11.5px;">평형 구성<br>통합 주민동의</span></td><td class="col-data-6"><span style="font-size:11.5px;">동보·신명 제외 조건<br>통합 범위 확정</span></td><td class="col-data-7"><span style="font-size:11.5px;">통합 주민동의<br>공공기여 · 상가</span></td><td class="col-data-hwangkol"><div class="td-84"><span style="font-size:11.5px;">84㎡ 확대 시 여력 축소<br>부지 범위 · 공공기여</span></div><div class="td-59-sep"></div><div class="td-59"><span style="font-size:11.5px;">소형 수요 · 분양가<br>부지 범위 · 공공기여</span></div></td></tr>
+      <tr><th class="row-label">추가 세대수 순위<br>(84㎡ 가정기준)</th><td class="col-data-ours highlight"><span style="font-size:22px;">🏆 1위</span></td><td class="col-data-3">2위</td><td class="col-data-4">3위</td><td class="col-data-6">4위</td><td class="col-data-7">1위</td><td class="col-data-hwangkol"><div class="td-84">5위</div><div class="td-59-sep"></div><div class="td-59">평형 조정상이 순위 비교 제외</div></td></tr>
     
     </tbody>
   </table>
