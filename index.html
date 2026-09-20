@@ -377,6 +377,69 @@
     .section-heading-title { font-size: 18px; }
     .ac-title { font-size: 15px; }
   }
+
+  .hero-hook-content { flex: 1; min-width: 0; }
+  .hero-hook-lead { font-size: 15px; line-height: 1.4; margin-bottom: 3px; }
+  .hero-hook-lead strong { color: #b00020; font-weight: 800; }
+  .hero-hook-sub { font-size: 13px; color: #555; line-height: 1.45; word-break: keep-all; }
+
+  /* 칩 형태의 지표 배지 (줄바꿈 방지) */
+  .ac-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0ece1;
+  }
+  .ac-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11.5px;
+    background: #fdfaf3;
+    border: 1px solid #e8dbcc;
+    border-radius: 6px;
+    padding: 3px 8px;
+    color: #555;
+    white-space: nowrap; /* 칩 내부에서 단어 절대 안 잘림 */
+    line-height: 1.4;
+  }
+  .ac-chip b { color: #1a1a1a; font-weight: 700; }
+  .ac-chip b.good { color: #2c6e3a; }
+  .ac-chip b.bad { color: #b00020; }
+  .analysis-card.highlight .ac-chip { background: #f3faf4; border-color: #cde8d2; }
+  .analysis-card.warn .ac-chip { background: #fdf5f5; border-color: #f6d1d1; }
+
+  /* 왜 지금인가 깔끔한 리스트 */
+  .why-now-list {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 12px 0 16px;
+    text-align: left;
+    max-width: 440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .why-now-item {
+    font-size: 13px;
+    color: #333;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+    word-break: keep-all;
+  }
+  .why-now-item::before {
+    content: "•";
+    position: absolute;
+    left: 2px;
+    top: 0;
+    color: #8b4513;
+    font-weight: 900;
+  }
+  .why-now-item strong { color: #b00020; font-weight: 800; }
+
 </style>
 </head>
 <body>
@@ -402,15 +465,21 @@
   <!-- Hero -->
   <header class="hero" id="sec-hero">
     <h1 class="hero-title">기흥역 통합재건축 <em>핵심 요약</em></h1>
-    <p class="hero-sub">세종1·2 + 롯데캐슬 + 우성 4개 단지 509세대 통합 분석</p>
+    <p class="hero-sub">세종1·2 · 롯데 · 우성 <span style="white-space:nowrap;">4개 단지 509세대 통합 분석</span></p>
     <div class="hero-hook">
       <div class="hero-hook-item">
         <span class="hero-hook-num">01</span>
-        <p class="hero-hook-text"><strong>분담금 부담 최소화</strong> — 영통지구 5개 단지 대비 세대당 대지지분 2배 (33.3평)</p>
+        <div class="hero-hook-content">
+          <div class="hero-hook-lead"><strong>분담금 부담 최소화</strong></div>
+          <div class="hero-hook-sub">영통 대비 대지지분 2배 <span style="white-space:nowrap;">(세대당 33.3평)</span></div>
+        </div>
       </div>
       <div class="hero-hook-item">
         <span class="hero-hook-num">02</span>
-        <p class="hero-hook-text"><strong>증가율 +250~401% 1위</strong> — 현재 용적률 91%로 인근 단지 중 사업성 최고</p>
+        <div class="hero-hook-content">
+          <div class="hero-hook-lead"><strong>증가율 +250~401% 전체 1위</strong></div>
+          <div class="hero-hook-sub">현재 용적률 91% · <span style="white-space:nowrap;">인근 최고 사업성</span></div>
+        </div>
       </div>
     </div>
   </header>
@@ -455,24 +524,24 @@
     
     <div class="compare-stats">
       <div class="compare-stat stat-ours">
-        <div class="compare-stat-label">🏠 기흥역 통합재건축</div>
+        <div class="compare-stat-label">🏠 기흥역 통합</div>
         <div class="compare-stat-value">+250~401%</div>
         <div class="compare-stat-sub">증가율 전체 1위</div>
       </div>
       <div class="compare-stat">
         <div class="compare-stat-label">기존 세대수</div>
-        <div class="compare-stat-value">509</div>
-        <div class="compare-stat-sub">→ 1,782~2,550세대</div>
+        <div class="compare-stat-value">509세대</div>
+        <div class="compare-stat-sub">신축 최대 2,550세대</div>
       </div>
       <div class="compare-stat">
         <div class="compare-stat-label">세대당 대지</div>
         <div class="compare-stat-value">33.3평</div>
-        <div class="compare-stat-sub">영통 대비 압도적 우위</div>
+        <div class="compare-stat-sub">영통 평균의 2배</div>
       </div>
       <div class="compare-stat">
         <div class="compare-stat-label">현재 용적률</div>
         <div class="compare-stat-value">91%</div>
-        <div class="compare-stat-sub">가장 낮음 (상향폭 최대)</div>
+        <div class="compare-stat-sub">상향 여력 전체 1위</div>
       </div>
     </div>
   </div>
@@ -493,10 +562,10 @@
       </div>
       <div class="ac-title">📐 4개 단지 현황 & 대지지분 분석</div>
       <div class="ac-desc">세종1·2단지, 롯데캐슬, 우성하우스타운 4개 단지 총 509세대. 평균 대지지분 33.3평으로 일반분양 물량 극대화의 핵심 기반입니다.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">세대당 대지: <strong class="good">33.3평</strong></div>
-        <div class="ac-metric-item">현재 용적률: <strong>91%</strong></div>
-        <div class="ac-metric-item">신축 세대: <strong class="good">최대 2,550세대</strong></div>
+      <div class="ac-chips">
+        <span class="ac-chip">세대당 대지 <b class="good">33.3평</b></span>
+        <span class="ac-chip">용적률 <b>91%</b></span>
+        <span class="ac-chip">신축 <b class="good">최대 2,550세대</b></span>
       </div>
     </a>
 
@@ -508,10 +577,10 @@
       </div>
       <div class="ac-title">💰 수지 시뮬레이션 & 추정 비례율</div>
       <div class="ac-desc">용적률 350% 종상향, 1+2차 공공기여 분산 반영. 성남시 분당 목련빌라 공공고시 산식을 직접 적용한 수지 분석입니다.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">추정 비례율: <strong class="good">127.5%</strong></div>
-        <div class="ac-metric-item">종상향: <strong>350~500%</strong></div>
-        <div class="ac-metric-item">공사비 가정: <strong>보수적 적용</strong></div>
+      <div class="ac-chips">
+        <span class="ac-chip">추정 비례율 <b class="good">127.5%</b></span>
+        <span class="ac-chip">종상향 <b>350~500%</b></span>
+        <span class="ac-chip">공사비 <b>보수적 산정</b></span>
       </div>
     </a>
 
@@ -523,9 +592,10 @@
       </div>
       <div class="ac-title">⚖️ 단독 재건축 vs 4개 단지 통합 비교</div>
       <div class="ac-desc">단독 추진 시 30년 대기, 1군 시공사 외면, 사업비 폭증 리스크. 통합 시 1군 수주전 참여로 사업기간 절반 단축 및 가치 극대화.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">사업기간: <strong class="good">4.5년</strong> vs <strong class="bad">8년+</strong></div>
-        <div class="ac-metric-item">시공사: <strong class="good">1군 수주전</strong></div>
+      <div class="ac-chips">
+        <span class="ac-chip">통합 사업기간 <b class="good">4.5년</b></span>
+        <span class="ac-chip">단독 <b class="bad">8년+</b></span>
+        <span class="ac-chip">시공사 <b class="good">1군 수주전</b></span>
       </div>
     </a>
 
@@ -537,9 +607,10 @@
       </div>
       <div class="ac-title">🏠 59㎡ vs 84㎡ 타입별 환급금·분담금</div>
       <div class="ac-desc">권리가액 10억, 비례율 127.5% 기준. 대지지분이 큰 우리 단지는 조합원 분양가 대비 권리가액이 높아 부담이 최소화됩니다.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">권리가액(84㎡): <strong class="good">12.75억</strong></div>
-        <div class="ac-metric-item">부담금: <strong class="good">최소화 구조</strong></div>
+      <div class="ac-chips">
+        <span class="ac-chip">권리가액 84㎡ <b class="good">12.75억</b></span>
+        <span class="ac-chip">권리가액 59㎡ <b class="good">8.96억</b></span>
+        <span class="ac-chip">분담금 <b class="good">최소화 구조</b></span>
       </div>
     </a>
 
@@ -551,10 +622,10 @@
       </div>
       <div class="ac-title">🎁 완공 후 3가지 자산 활용 그림</div>
       <div class="ac-desc">① 신축 아파트 주택연금 활용 (월 지급금 극대화), ② 보증금+월세 수익 전환, ③ 신축 프리미엄 실현 후 갈아타기 전략.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">옵션 1: <strong>주택연금</strong></div>
-        <div class="ac-metric-item">옵션 2: <strong>월세수익</strong></div>
-        <div class="ac-metric-item">옵션 3: <strong>갈아타기</strong></div>
+      <div class="ac-chips">
+        <span class="ac-chip">옵션 1 <b>주택연금</b></span>
+        <span class="ac-chip">옵션 2 <b>월세 전환</b></span>
+        <span class="ac-chip">옵션 3 <b>갈아타기</b></span>
       </div>
     </a>
 
@@ -564,11 +635,11 @@
         <span class="ac-badge">SECTION 06</span>
         <span class="ac-arrow">자세히 보기 →</span>
       </div>
-      <div class="ac-title">⚠️ 사업 속도가 곧 수익률 — 지연의 기회비용</div>
-      <div class="ac-desc">사업이 1년 늦어질 때마다 세대당 금융비용·물가상승 누적. '먼저 결정한 단지가 먼저 입주하고 가장 큰 프리미엄'을 누립니다.</div>
-      <div class="ac-metrics">
-        <div class="ac-metric-item">1년 지연 기회비용: <strong class="bad">수천만원 누계</strong></div>
-        <div class="ac-metric-item">핵심: <strong class="good">동의율 조기 확보</strong></div>
+      <div class="ac-title">⚠️ 사업 속도가 곧 수익률 <span style="font-size:13px;font-weight:600;color:#666;">(지연 기회비용)</span></div>
+      <div class="ac-desc">사업이 1년 늦어질 때마다 세대당 금융비용·물가상승 누적. 먼저 결정한 단지가 먼저 입주하고 가장 큰 프리미엄을 얻습니다.</div>
+      <div class="ac-chips">
+        <span class="ac-chip">1년 지연 비용 <b class="bad">수천만원 누계</b></span>
+        <span class="ac-chip">핵심 과제 <b class="good">동의율 조기 확보</b></span>
       </div>
     </a>
   </div>
@@ -576,20 +647,20 @@
   <!-- 왜 지금인가 배너 -->
   <div class="why-now-box">
     <h3 class="why-now-title">⏰ 지금 시작해야 하는 이유</h3>
-    <p class="why-now-desc">
-      노후계획도시 특별법 선도지구 지정은 <strong>골든타임</strong>이 있습니다.<br>
-      주변 단지가 먼저 추진하면 인허가·시공사 순번이 밀려 <strong>10년이 더 늦어질 수 있습니다.</strong><br>
-      지금 결정하는 동의 하나가 재건축 속도를 앞당깁니다.
-    </p>
+    <div class="why-now-list">
+      <div class="why-now-item">선도지구 지정에는 <strong>명확한 골든타임</strong>이 있습니다.</div>
+      <div class="why-now-item">주변에 밀리면 인허가 순번상 <strong>10년 이상 지연</strong>됩니다.</div>
+      <div class="why-now-item">소유주 동의 참여가 <strong>재건축 속도를 10년 앞당깁니다.</strong></div>
+    </div>
     <a href="detail.html#sec-qa" class="why-now-btn">자주 묻는 질문(Q&A) 바로가기 →</a>
   </div>
 
   <!-- 전체 상세분석 보기 CTA -->
   <div class="cta-block">
     <a href="detail.html" class="cta" id="sec-cta">
-      📄 16개 섹션 전체 상세분석 보고서 보기 →
+      📄 16개 섹션 전체 상세분석 보기 →
     </a>
-    <p class="cta-sub">수지표, 공공기여 산식, 단지별 지분표, Q&A 6문 6답 전체 수록</p>
+    <p class="cta-sub">수지표 · 공공기여 산식 · 단지별 지분표 · Q&A 전체 수록</p>
   </div>
 
   <p class="footnote">
