@@ -6,8 +6,23 @@
 <title>기흥역 통합재건축 비교 자료 — 핵심 요약 (인근 선도지구 영통지구와 비교)</title>
 <meta name="description" content="성남시 분당 목련빌라 사례 (성남시 고시 제2026-100호) PDF 직접 적용. KB시세 7.5억 기준 + 재건축 기대감 반영 시세 8.5~10억. 비례율 127.5% (PDF) / 350~500% 종상향 검토. 84㎡ 1세대별 분담금 시나리오 (비관 +2.07억 / 사용자 가정 −0.21억 / 매우 낙관 −4.74억).">
 <style>
+  :root {
+    --navy: #0f172a;
+    --navy-mid: #1e293b;
+    --navy-soft: #334155;
+    --gold: #d97706;
+    --gold-light: #fbbf24;
+    --gold-bg: #fffbeb;
+    --good: #059669;
+    --good-bg: #ecfdf5;
+    --warn: #dc2626;
+    --warn-bg: #fef2f2;
+    --neutral: #64748b;
+    --surface: #f8fafc;
+    --card-bg: #ffffff;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 100%; overflow-x: hidden; background: #fbfaf6; }
+  html, body { width: 100%; overflow-x: hidden; background: #f1f5f9; }
   body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #1a1a1a;
@@ -27,7 +42,7 @@
   .promo-banner {
     width: 100%;
     margin: 0 0 24px;
-    background: linear-gradient(180deg, #fff8e7 0%, #fbfaf6 100%);
+    background: linear-gradient(180deg, #fffbeb 0%, #f1f5f9 100%);
     border-radius: 8px;
     overflow: hidden;
   }
@@ -39,7 +54,7 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 16px;
-    background: #8b4513;
+    background: var(--navy);
     color: #fff;
     font-weight: 700;
     font-size: 14px;
@@ -51,7 +66,28 @@
   }
 
   /* Hero */
-  .hero { text-align: center; margin: 32px 0 24px; }
+  .hero {
+    text-align: center;
+    margin: 32px 0 24px;
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: 16px;
+    padding: 28px 20px 24px;
+  }
+  .hero-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    letter-spacing: -0.02em;
+    color: #fff;
+  }
+  .hero-title em { font-style: normal; color: var(--gold-light); }
+  .hero-sub {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-top: 6px;
+  }
   .hero-hook {
     margin: 20px auto 0;
     max-width: 480px;
@@ -64,11 +100,11 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: linear-gradient(135deg, #fff8e7 0%, #fdecef 100%);
-    border: 2px solid #b8893a;
+    background: rgba(255,255,255,0.08);
+    border: 1.5px solid rgba(217,119,6,0.4);
     border-radius: 12px;
     padding: 14px 16px;
-    box-shadow: 0 2px 8px rgba(184, 137, 58, 0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   }
   .hero-hook-num {
     display: inline-flex;
@@ -76,7 +112,7 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: #8b4513;
+    background: var(--gold);
     color: #fff;
     border-radius: 50%;
     font-weight: 700;
@@ -87,19 +123,19 @@
     margin: 0;
     font-size: 15px;
     line-height: 1.55;
-    color: #1a1a1a;
+    color: #e2e8f0;
     font-weight: 500;
     word-break: keep-all;
   }
   .hero-hook-text strong {
-    color: #b00020;
+    color: var(--gold-light);
     font-weight: 800;
   }
   .hero-hook-cta {
     margin: 8px 0 0;
     text-align: center;
     font-size: 14px;
-    color: #8b4513;
+    color: var(--gold-light);
     font-weight: 700;
     line-height: 1.5;
     word-break: keep-all;
@@ -108,20 +144,6 @@
     .hero-hook-text { font-size: 14px; }
     .hero-hook-item { padding: 12px 14px; }
     .hero-hook-cta { font-size: 13px; }
-  }
-  .hero-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 28px;
-    font-weight: 700;
-    line-height: 1.35;
-    margin-bottom: 8px;
-    letter-spacing: -0.02em;
-  }
-  .hero-title em { font-style: normal; color: #8b4513; }
-  .hero-sub {
-    font-size: 14px;
-    color: #6a6a6a;
-    margin-top: 6px;
   }
 
   /* KPI 4개 — 한눈에 */
@@ -132,32 +154,34 @@
     margin: 20px 0;
   }
   .kpi {
-    background: #fff;
-    border: 1.5px solid #8b4513;
-    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1.5px solid var(--gold);
+    border-radius: 12px;
     padding: 16px 12px;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-  .kpi.green { border-color: #2c6e3a; }
-  .kpi-label { font-size: 11px; color: #6a6a6a; font-weight: 600; margin-bottom: 6px; }
-  .kpi-value { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; color: #8b4513; line-height: 1.1; }
-  .kpi.green .kpi-value { color: #2c6e3a; }
-  .kpi-sub { font-size: 10.5px; color: #6a6a6a; margin-top: 4px; }
+  .kpi.green { border-color: var(--good); }
+  .kpi-label { font-size: 11px; color: var(--neutral); font-weight: 600; margin-bottom: 6px; }
+  .kpi-value { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; color: var(--navy); line-height: 1.1; }
+  .kpi.green .kpi-value { color: var(--good); }
+  .kpi-sub { font-size: 10.5px; color: var(--neutral); margin-top: 4px; }
 
   /* 기대감 박스 — 홍보용 */
   .expectation-box {
-    background: linear-gradient(135deg, #fff8e7 0%, #fbf2dd 100%);
-    border: 2px solid #b8893a;
+    background: var(--gold-bg);
+    border: 2px solid var(--navy);
+    border-left: 4px solid var(--gold);
     border-radius: 12px;
     padding: 20px;
     margin: 24px 0;
-    box-shadow: 0 4px 12px rgba(184, 137, 58, 0.12);
+    box-shadow: 0 4px 12px rgba(15,23,42,0.08);
   }
   .expectation-title {
     font-family: 'Noto Serif KR', serif;
     font-size: 17px;
     font-weight: 700;
-    color: #8b4513;
+    color: var(--navy);
     text-align: center;
     margin: 0 0 14px;
   }
@@ -173,21 +197,21 @@
     background: #fff;
     padding: 10px 12px;
     border-radius: 8px;
-    border-left: 3px solid #8b4513;
+    border-left: 3px solid var(--gold);
     font-size: 13.5px;
     line-height: 1.5;
     color: #1a1a1a;
     word-break: keep-all;
   }
   .expectation-list li strong {
-    color: #b00020;
+    color: var(--warn);
     font-weight: 800;
   }
   .expectation-cta {
     margin: 0;
     text-align: center;
     font-size: 14.5px;
-    color: #8b4513;
+    color: var(--navy);
     font-weight: 700;
     line-height: 1.5;
     word-break: keep-all;
@@ -199,8 +223,8 @@
   }
   /* (구 main-table 제거됨) */
 
-    background: #fff;
-    border: 1.5px solid #d4a574;
+    background: var(--card-bg);
+    border: 1.5px solid #e2e8f0;
     border-radius: 10px;
     padding: 16px;
     margin: 24px 0;
@@ -211,18 +235,18 @@
     font-family: 'Noto Serif KR', serif;
     font-size: 17px;
     font-weight: 700;
-    color: #1a1a1a;
+    color: var(--navy);
     text-align: center;
     margin-bottom: 12px;
   }
-  .main-table-title em { color: #8b4513; }
+  .main-table-title em { color: var(--gold); }
   table {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
   }
   th {
-    background: #8b4513;
+    background: var(--navy);
     color: #fff;
     font-weight: 700;
     padding: 10px 8px;
@@ -230,28 +254,29 @@
   }
   td {
     padding: 10px 8px;
-    border-bottom: 1px solid #e6e1d3;
+    border-bottom: 1px solid #e2e8f0;
     line-height: 1.5;
   }
+  tr:nth-child(even) td { background: var(--surface); }
   tr:last-child td { border-bottom: 0; }
-  .plus { color: #b00020; font-weight: 700; }
-  .minus { color: #2c6e3a; font-weight: 700; }
+  .plus { color: var(--warn); font-weight: 700; }
+  .minus { color: var(--good); font-weight: 700; }
   .scenario-tag {
     display: inline-block;
     font-size: 11px;
     padding: 2px 6px;
     border-radius: 4px;
-    background: #f4ece0;
-    color: #8b4513;
+    background: var(--gold-bg);
+    color: var(--gold);
     font-weight: 700;
     margin-right: 4px;
   }
-  .scenario-tag.user { background: #fff7c2; }
+  .scenario-tag.user { background: #fef9c3; }
 
   /* 핵심 한줄 */
   .key-insight {
-    background: linear-gradient(135deg, #fff8e7 0%, #fbf2dd 100%);
-    border: 2px solid #b8893a;
+    background: var(--gold-bg);
+    border: 2px solid var(--gold);
     border-radius: 12px;
     padding: 20px;
     margin: 24px 0;
@@ -261,12 +286,12 @@
     font-family: 'Noto Serif KR', serif;
     font-size: 32px;
     font-weight: 700;
-    color: #2c6e3a;
+    color: var(--good);
     line-height: 1.1;
   }
   .key-insight-label {
     font-size: 13px;
-    color: #6a6a6a;
+    color: var(--neutral);
     margin-top: 6px;
   }
 
@@ -278,15 +303,16 @@
     margin: 20px 0;
   }
   .card {
-    background: #fff;
-    border-radius: 10px;
+    background: var(--card-bg);
+    border-radius: 12px;
     padding: 18px;
-    border-left: 4px solid #8b4513;
+    border-left: 4px solid var(--gold);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-  .card.bad { border-left-color: #b00020; }
-  .card.good { border-left-color: #2c6e3a; }
-  .card-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
-  .card-desc { font-size: 13px; color: #6a6a6a; line-height: 1.6; }
+  .card.bad { border-left-color: var(--warn); }
+  .card.good { border-left-color: var(--good); }
+  .card-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+  .card-desc { font-size: 13px; color: var(--neutral); line-height: 1.6; }
   .card-num { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; margin: 8px 0; }
 
   /* CTA */
@@ -294,14 +320,14 @@
     display: block;
     margin: 24px 0;
     padding: 18px;
-    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
     color: #fff;
     text-decoration: none;
     border-radius: 12px;
     text-align: center;
     font-weight: 700;
     font-size: 15px;
-    box-shadow: 0 4px 14px rgba(139, 69, 19, 0.25);
+    box-shadow: 0 4px 14px rgba(15,23,42,0.25);
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.15s;
   }
@@ -309,11 +335,11 @@
 
   .footnote {
     font-size: 11px;
-    color: #6a6a6a;
+    color: var(--neutral);
     text-align: center;
     margin-top: 20px;
     padding: 12px;
-    background: #fff;
+    background: var(--card-bg);
     border-radius: 6px;
     line-height: 1.6;
   }
@@ -347,23 +373,24 @@
 .compare-preview {
   margin: 28px 0;
   padding: 22px 18px;
-  background: linear-gradient(135deg, #fff8e7, #fffaef);
-  border: 2.5px solid #b8893a;
+  background: var(--gold-bg);
+  border: 2px solid var(--navy);
+  border-left: 4px solid var(--gold);
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(184, 137, 58, 0.18);
+  box-shadow: 0 4px 14px rgba(15,23,42,0.10);
 }
 .compare-preview-header { margin-bottom: 16px; }
 .compare-preview-title {
   font-size: 18px;
   font-weight: 800;
-  color: #1a1a1a;
+  color: var(--navy);
   margin: 0 0 6px;
   line-height: 1.4;
 }
-.compare-preview-title .accent { color: #b00020; }
+.compare-preview-title .accent { color: var(--warn); }
 .compare-preview-sub {
   font-size: 13px;
-  color: #6a6a6a;
+  color: var(--neutral);
   margin: 0;
 }
 .compare-image-wrap {
@@ -375,12 +402,12 @@
   width: 100%;
   height: auto;
   border-radius: 8px;
-  border: 1.5px solid #e6e1d3;
+  border: 1.5px solid #e2e8f0;
   display: block;
 }
 .compare-caption {
   font-size: 11.5px;
-  color: #8a8a8a;
+  color: var(--neutral);
   margin: 6px 0 0;
   font-style: italic;
 }
@@ -394,32 +421,32 @@
   .compare-stats { grid-template-columns: repeat(4, 1fr); }
 }
 .compare-stat {
-  background: #fff;
-  border: 1.5px solid #e6e1d3;
+  background: var(--card-bg);
+  border: 1.5px solid #e2e8f0;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
 }
 .compare-stat.stat-ours {
-  background: linear-gradient(135deg, #fff7c2, #ffeaa7);
-  border: 2.5px solid #8b4513;
+  background: var(--gold-bg);
+  border: 2.5px solid var(--gold);
 }
 .compare-stat-label {
   font-size: 11px;
-  color: #6a6a6a;
+  color: var(--neutral);
   font-weight: 600;
   margin-bottom: 4px;
 }
 .compare-stat-value {
   font-size: 18px;
   font-weight: 900;
-  color: #1a1a1a;
+  color: var(--navy);
   line-height: 1.2;
 }
-.compare-stat.stat-ours .compare-stat-value { color: #b00020; font-size: 20px; }
+.compare-stat.stat-ours .compare-stat-value { color: var(--warn); font-size: 20px; }
 .compare-stat-sub {
   font-size: 10.5px;
-  color: #8a8a8a;
+  color: var(--neutral);
   margin-top: 3px;
 }
 </style>
