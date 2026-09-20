@@ -4,25 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>기흥역 통합재건축 비교 자료 — 핵심 요약 (인근 선도지구 영통지구와 비교)</title>
-<meta name="description" content="성남시 분당 목련빌라 사례 (성남시 고시 제2026-100호) PDF 직접 적용. KB시세 7.5억 기준 + 재건축 기대감 반영 시세 8.5~10억. 비례율 127.5% (PDF) / 350~500% 종상향 검토. 84㎡ 1세대별 분담금 시나리오 (비관 +2.07억 / 사용자 가정 −0.21억 / 매우 낙관 −4.74억).">
+<meta name="description" content="기흥역 4개 단지 509세대 통합재건축 핵심 요약. 세대당 대지지분 33.3평(영통 2배), 증가율 +250~401% 1위, 비례율 127.5% 추정. 6대 분석 요약 및 상세분석 링크 제공.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800;900&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0f172a;
-    --navy-mid: #1e293b;
-    --navy-soft: #334155;
-    --gold: #d97706;
-    --gold-light: #fbbf24;
-    --gold-bg: #fffbeb;
-    --good: #059669;
-    --good-bg: #ecfdf5;
-    --warn: #dc2626;
-    --warn-bg: #fef2f2;
-    --neutral: #64748b;
-    --surface: #f8fafc;
-    --card-bg: #ffffff;
-  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  html, body { width: 100%; overflow-x: hidden; background: #f1f5f9; }
+  html, body { width: 100%; overflow-x: hidden; background: #fbfaf6; }
   body {
     font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
     color: #1a1a1a;
@@ -39,10 +27,11 @@
     padding: 24px 12px 64px;
   }
 
+  /* 홍보 배너 */
   .promo-banner {
     width: 100%;
     margin: 0 0 24px;
-    background: linear-gradient(180deg, #fffbeb 0%, #f1f5f9 100%);
+    background: linear-gradient(180deg, #fff8e7 0%, #fbfaf6 100%);
     border-radius: 8px;
     overflow: hidden;
   }
@@ -54,7 +43,7 @@
     justify-content: center;
     gap: 10px;
     padding: 12px 16px;
-    background: var(--navy);
+    background: #8b4513;
     color: #fff;
     font-weight: 700;
     font-size: 14px;
@@ -64,15 +53,11 @@
     width: 22px; height: 22px; background: rgba(255,255,255,0.2);
     border-radius: 50%; font-size: 12px; font-weight: 700;
   }
+  .promo-cta.kakao { background: #fee500; color: #3c1e1e; }
+  .promo-cta.kakao:active { background: #f5d800; }
 
   /* Hero */
-  .hero {
-    text-align: center;
-    margin: 32px 0 24px;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
-    border-radius: 16px;
-    padding: 28px 20px 24px;
-  }
+  .hero { text-align: center; margin: 32px 0 24px; }
   .hero-title {
     font-family: 'Noto Serif KR', serif;
     font-size: 28px;
@@ -80,12 +65,11 @@
     line-height: 1.35;
     margin-bottom: 8px;
     letter-spacing: -0.02em;
-    color: #fff;
   }
-  .hero-title em { font-style: normal; color: var(--gold-light); }
+  .hero-title em { font-style: normal; color: #8b4513; }
   .hero-sub {
     font-size: 14px;
-    color: #94a3b8;
+    color: #6a6a6a;
     margin-top: 6px;
   }
   .hero-hook {
@@ -100,11 +84,11 @@
     display: flex;
     align-items: flex-start;
     gap: 12px;
-    background: rgba(255,255,255,0.08);
-    border: 1.5px solid rgba(217,119,6,0.4);
+    background: linear-gradient(135deg, #fff8e7 0%, #fdecef 100%);
+    border: 2px solid #b8893a;
     border-radius: 12px;
     padding: 14px 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    box-shadow: 0 2px 8px rgba(184, 137, 58, 0.08);
   }
   .hero-hook-num {
     display: inline-flex;
@@ -112,7 +96,7 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    background: var(--gold);
+    background: #8b4513;
     color: #fff;
     border-radius: 50%;
     font-weight: 700;
@@ -123,30 +107,12 @@
     margin: 0;
     font-size: 15px;
     line-height: 1.55;
-    color: #e2e8f0;
+    color: #1a1a1a;
     font-weight: 500;
-    word-break: keep-all;
   }
-  .hero-hook-text strong {
-    color: var(--gold-light);
-    font-weight: 800;
-  }
-  .hero-hook-cta {
-    margin: 8px 0 0;
-    text-align: center;
-    font-size: 14px;
-    color: var(--gold-light);
-    font-weight: 700;
-    line-height: 1.5;
-    word-break: keep-all;
-  }
-  @media (max-width: 480px) {
-    .hero-hook-text { font-size: 14px; }
-    .hero-hook-item { padding: 12px 14px; }
-    .hero-hook-cta { font-size: 13px; }
-  }
+  .hero-hook-text strong { color: #b00020; font-weight: 800; }
 
-  /* KPI 4개 — 한눈에 */
+  /* KPI 4대 지표 */
   .kpi-row {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -154,306 +120,270 @@
     margin: 20px 0;
   }
   .kpi {
-    background: var(--card-bg);
-    border: 1.5px solid var(--gold);
-    border-radius: 12px;
+    background: #fff;
+    border: 1.5px solid #8b4513;
+    border-radius: 8px;
     padding: 16px 12px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
   }
-  .kpi.green { border-color: var(--good); }
-  .kpi-label { font-size: 11px; color: var(--neutral); font-weight: 600; margin-bottom: 6px; }
-  .kpi-value { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; color: var(--navy); line-height: 1.1; }
-  .kpi.green .kpi-value { color: var(--good); }
-  .kpi-sub { font-size: 10.5px; color: var(--neutral); margin-top: 4px; }
+  .kpi.green { border-color: #2c6e3a; }
+  .kpi-label { font-size: 11px; color: #6a6a6a; font-weight: 600; margin-bottom: 6px; }
+  .kpi-value { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; color: #8b4513; line-height: 1.1; }
+  .kpi.green .kpi-value { color: #2c6e3a; }
+  .kpi-sub { font-size: 10.5px; color: #6a6a6a; margin-top: 4px; }
 
-  /* 기대감 박스 — 홍보용 */
-  .expectation-box {
-    background: var(--gold-bg);
-    border: 2px solid var(--navy);
-    border-left: 4px solid var(--gold);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 24px 0;
-    box-shadow: 0 4px 12px rgba(15,23,42,0.08);
+  /* 비교 프리뷰 */
+  .compare-preview {
+    margin: 28px 0;
+    padding: 22px 18px;
+    background: linear-gradient(135deg, #fff8e7, #fffaef);
+    border: 2.5px solid #b8893a;
+    border-radius: 14px;
+    box-shadow: 0 4px 14px rgba(184, 137, 58, 0.18);
   }
-  .expectation-title {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    text-align: center;
-    margin: 0 0 14px;
-  }
-  .expectation-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 16px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .expectation-list li {
-    background: #fff;
-    padding: 10px 12px;
-    border-radius: 8px;
-    border-left: 3px solid var(--gold);
-    font-size: 13.5px;
-    line-height: 1.5;
-    color: #1a1a1a;
-    word-break: keep-all;
-  }
-  .expectation-list li strong {
-    color: var(--warn);
+  .compare-preview-header { margin-bottom: 16px; }
+  .compare-preview-title {
+    font-size: 18px;
     font-weight: 800;
+    color: #1a1a1a;
+    margin: 0 0 6px;
+    line-height: 1.4;
   }
-  .expectation-cta {
-    margin: 0;
+  .compare-preview-title .accent { color: #b00020; }
+  .compare-preview-sub { font-size: 13px; color: #6a6a6a; margin: 0; }
+  .compare-image-wrap { text-align: center; margin: 14px 0; }
+  .compare-image-wrap a { display: block; }
+  .compare-image-wrap img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1.5px solid #e6e1d3;
+    display: block;
+  }
+  .compare-caption { font-size: 11.5px; color: #8a8a8a; margin: 6px 0 0; font-style: italic; }
+  .compare-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+  @media (min-width: 600px) {
+    .compare-stats { grid-template-columns: repeat(4, 1fr); }
+  }
+  .compare-stat {
+    background: #fff;
+    border: 1.5px solid #e6e1d3;
+    border-radius: 8px;
+    padding: 10px;
     text-align: center;
-    font-size: 14.5px;
-    color: var(--navy);
-    font-weight: 700;
-    line-height: 1.5;
-    word-break: keep-all;
   }
-  @media (max-width: 480px) {
-    .expectation-list { grid-template-columns: 1fr; }
-    .expectation-box { padding: 16px; }
-    .expectation-title { font-size: 15px; }
+  .compare-stat.stat-ours {
+    background: linear-gradient(135deg, #fff7c2, #ffeaa7);
+    border: 2.5px solid #8b4513;
   }
-  /* (구 main-table 제거됨) */
+  .compare-stat-label { font-size: 11px; color: #6a6a6a; font-weight: 600; margin-bottom: 4px; }
+  .compare-stat-value { font-size: 18px; font-weight: 900; color: #1a1a1a; line-height: 1.2; }
+  .compare-stat.stat-ours .compare-stat-value { color: #b00020; font-size: 20px; }
+  .compare-stat-sub { font-size: 10.5px; color: #8a8a8a; margin-top: 3px; }
 
-    background: var(--card-bg);
-    border: 1.5px solid #e2e8f0;
-    border-radius: 10px;
-    padding: 16px;
-    margin: 24px 0;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+  /* ═══ 핵심 분석 링크 카드 그리드 (새로 추가) ═══ */
+  .section-heading {
+    text-align: center;
+    margin: 36px 0 18px;
   }
-  .main-table-title {
+  .section-heading-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    color: #8b4513;
+    background: #fff8e7;
+    border: 1px solid #b8893a;
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin-bottom: 6px;
+  }
+  .section-heading-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1a1a1a;
+  }
+  .section-heading-sub {
+    font-size: 13px;
+    color: #6a6a6a;
+    margin-top: 4px;
+  }
+
+  .analysis-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 16px 0 28px;
+  }
+  .analysis-card {
+    display: block;
+    background: #fff;
+    border: 1.5px solid #e6e1d3;
+    border-radius: 12px;
+    padding: 16px 18px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    position: relative;
+    border-left: 4px solid #8b4513;
+  }
+  .analysis-card:hover, .analysis-card:active {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 14px rgba(139, 69, 19, 0.12);
+    border-color: #8b4513;
+  }
+  .analysis-card.highlight {
+    border-left-color: #2c6e3a;
+    background: linear-gradient(135deg, #fff 0%, #f4fbf5 100%);
+  }
+  .analysis-card.warn {
+    border-left-color: #b00020;
+    background: linear-gradient(135deg, #fff 0%, #fdf5f5 100%);
+  }
+  .ac-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6px;
+  }
+  .ac-badge {
+    font-size: 11px;
+    font-weight: 700;
+    color: #8b4513;
+    background: #fff8e7;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .analysis-card.highlight .ac-badge { color: #2c6e3a; background: #e8f5e9; }
+  .analysis-card.warn .ac-badge { color: #b00020; background: #fdecef; }
+  .ac-arrow {
+    font-size: 13px;
+    font-weight: 700;
+    color: #8b4513;
+  }
+  .ac-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    line-height: 1.4;
+  }
+  .ac-desc {
+    font-size: 13px;
+    color: #5a5a5a;
+    line-height: 1.55;
+  }
+  .ac-metrics {
+    display: flex;
+    gap: 16px;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #f0ece1;
+  }
+  .ac-metric-item {
+    font-size: 12px;
+    color: #6a6a6a;
+  }
+  .ac-metric-item strong {
+    color: #1a1a1a;
+    font-weight: 700;
+  }
+  .ac-metric-item strong.good { color: #2c6e3a; }
+  .ac-metric-item strong.bad { color: #b00020; }
+
+  /* 왜 지금인가 타임라인 배너 */
+  .why-now-box {
+    background: linear-gradient(135deg, #fff7c2 0%, #fff0a0 100%);
+    border: 2px solid #b8893a;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin: 28px 0;
+    text-align: center;
+  }
+  .why-now-title {
     font-family: 'Noto Serif KR', serif;
     font-size: 17px;
-    font-weight: 700;
-    color: var(--navy);
-    text-align: center;
+    font-weight: 800;
+    color: #8b4513;
+    margin-bottom: 8px;
+  }
+  .why-now-desc {
+    font-size: 13.5px;
+    color: #333;
+    line-height: 1.6;
     margin-bottom: 12px;
   }
-  .main-table-title em { color: var(--gold); }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-  }
-  th {
-    background: var(--navy);
-    color: #fff;
-    font-weight: 700;
-    padding: 10px 8px;
-    text-align: left;
-  }
-  td {
-    padding: 10px 8px;
-    border-bottom: 1px solid #e2e8f0;
-    line-height: 1.5;
-  }
-  tr:nth-child(even) td { background: var(--surface); }
-  tr:last-child td { border-bottom: 0; }
-  .plus { color: var(--warn); font-weight: 700; }
-  .minus { color: var(--good); font-weight: 700; }
-  .scenario-tag {
+  .why-now-desc strong { color: #b00020; }
+  .why-now-btn {
     display: inline-block;
-    font-size: 11px;
-    padding: 2px 6px;
-    border-radius: 4px;
-    background: var(--gold-bg);
-    color: var(--gold);
+    background: #8b4513;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 13px;
     font-weight: 700;
-    margin-right: 4px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(139, 69, 19, 0.2);
   }
-  .scenario-tag.user { background: #fef9c3; }
 
-  /* 핵심 한줄 */
-  .key-insight {
-    background: var(--gold-bg);
-    border: 2px solid var(--gold);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 24px 0;
+  /* 하단 큰 CTA */
+  .cta-block {
+    margin: 32px 0 16px;
     text-align: center;
   }
-  .key-insight-num {
-    font-family: 'Noto Serif KR', serif;
-    font-size: 32px;
-    font-weight: 700;
-    color: var(--good);
-    line-height: 1.1;
-  }
-  .key-insight-label {
-    font-size: 13px;
-    color: var(--neutral);
-    margin-top: 6px;
-  }
-
-  /* 두 카드 */
-  .twocards {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin: 20px 0;
-  }
-  .card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    padding: 18px;
-    border-left: 4px solid var(--gold);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  }
-  .card.bad { border-left-color: var(--warn); }
-  .card.good { border-left-color: var(--good); }
-  .card-title { font-family: 'Noto Serif KR', serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
-  .card-desc { font-size: 13px; color: var(--neutral); line-height: 1.6; }
-  .card-num { font-family: 'Noto Serif KR', serif; font-size: 24px; font-weight: 700; margin: 8px 0; }
-
-  /* CTA */
   .cta {
     display: block;
-    margin: 24px 0;
-    padding: 18px;
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    padding: 18px 20px;
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
     color: #fff;
     text-decoration: none;
     border-radius: 12px;
-    text-align: center;
     font-weight: 700;
-    font-size: 15px;
-    box-shadow: 0 4px 14px rgba(15,23,42,0.25);
+    font-size: 16px;
+    box-shadow: 0 4px 14px rgba(139, 69, 19, 0.25);
     -webkit-tap-highlight-color: transparent;
     transition: transform 0.15s;
   }
   .cta:active { transform: scale(0.98); }
+  .cta-sub {
+    font-size: 12px;
+    color: #8a8a8a;
+    margin-top: 8px;
+  }
 
+  /* 푸터 */
   .footnote {
     font-size: 11px;
-    color: var(--neutral);
+    color: #8a8a8a;
     text-align: center;
-    margin-top: 20px;
-    padding: 12px;
-    background: var(--card-bg);
-    border-radius: 6px;
+    margin-top: 24px;
+    padding: 14px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e6e1d3;
     line-height: 1.6;
   }
 
-  /* 모바일 */
   @media (max-width: 480px) {
     .hero-title { font-size: 22px; }
-    .kpi-row { grid-template-columns: 1fr 1fr; }
     .kpi-value { font-size: 20px; }
-    .key-insight-num { font-size: 28px; }
-    th, td { padding: 8px 6px; font-size: 12px; }
+    .section-heading-title { font-size: 18px; }
+    .ac-title { font-size: 15px; }
   }
-  @media (max-width: 360px) {
-    .wrap { padding: 20px 8px 48px; }
-    .hero-title { font-size: 20px; }
-    .kpi-value { font-size: 18px; }
-  }@media (max-width: 480px) {}
-  .promo-cta.kakao {
-    background: #fee500;
-    color: #3c1e1e;
-  }
-  .promo-cta.kakao:active {
-    background: #f5d800;
-  }
-
-
-  .promo-cta.kakao { background: #fee500; color: #3c1e1e; }
-  .promo-cta.kakao:active { background: #f5d800; }
-
-
-.compare-preview {
-  margin: 28px 0;
-  padding: 22px 18px;
-  background: var(--gold-bg);
-  border: 2px solid var(--navy);
-  border-left: 4px solid var(--gold);
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(15,23,42,0.10);
-}
-.compare-preview-header { margin-bottom: 16px; }
-.compare-preview-title {
-  font-size: 18px;
-  font-weight: 800;
-  color: var(--navy);
-  margin: 0 0 6px;
-  line-height: 1.4;
-}
-.compare-preview-title .accent { color: var(--warn); }
-.compare-preview-sub {
-  font-size: 13px;
-  color: var(--neutral);
-  margin: 0;
-}
-.compare-image-wrap {
-  text-align: center;
-  margin: 14px 0;
-}
-.compare-image-wrap a { display: block; }
-.compare-image-wrap img {
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-  border: 1.5px solid #e2e8f0;
-  display: block;
-}
-.compare-caption {
-  font-size: 11.5px;
-  color: var(--neutral);
-  margin: 6px 0 0;
-  font-style: italic;
-}
-.compare-stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
-  margin-top: 14px;
-}
-@media (min-width: 600px) {
-  .compare-stats { grid-template-columns: repeat(4, 1fr); }
-}
-.compare-stat {
-  background: var(--card-bg);
-  border: 1.5px solid #e2e8f0;
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-}
-.compare-stat.stat-ours {
-  background: var(--gold-bg);
-  border: 2.5px solid var(--gold);
-}
-.compare-stat-label {
-  font-size: 11px;
-  color: var(--neutral);
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-.compare-stat-value {
-  font-size: 18px;
-  font-weight: 900;
-  color: var(--navy);
-  line-height: 1.2;
-}
-.compare-stat.stat-ours .compare-stat-value { color: var(--warn); font-size: 20px; }
-.compare-stat-sub {
-  font-size: 10.5px;
-  color: var(--neutral);
-  margin-top: 3px;
-}
 </style>
 </head>
 <body>
 
-<article class="wrap"><div class="promo-banner" id="sec-promo">
+<article class="wrap">
+  <!-- 상단 카페 / 오픈채팅 홍보 배너 -->
+  <div class="promo-banner" id="sec-promo">
     <a href="https://cafe.naver.com/pink9mp4i" target="_blank" rel="noopener" class="promo-link">
       <img src="promo-ec3361041bf3.png" alt="세종그랑시아 통합재건축 추진 — 세종1·2·롯데캐슬·우성, 함께 준비합시다" class="promo-img" loading="lazy">
       <div class="promo-cta">
@@ -469,142 +399,206 @@
     </a>
   </div>
 
+  <!-- Hero -->
   <header class="hero" id="sec-hero">
-    <h1 class="hero-title">세종그랑시아2단지 <em>통합재건축</em></h1>
-    <p class="hero-sub">분담금 시나리오 · 2026.09 사용자 가정 기준</p>
+    <h1 class="hero-title">기흥역 통합재건축 <em>핵심 요약</em></h1>
+    <p class="hero-sub">세종1·2 + 롯데캐슬 + 우성 4개 단지 509세대 통합 분석</p>
     <div class="hero-hook">
       <div class="hero-hook-item">
         <span class="hero-hook-num">01</span>
-        <p class="hero-hook-text"><strong>분담금 없이</strong> 오히려 환급되는 신축 15억 아파트가 생깁니다</p>
+        <p class="hero-hook-text"><strong>분담금 부담 최소화</strong> — 영통지구 5개 단지 대비 세대당 대지지분 2배 (33.3평)</p>
       </div>
       <div class="hero-hook-item">
         <span class="hero-hook-num">02</span>
-        <p class="hero-hook-text"><strong>대단지 · 초역세권</strong> 아파트, 이것만은 꼭 들어야 합니다</p>
+        <p class="hero-hook-text"><strong>증가율 +250~401% 1위</strong> — 현재 용적률 91%로 인근 단지 중 사업성 최고</p>
       </div>
-      <p class="hero-hook-cta">이제 구갈동에서 이것이 실제로 일어납니다 →</p>
     </div>
   </header>
 
+  <!-- KPI 4대 핵심 지표 -->
   <div class="kpi-row" id="sec-kpi">
     <div class="kpi">
-      <div class="kpi-label">4개 단지</div>
+      <div class="kpi-label">4개 단지 통합</div>
       <div class="kpi-value">509</div>
       <div class="kpi-sub">총 세대수</div>
     </div>
     <div class="kpi green">
-      <div class="kpi-label">비례율</div>
-      <div class="kpi-value">127.5%</div>
-      <div class="kpi-sub">PDF 추정 (목련빌라)</div>
+      <div class="kpi-label">세대당 평균 대지</div>
+      <div class="kpi-value">33.3평</div>
+      <div class="kpi-sub">영통 5단지(16.4평)의 2배</div>
     </div>
     <div class="kpi">
-      <div class="kpi-label">용적률</div>
-      <div class="kpi-value">350~500</div>
-      <div class="kpi-sub">% 종상향 검토</div>
+      <div class="kpi-label">추정 비례율</div>
+      <div class="kpi-value">127.5%</div>
+      <div class="kpi-sub">성남 분당 목련빌라 사례 기준</div>
     </div>
     <div class="kpi green">
-      <div class="kpi-label">사업기간</div>
+      <div class="kpi-label">예상 사업기간</div>
       <div class="kpi-value">4.5년</div>
-      <div class="kpi-sub">통합 시 (단독 8년)</div>
+      <div class="kpi-sub">단독(8년+) 대비 절반 단축</div>
     </div>
   </div>
 
-  <div class="expectation-box" id="sec-expect">
-    <h3 class="expectation-title">📊 이 자료가 보여주는 것</h3>
-    <ul class="expectation-list">
-      <li><strong>용적률 350~500%</strong> 종상향 가능</li>
-      <li><strong>권리자 분양가 84㎡ 11.9억</strong> (성남시 분당 목련빌라 사례 PDF)</li>
-      <li><strong>KB시세 7.5~10억</strong> + 비례율 127.5~180%</li>
-      <li><strong>1군 시공사</strong> 수주전, 사업 4~5년 단축</li>
-    </ul>
-    <p class="expectation-cta">
-      위 요건을 갖춘 4개 단지 509세대가 지금 구갈동에 모이고 있습니다 →
-    </p>
+  <!-- 인근 선도지구 영통 vs 기흥역 비교 프리뷰 -->
+  <div class="compare-preview" id="sec-compare">
+    <div class="compare-preview-header">
+      <h2 class="compare-preview-title">🏆 영통지구 선도단지 대비 <span class="accent">압도적 사업성</span></h2>
+      <p class="compare-preview-sub">수원 영통 3·4·6·7단지·황골주공 vs 기흥역 4단지 통합 비교</p>
+    </div>
+    
+    <div class="compare-image-wrap">
+      <a href="detail.html#sec-compare-table">
+        <img src="compare-output.png" alt="기흥역 통합재건축 vs 5개 단지 비교표 — 250~401% 증가율 1위" loading="lazy">
+      </a>
+      <p class="compare-caption">클릭하면 상세 페이지의 비교표 섹션으로 바로 이동합니다</p>
+    </div>
+    
+    <div class="compare-stats">
+      <div class="compare-stat stat-ours">
+        <div class="compare-stat-label">🏠 기흥역 통합재건축</div>
+        <div class="compare-stat-value">+250~401%</div>
+        <div class="compare-stat-sub">증가율 전체 1위</div>
+      </div>
+      <div class="compare-stat">
+        <div class="compare-stat-label">기존 세대수</div>
+        <div class="compare-stat-value">509</div>
+        <div class="compare-stat-sub">→ 1,782~2,550세대</div>
+      </div>
+      <div class="compare-stat">
+        <div class="compare-stat-label">세대당 대지</div>
+        <div class="compare-stat-value">33.3평</div>
+        <div class="compare-stat-sub">영통 대비 압도적 우위</div>
+      </div>
+      <div class="compare-stat">
+        <div class="compare-stat-label">현재 용적률</div>
+        <div class="compare-stat-value">91%</div>
+        <div class="compare-stat-sub">가장 낮음 (상향폭 최대)</div>
+      </div>
+    </div>
   </div>
 
-  
-<div class="compare-preview" id="sec-compare">
-  <div class="compare-preview-header">
-    <h2 class="compare-preview-title">🏆 통합재건축 경쟁 단지 대비 <span class="accent">압도적 수익성</span></h2>
-    <p class="compare-preview-sub">인근 선도지구 영통지구 5개 단지 vs 기흥역 4단지 — 추가 세대수·수익성 비교</p>
+  <!-- ═══ 6대 분석 요약 & 상세페이지 바로가기 링크 ═══ -->
+  <div class="section-heading">
+    <span class="section-heading-tag">분석 프레임워크</span>
+    <h2 class="section-heading-title">📊 6대 핵심 분석 & 상세 바로가기</h2>
+    <p class="section-heading-sub">각 카드를 클릭하면 상세분석 해당 섹션으로 이동합니다</p>
   </div>
-  
-  <div class="compare-image-wrap">
-    <a href="https://glabrousape4.github.io/sejong/detail.html#sec-compare-table" target="_blank">
-      <img src="compare-output.png" alt="기흥역 통합재건축 vs 5개 단지 비교표 — 250~401% 증가율 1위" loading="lazy">
+
+  <div class="analysis-grid">
+    <!-- 1. 단지 현황 & 대지지분 -->
+    <a href="detail.html#sec-now" class="analysis-card highlight">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 01</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">📐 4개 단지 현황 & 대지지분 분석</div>
+      <div class="ac-desc">세종1·2단지, 롯데캐슬, 우성하우스타운 4개 단지 총 509세대. 평균 대지지분 33.3평으로 일반분양 물량 극대화의 핵심 기반입니다.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">세대당 대지: <strong class="good">33.3평</strong></div>
+        <div class="ac-metric-item">현재 용적률: <strong>91%</strong></div>
+        <div class="ac-metric-item">신축 세대: <strong class="good">최대 2,550세대</strong></div>
+      </div>
     </a>
-    <p class="compare-caption">클릭하면 상세 페이지의 비교표 섹션으로 이동</p>
-  </div>
-  
-  <div class="compare-stats">
-    <div class="compare-stat stat-ours">
-      <div class="compare-stat-label">🏠 기흥역 통합재건축</div>
-      <div class="compare-stat-value">+250~401%</div>
-      <div class="compare-stat-sub">증가율 1위</div>
-    </div>
-    <div class="compare-stat">
-      <div class="compare-stat-label">기존 세대</div>
-      <div class="compare-stat-value">509</div>
-      <div class="compare-stat-sub">→ 1,782~2,550세대</div>
-    </div>
-    <div class="compare-stat">
-      <div class="compare-stat-label">세대당 대지</div>
-      <div class="compare-stat-value">33.3평</div>
-      <div class="compare-stat-sub">5단지 평균의 2배</div>
-    </div>
-    <div class="compare-stat">
-      <div class="compare-stat-label">현재 용적률</div>
-      <div class="compare-stat-value">91%</div>
-      <div class="compare-stat-sub">가장 낮음 (가장 큰 폭)</div>
-    </div>
-  </div>
-</div>
 
-<div class="twocards">
-    <div class="card">
-      <div class="card-title">✅ 통합시 (권장)</div>
-      <div class="card-num minus">사업 안정성 극대화</div>
-      <div class="card-desc">분담금 거의 없음 · 1군 수주전 · 4~5년 사업단축</div>
-    </div>
-    <div class="card bad">
-      <div class="card-title">⚠ 단독시 (30년 대기)</div>
-      <div class="card-num plus">사업 안정성 0</div>
-      <div class="card-desc">사업 8년+ · 1군 외면 · 금융비 누계 · 평당 단가 ↑</div>
-    </div>
+    <!-- 2. 수지 시뮬레이션 & 비례율 -->
+    <a href="detail.html#sec-sim" class="analysis-card highlight">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 02</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">💰 수지 시뮬레이션 & 추정 비례율</div>
+      <div class="ac-desc">용적률 350% 종상향, 1+2차 공공기여 분산 반영. 성남시 분당 목련빌라 공공고시 산식을 직접 적용한 수지 분석입니다.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">추정 비례율: <strong class="good">127.5%</strong></div>
+        <div class="ac-metric-item">종상향: <strong>350~500%</strong></div>
+        <div class="ac-metric-item">공사비 가정: <strong>보수적 적용</strong></div>
+      </div>
+    </a>
+
+    <!-- 3. 단독 vs 통합 비교 -->
+    <a href="detail.html#sec-cmp1" class="analysis-card">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 03</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">⚖️ 단독 재건축 vs 4개 단지 통합 비교</div>
+      <div class="ac-desc">단독 추진 시 30년 대기, 1군 시공사 외면, 사업비 폭증 리스크. 통합 시 1군 수주전 참여로 사업기간 절반 단축 및 가치 극대화.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">사업기간: <strong class="good">4.5년</strong> vs <strong class="bad">8년+</strong></div>
+        <div class="ac-metric-item">시공사: <strong class="good">1군 수주전</strong></div>
+      </div>
+    </a>
+
+    <!-- 4. 타입별 분담금/환급금 시나리오 -->
+    <a href="detail.html#sec-type" class="analysis-card highlight">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 04</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">🏠 59㎡ vs 84㎡ 타입별 환급금·분담금</div>
+      <div class="ac-desc">권리가액 10억, 비례율 127.5% 기준. 대지지분이 큰 우리 단지는 조합원 분양가 대비 권리가액이 높아 부담이 최소화됩니다.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">권리가액(84㎡): <strong class="good">12.75억</strong></div>
+        <div class="ac-metric-item">부담금: <strong class="good">최소화 구조</strong></div>
+      </div>
+    </a>
+
+    <!-- 5. 완공 후 3가지 선택지 -->
+    <a href="detail.html#sec-opt1" class="analysis-card">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 05</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">🎁 완공 후 3가지 자산 활용 그림</div>
+      <div class="ac-desc">① 신축 아파트 주택연금 활용 (월 지급금 극대화), ② 보증금+월세 수익 전환, ③ 신축 프리미엄 실현 후 갈아타기 전략.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">옵션 1: <strong>주택연금</strong></div>
+        <div class="ac-metric-item">옵션 2: <strong>월세수익</strong></div>
+        <div class="ac-metric-item">옵션 3: <strong>갈아타기</strong></div>
+      </div>
+    </a>
+
+    <!-- 6. 리스크 & 기회비용 -->
+    <a href="detail.html#sec-speed" class="analysis-card warn">
+      <div class="ac-top">
+        <span class="ac-badge">SECTION 06</span>
+        <span class="ac-arrow">자세히 보기 →</span>
+      </div>
+      <div class="ac-title">⚠️ 사업 속도가 곧 수익률 — 지연의 기회비용</div>
+      <div class="ac-desc">사업이 1년 늦어질 때마다 세대당 금융비용·물가상승 누적. '먼저 결정한 단지가 먼저 입주하고 가장 큰 프리미엄'을 누립니다.</div>
+      <div class="ac-metrics">
+        <div class="ac-metric-item">1년 지연 기회비용: <strong class="bad">수천만원 누계</strong></div>
+        <div class="ac-metric-item">핵심: <strong class="good">동의율 조기 확보</strong></div>
+      </div>
+    </a>
   </div>
 
-  <a href="detail.html" class="cta" id="sec-cta">
-    📄 상세분석 보기 (15개 섹션)
-  </a>
+  <!-- 왜 지금인가 배너 -->
+  <div class="why-now-box">
+    <h3 class="why-now-title">⏰ 지금 시작해야 하는 이유</h3>
+    <p class="why-now-desc">
+      노후계획도시 특별법 선도지구 지정은 <strong>골든타임</strong>이 있습니다.<br>
+      주변 단지가 먼저 추진하면 인허가·시공사 순번이 밀려 <strong>10년이 더 늦어질 수 있습니다.</strong><br>
+      지금 결정하는 동의 하나가 재건축 속도를 앞당깁니다.
+    </p>
+    <a href="detail.html#sec-qa" class="why-now-btn">자주 묻는 질문(Q&A) 바로가기 →</a>
+  </div>
+
+  <!-- 전체 상세분석 보기 CTA -->
+  <div class="cta-block">
+    <a href="detail.html" class="cta" id="sec-cta">
+      📄 16개 섹션 전체 상세분석 보고서 보기 →
+    </a>
+    <p class="cta-sub">수지표, 공공기여 산식, 단지별 지분표, Q&A 6문 6답 전체 수록</p>
+  </div>
 
   <p class="footnote">
     성남시 분당 목련빌라 사례 (2026.4.30 고시 제2026-100호) PDF 직접 적용.<br>
-    4개 단지 509세대 (세종1·2 + 롯데캐슬 + 우성). 공시가격·시세 가정치.<br>
-    실제 조합 공지·감정평가·세무 신고는 별도 확인.
+    4개 단지 509세대 (세종1·2 + 롯데캐슬 + 우성). 공시가격·시세 가정치 기반 모형.<br>
+    실제 조합 공지·감정평가·세무 신고는 인허가 단계에서 별도 확인이 필요합니다.
   </p>
 
 </article>
-
-
-<script>
-(function() {
-  // Floating top button
-  var topBtn = document.querySelector('.floating-top');
-  if (topBtn) {
-    topBtn.addEventListener('click', function() {
-      window.scrollTo({top:0, behavior:'smooth'});
-    });
-    var visible = false;
-    window.addEventListener('scroll', function() {
-      var shouldShow = window.pageYOffset > 200;
-      if (shouldShow !== visible) {
-        if (shouldShow) topBtn.classList.add('visible');
-        else topBtn.classList.remove('visible');
-        visible = shouldShow;
-      }
-    });
-  }
-  
-  </script>
 
 </body>
 </html>
