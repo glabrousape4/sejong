@@ -480,6 +480,31 @@
   @media (max-width: 480px) {
     .back-to-main { top: 56px; left: 12px; padding: 7px 12px; font-size: 12px; }
   }
+  /* 3분 요약 히어로 */
+  .exec-summary {
+    background: linear-gradient(135deg, #F0F7FF 0%, #E2EFFF 100%);
+    border: 2px solid #0064E0;
+    border-radius: 12px;
+    padding: 20px 18px;
+    margin: 18px 0 8px;
+  }
+  .exec-title { font-family: 'Noto Serif KR', serif; font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+  .exec-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 12px; }
+  .exec-cell { background: #fff; border-radius: 8px; padding: 10px 12px; text-align: center; }
+  .exec-cell span { display: block; font-size: 11px; color: #6a6a6a; margin-bottom: 4px; }
+  .exec-cell strong { font-size: 19px; color: #2c6e3a; font-family: 'Noto Serif KR', serif; }
+  .exec-caveat { font-size: 12.5px; color: #8a6d1b; background: #FFF8E1; border-radius: 6px; padding: 8px 10px; margin-bottom: 12px; line-height: 1.6; }
+  .exec-caveat a { color: #0064E0; font-weight: 700; }
+  .exec-links { display: flex; flex-wrap: wrap; gap: 6px; }
+  .exec-links a { font-size: 12px; padding: 6px 10px; background: #fff; border: 1px solid #9CC2F7; border-radius: 999px; color: #0064E0; text-decoration: none; font-weight: 600; }
+  .exec-toggle-all { margin-top: 10px; font-size: 12px; color: #6a6a6a; background: none; border: 0; cursor: pointer; text-decoration: underline; padding: 0; }
+  /* 섹션 접기/펼치기 */
+  .sec-collapse {
+    float: right; margin-left: 8px; width: 30px; height: 30px; border-radius: 50%;
+    border: 1.5px solid #9CC2F7; background: #fff; color: #0064E0;
+    font-size: 15px; line-height: 1; cursor: pointer; flex-shrink: 0;
+  }
+  .sec-body.closed { display: none; }
 
 </style>
 
@@ -496,6 +521,7 @@
     <li><a class="toc-link" href="#sec-explanation" data-target="sec-explanation">02.5 모형 일관성</a></li>
     <li><a class="toc-link" href="#sec-cmp1" data-target="sec-cmp1">03 단독 vs 통합</a></li>
     <li><a class="toc-link" href="#sec-sim" data-target="sec-sim">04 수지 시뮬</a></li>
+    <li><a class="toc-link" href="#sec-risknote" data-target="sec-risknote">🌩 리스크 고지</a></li>
     <li><a class="toc-link" href="#sec-cmp2" data-target="sec-cmp2">05 세종2 유리</a></li>
     <li><a class="toc-link" href="#sec-now" data-target="sec-now">06 단지 수치</a></li>
     <li><a class="toc-link" href="#sec-type" data-target="sec-type">07 59 vs 84㎡</a></li>
@@ -508,6 +534,26 @@
     <li><a class="toc-link" href="#sec-qa" data-target="sec-qa">14 Q&A</a></li>
       </ol>
 </nav>
+
+<div class="exec-summary" id="sec-summary">
+  <div class="exec-title">⚡ 3분 요약</div>
+  <div class="exec-grid">
+    <div class="exec-cell"><span>비례율 (수지 v2)</span><strong>265%</strong></div>
+    <div class="exec-cell"><span>84㎡ 분담금 (세종1·2)</span><strong>−14.62억 받음</strong></div>
+    <div class="exec-cell"><span>59㎡ 분담금 (세종1·2)</span><strong>−18.14억 받음</strong></div>
+    <div class="exec-cell"><span>단독 대비</span><strong>+9.14억</strong></div>
+  </div>
+  <p class="exec-caveat">⚠️ 위 수치는 <strong>용적률 350% 확보 · 일반분양가 14억 · 재초환 제외</strong>를 전제로 합니다. 수치가 크게 나오는 이유와 한계는 <a href="#sec-risknote">리스크 고지 →</a> 에서 확인하세요.</p>
+  <div class="exec-links">
+    <a href="#sec-sim">수지 시뮬레이션</a>
+    <a href="#sec-cmp1">단독 vs 통합</a>
+    <a href="#sec-type">59㎡ vs 84㎡</a>
+    <a href="#sec-risknote">리스크 고지</a>
+    <a href="#sec-qa">Q&amp;A</a>
+  </div>
+  <button class="exec-toggle-all" id="toggle-all-sections">모든 섹션 접기 ▸</button>
+</div>
+
 <h2 id="sec-bg"><span class="section-tag">배경</span> 구갈동은 노후계획도시 특별법의 적용 대상이다</h2>
 
 <p>용인특례시는 「노후계획도시 정비 및 지원에 관한 특별법」에 따라 관내 노후 택지개발지구를 정비하기 위한 <strong>노후계획도시 정비기본계획</strong> 수립 용역에 2024년 4월 착수했습니다. <strong>구갈1지구(21.6만㎡)·구갈2지구(64.5만㎡)</strong>가 명시적 적용 범위에 포함되어 있으며, 세종그랑시아2단지가 위치한 구갈동 일대는 그 광역 흐름 안에 있습니다.</p>
@@ -848,6 +894,35 @@
     <tr><td>권리가액 / 84㎡ 분담금 / 59㎡ 분담금</td><td></td><td><strong>17.32억 / −5.48억 / −9.00억</strong> (받음)</td></tr>
   </table>
   <p class="src">단독은 도정법상 일반 재건축(제2종, 용적률 220%) 가정. 공공기여 미반영 — 도정법상 법정상한 적용 시 증가 용적률의 50%를 임대주택으로 납부해야 하나, 본 모형에서는 단독에 유리한 보수적 가정으로 생략. 1세대당 사업+금융 부담: (1,905+933) ÷ 194 = <strong>14.6억</strong> (통합 18.5억 — 통합은 세대당 더 짓지만 일반분양 수익으로 상쇄).</p>
+</div>
+
+<h2 id="sec-risknote"><span class="section-tag warn">리스크 고지</span> 이 수치의 한계 — 솔직한 주의사항</h2>
+
+<div class="callout warn">
+  <span class="label">⚠️ 먼저 읽어주세요</span>
+  <p>앞의 수치는 <strong>산식상 정확</strong>합니다. 89%짜리 땅에 350%를 올리면 3.9배의 레버리지가 생기고, 조합원 509명이 1,632세대를 짓는 구조라 1인당 3.2세대어치의 개발이익이 돌아갑니다. 하지만 아래 4가지가 현실에서 틀어지면 결과도 함께 틀어집니다.</p>
+</div>
+
+<div class="numbox">
+  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 4대 리스크</div>
+  <table>
+    <tr><th style="width:6%;">#</th><th>리스크</th><th>영향</th></tr>
+    <tr><td><strong>①</strong></td><td><strong>용적률 350% 미확보</strong><br><span style="font-size:12px;">협상이 300%에서 멈추면</span></td><td>비례율 265% → <strong>238%</strong> (84㎡ −14.62억 → −11.95억)</td></tr>
+    <tr><td><strong>②</strong></td><td><strong>일반분양가 14억 미달</strong><br><span style="font-size:12px;">1억 하락마다 비례율 약 33%p 하락. 1,123세대 미분양 리스크 별도</span></td><td>12억 시 비례율 약 199% (민감도 참고)</td></tr>
+    <tr><td><strong>③</strong></td><td><strong>재건축초과이익환수 (재초환)</strong><br><span style="font-size:12px;">본 자료 전 구간 제외</span></td><td>부과 시 환급금에서 직접 차감 — <strong>최대 미반영 항목</strong></td></tr>
+    <tr><td><strong>④</strong></td><td><strong>세금 · 사업기간</strong><br><span style="font-size:12px;">양도세/취득세 미반영, 4.5년은 낙관적</span></td><td>지연 1년당 분담금 약 1.0억 증가</td></tr>
+  </table>
+</div>
+
+<div class="numbox">
+  <div style="color:var(--accent); font-weight:700; margin-bottom:8px; font-size:13px;">▶ 스트레스 테스트 — 악재가 동시에 와도?</div>
+  <table>
+    <tr><th>시나리오</th><th>84㎡ 분담금 (세종1·2)</th></tr>
+    <tr><td><strong>기준</strong> (분양가 14억 · 공사비 900만원/평)</td><td class="good"><strong>−14.62억</strong> (받음)</td></tr>
+    <tr><td>분양가 12억(−14%) + 공사비 1,100만원(+22%)</td><td class="good"><strong>−6.51억</strong> (여전히 받음)</td></tr>
+    <tr><td>분양가 10억(−29%) + 공사비 1,200만원(+33%)</td><td class="middle"><strong>−0.03억</strong> (손익분기)</td></tr>
+  </table>
+  <p class="src">분양가 30% 폭락과 공사비 33% 폭등이 <strong>동시에</strong> 와야 원금이 까이는 구조입니다. 마진 자체는 두껍습니다. 다만 위 4대 리스크 — 특히 ① 용적률 협상과 ③ 재초환 — 는 마진과 별개로 계속 주시해야 할 변수입니다.</p>
 </div>
 
 <h2 id="sec-cmp2"><span class="section-tag">비교</span> 세종그랑시아2단지에 통합은 왜 특히 유리한가</h2>
@@ -1218,6 +1293,13 @@
         if (!target) return;
         var rect = target.getBoundingClientRect();
         var top = window.pageYOffset + rect.top - 60;
+        // 접힌 섹션이면 자동 펼치기
+        var next = target.nextElementSibling;
+        if (next && next.classList && next.classList.contains('sec-body') && next.classList.contains('closed')) {
+          next.classList.remove('closed');
+          var tb = target.querySelector('.sec-collapse');
+          if (tb) tb.textContent = '▾';
+        }
         window.scrollTo({ top: top, behavior: 'smooth' });
         setActive(i);
         history.replaceState(null, '', '#' + target.id);
@@ -1241,6 +1323,49 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+  })();
+
+  // 섹션 접기/펼치기 — 긴 분석 페이지를 스캔하기 쉽게
+  (function() {
+    var h2s = Array.prototype.slice.call(document.querySelectorAll('article.wrap > h2[id]'));
+    var bodies = [];
+    h2s.forEach(function(h2) {
+      var body = document.createElement('div');
+      body.className = 'sec-body';
+      var n = h2.nextElementSibling;
+      while (n && n.tagName !== 'H2' && n.tagName !== 'FOOTER') {
+        var nx = n.nextElementSibling;
+        body.appendChild(n);
+        n = nx;
+      }
+      h2.parentNode.insertBefore(body, h2.nextSibling);
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'sec-collapse';
+      btn.textContent = '▾';
+      btn.setAttribute('aria-label', '섹션 접기/펼치기');
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var closed = body.classList.toggle('closed');
+        btn.textContent = closed ? '▸' : '▾';
+        btn.setAttribute('aria-label', closed ? '섹션 펼치기' : '섹션 접기');
+      });
+      h2.appendChild(btn);
+      bodies.push({ body: body, btn: btn });
+    });
+    // 전체 접기/펼치기
+    var toggleAll = document.getElementById('toggle-all-sections');
+    var allClosed = false;
+    if (toggleAll) {
+      toggleAll.addEventListener('click', function() {
+        allClosed = !allClosed;
+        bodies.forEach(function(b) {
+          b.body.classList.toggle('closed', allClosed);
+          b.btn.textContent = allClosed ? '▸' : '▾';
+        });
+        toggleAll.textContent = allClosed ? '모든 섹션 펼치기 ▾' : '모든 섹션 접기 ▸';
+      });
+    }
   })();
 
 </script>
