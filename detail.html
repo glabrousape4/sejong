@@ -532,6 +532,63 @@
     background: linear-gradient(90deg, #0064E0, #00C2FF);
   }
 
+  /* 분담금 계산기 — 라이트 고정 */
+  .calc-box {
+    background: #fff;
+    border: 1.5px solid #9CC2F7;
+    border-radius: 10px;
+    padding: 18px;
+    margin: 18px 0 26px;
+  }
+  .calc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .calc-field label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: #444;
+    margin-bottom: 6px;
+  }
+  .calc-field select {
+    width: 100%;
+    padding: 10px 8px;
+    font-size: 14px;
+    font-family: 'Noto Sans KR', sans-serif;
+    color: #1a1a1a;
+    background: #F7F9FC;
+    border: 1.5px solid #9CC2F7;
+    border-radius: 8px;
+  }
+  .calc-result {
+    background: #F0F7FF;
+    border: 2px solid #0064E0;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+  }
+  .calc-result-num {
+    font-family: 'Noto Serif KR', serif;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .calc-result-num.good { color: #2c6e3a; }
+  .calc-result-num.bad { color: #b00020; }
+  .calc-breakdown {
+    font-size: 13px;
+    color: #444;
+    margin-top: 8px;
+    line-height: 1.7;
+  }
+  @media (max-width: 600px) {
+    .calc-grid { grid-template-columns: 1fr; }
+    .calc-result-num { font-size: 26px; }
+  }
+
 </style>
 
 </head>
@@ -561,6 +618,9 @@
     <li><a class="toc-link" href="#sec-check" data-target="sec-check">13 체크리스트</a></li>
     <li><a class="toc-link" href="#sec-speed" data-target="sec-speed">14 사업속도</a></li>
     <li><a class="toc-link" href="#sec-qa" data-target="sec-qa">15 Q&A</a></li>
+    <li><a class="toc-link" href="#sec-calc" data-target="sec-calc">16 분담금 계산기</a></li>
+    <li><a class="toc-link" href="#sec-progress" data-target="sec-progress">17 진행 단계</a></li>
+    <li><a class="toc-link" href="#sec-trade" data-target="sec-trade">18 1·2단지 실거래</a></li>
       </ol>
 </nav>
 
@@ -578,6 +638,9 @@
     <a href="#sec-cmp1">단독 vs 통합</a>
     <a href="#sec-type">59㎡ vs 84㎡</a>
     <a href="#sec-risknote">리스크 고지</a>
+    <a href="#sec-calc">분담금 계산기</a>
+    <a href="#sec-progress">진행 단계</a>
+    <a href="#sec-trade">1·2단지 실거래</a>
     <a href="#sec-qa">Q&amp;A</a>
   </div>
   <button class="exec-toggle-all" id="toggle-all-sections">모든 섹션 접기 ▸</button>
@@ -1357,6 +1420,87 @@
 
  
 
+<div class="part-head"><span class="part-num">Part 7</span><span class="part-name">새로 추가 — 계산기·진행·실거래</span></div>
+
+<h2 id="sec-calc"><span class="section-tag gold">Part 7 · 새로 추가</span> 내 분담금 계산기</h2>
+
+<p>단지·타입·재초환을 고르면 분담금이 바로 계산됩니다. 계산식: <strong>분담금 = 조합원 분양가 − 권리가액 + 재초환 부담금</strong> (+ = 내야 함, − = 받음). 기준: 비례율 <strong>160%</strong>, 일반분양가 <strong>13억</strong>, 조합원 분양가 84㎡ <strong>11.84억</strong> / 59㎡ <strong>8.32억</strong> / 1+1(59㎡×2) <strong>16.64억</strong>, 권리가액 세종1·2 <strong>15.96억</strong> / 롯데 <strong>14.85억</strong> / 우성 <strong>11.46억</strong> (대지지분 비례, 타입과 무관하게 단지별로 동일).</p>
+
+<div class="calc-box" id="calc-box">
+  <div class="calc-grid">
+    <div class="calc-field">
+      <label for="calc-complex">단지</label>
+      <select id="calc-complex">
+        <option value="sejong">세종1·2단지</option>
+        <option value="lotte">롯데캐슬</option>
+        <option value="woosung">우성하우스타운</option>
+      </select>
+    </div>
+    <div class="calc-field">
+      <label for="calc-type">타입</label>
+      <select id="calc-type">
+        <option value="84">84㎡</option>
+        <option value="59">59㎡</option>
+        <option value="1plus1">1+1 (59㎡×2)</option>
+      </select>
+    </div>
+    <div class="calc-field">
+      <label for="calc-recho">재초환</label>
+      <select id="calc-recho">
+        <option value="none">제외</option>
+        <option value="full">부과 (+1.76억)</option>
+        <option value="reduced">70% 감면 (+0.52억)</option>
+      </select>
+    </div>
+  </div>
+  <div class="calc-result">
+    <div class="calc-result-num good" id="calc-result">−4.12억 (받음)</div>
+    <div class="calc-breakdown" id="calc-breakdown">11.84억 − 15.96억 + 0억 = −4.12억</div>
+  </div>
+  <p class="src">재초환 부담금: 제외 0억, 부과 +1.76억/인, 70% 감면 +0.52억/인 (장기보유 1주택자 기준, 러프 시산). 검증값: 84㎡ 세종 부과 −2.36억 / 감면 −3.60억, 59㎡ 세종 부과 −5.88억 / 감면 −7.12억, 1+1 부과 +2.44억 / 감면 +1.20억.</p>
+</div>
+
+<h2 id="sec-progress"><span class="section-tag gold">Part 7 · 새로 추가</span> 진행 단계 — 지금 어디까지 왔나</h2>
+
+<p><strong>2026년 11월 현재, 노후계획도시 공람 전입니다.</strong> 노후계획도시 공람은 <strong>2026년 내 예정</strong>이고, 특별정비구역은 <strong>아직 지정되지 않았습니다</strong>.</p>
+
+<div class="numbox">
+  <table>
+    <tr><th>단계</th><th>상태</th></tr>
+    <tr><td><strong>① 노후계획도시 공람</strong></td><td><strong>2026년 내 예정</strong> (아직 공람 전)</td></tr>
+    <tr><td><strong>② 기본계획 확정</strong></td><td>공람 후</td></tr>
+    <tr><td><strong>③ 특별정비구역 지정</strong></td><td><strong>아직 미지정</strong> (기본계획 확정 후)</td></tr>
+  </table>
+  <p class="src">순서: 공람 → 기본계획 확정 → 특별정비구역 지정. 구갈1·2지구가 대상에 포함돼 있습니다.</p>
+</div>
+
+<p>정비기본계획 수립 용역은 <strong>2024년 8월 착수</strong>했고, 원래 <strong>2026년 7월 확정</strong>이 목표였으나, 2026년 11월 현재도 공람 전이라 일정이 밀린 상태입니다. 공람 후부터 구역 지정 전까지는 의견수렴·위원회·경기도 심의가 남아 수개월에서 1년 이상 걸릴 수 있는 구간입니다.</p>
+
+<div class="callout">
+  <span class="label">공람에서 볼 것</span>
+  <p>공람안의 관건은 두 가지입니다. <strong>① 우리 단지가 특별정비예정구역에 들어가는지, ② 용적률</strong>입니다. <strong>450% 역세권 특례</strong>가 명시되면 upside입니다. 공람안이 나오면 용적률과 구역 포함 여부를 중심으로 다시 분석해야 합니다.</p>
+</div>
+
+<h2 id="sec-trade"><span class="section-tag gold">Part 7 · 새로 추가</span> 1단지 vs 2단지 실거래 비교 — 같은 84.98㎡, 누가 비쌀까</h2>
+
+<p>세종그랑시아 1단지와 2단지는 둘 다 전용 <strong>84.98㎡</strong>, <strong>1999년 입주</strong>입니다. 1단지는 구갈동 270번지·<strong>120세대·10월 입주</strong>, 2단지는 구갈동 273번지·<strong>194세대·11월 입주</strong>입니다. 아실 실거래 내역을 전사해 취소 건을 제외하고 중위값으로 다시 계산한 결과입니다.</p>
+
+<div class="numbox">
+  <table>
+    <tr><th>구분</th><th>1단지</th><th>2단지</th></tr>
+    <tr><td><strong>최신 실거래</strong></td><td>2026-09-04 <strong>7.00억</strong></td><td>2026-08-14 <strong>7.45억</strong></td></tr>
+    <tr><td><strong>2024년 중위값</strong></td><td>5.73억 (n=1)</td><td>6.58억 (n=8)</td></tr>
+    <tr><td><strong>2025년 중위값</strong></td><td>6.20억 (n=1)</td><td>6.20억 (n=3)</td></tr>
+    <tr><td><strong>2026년 1~9월 중위값</strong></td><td>6.54억 (n=10)</td><td>6.81억 (n=12)</td></tr>
+  </table>
+  <p class="src">최신 실거래 기준 2단지가 4,500만원 높습니다. 2026년 1~9월 중위값도 2단지가 2,700만원 높습니다.</p>
+</div>
+
+<div class="callout warn">
+  <span class="label">⚠️ 읽을 때 주의</span>
+  <p><strong>2024·2025년 1단지는 각 1건뿐이라 그 해 값은 신뢰도가 낮습니다. 믿을 만한 건 2026년뿐</strong>입니다. 네이버페이에 나오는 2026년 10월 값(둘 다 6.9억)은 실거래가 아니라 <strong>시세</strong>라 위 표와 섞지 않았습니다. 두 단지는 국토교통부 자료에서 아파트가 아니라 <strong>연립</strong>으로 분류돼, 아파트만 필터링하는 사이트에서는 0건으로 뜰 수 있습니다.</p>
+</div>
+
 <footer class="footnote">
  <p><strong>데이터 출처</strong></p>
  <p>① 단지 정보 — 토지대장·건축물대장 공적 데이터(22,200.3㎡), 네이버·당근부동산·부트리·직방·호갱노노·kmswb.kr (2026.09 기준). 롯데캐슬 대지지분 106.37㎡, 세종그랑시아 1·2단지 114㎡, 우성하우스타운 82.136㎡. ② 매매·전세 시세 — 국토교통부 실거래가 공개시스템, KB부동산 시세. ③ 사업비·이주비 모형 — 한국부동산원 「도시정비사업 사업비 분석」 통계, 국토교통부 「재건축 연 수지」, KB·호갱 권리가액 데이터 기반 추정. ④ 주택연금 — 주택금융공사 HF 계산기(2026.09 버전), 「주택연금 운영규정」. ⑤ 용적률·사업기간·사업비·비례율 비교 — 중앙대 「주거정비사업의 경제효과 분석」, 국토교통부·서울시·용인시 정책 발표(신속통합기획·통합심의·노후계획도시 특별법), 부동산 리서치 종합. ⑥ 구갈동 광역 재건축 흐름 — 용인시 공고·YSB미디어·「구갈동 재건축」 블로그 종합. ⑦ 통합 수지 시뮬레이션 — Gemini 통합재건축 사업성 분석(2026.08), 보수적 모형 추정. ⑧ 신축 일반분양가 13억 — 기흥역세권 2지구 분양예정액 14억 소문보다 보수적으로 13억 가정. ⑨ 조합원 분양가 11.84억 — 일반분양가 하락에도 고정 가정 (13억 대비 91.1%). ⑩ 권리가액 10억 동일 — 사용자 가정치 (4개 단지 모두 동일 적용). ⑪ 공공기여율 — 인천시 도시·주거환경정비 조례 (1차 순부담률 10%, 2차 기부채납 40~50%), 가좌4동 재개발 사례 (고선희 의원, 2025), 정부 공공재개발 사업지침 (40~70%).</p>
@@ -1511,6 +1655,37 @@
     window.addEventListener('scroll', upd, { passive: true });
     window.addEventListener('resize', upd);
     upd();
+  })();
+
+  // 분담금 계산기 — 분담금 = 조합원 분양가 − 권리가액 + 재초환 부담금 (라이트 고정, 숫자 그대로)
+  (function() {
+    var rights = { sejong: 15.96, lotte: 14.85, woosung: 11.46 };
+    var prices = { '84': 11.84, '59': 8.32, '1plus1': 16.64 };
+    var recho = { none: 0, full: 1.76, reduced: 0.52 };
+    var complexEl = document.getElementById('calc-complex');
+    var typeEl = document.getElementById('calc-type');
+    var rechoEl = document.getElementById('calc-recho');
+    var resultEl = document.getElementById('calc-result');
+    var breakdownEl = document.getElementById('calc-breakdown');
+    if (!complexEl || !typeEl || !rechoEl || !resultEl || !breakdownEl) return;
+    function fmt(v) {
+      var sign = v > 0 ? '+' : (v < 0 ? '−' : '');
+      return sign + Math.abs(v).toFixed(2) + '억';
+    }
+    function calc() {
+      var price = prices[typeEl.value];
+      var right = rights[complexEl.value];
+      var fee = recho[rechoEl.value];
+      var total = Math.round((price - right + fee) * 100) / 100;
+      var label = total > 0 ? ' (내야 함)' : (total < 0 ? ' (받음)' : '');
+      resultEl.textContent = fmt(total) + label;
+      resultEl.className = 'calc-result-num ' + (total > 0 ? 'bad' : 'good');
+      breakdownEl.textContent = price.toFixed(2) + '억 − ' + right.toFixed(2) + '억 + ' + fee.toFixed(2) + '억 = ' + fmt(total);
+    }
+    [complexEl, typeEl, rechoEl].forEach(function(el) {
+      el.addEventListener('change', calc);
+    });
+    calc();
   })();
 
 </script>
